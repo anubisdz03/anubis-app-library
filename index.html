@@ -492,6 +492,254 @@
     @media (max-width: 380px) {
       .cards-grid { grid-template-columns: repeat(2, 1fr); }
     }
+
+    /* ============================================================
+       APP MODAL — details popup (code / username / password / etc.)
+    ============================================================ */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      z-index: 1000;
+      background: rgba(4,4,10,0.72);
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity var(--transition), visibility var(--transition);
+    }
+
+    .modal-overlay.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .app-modal {
+      position: relative;
+      width: 100%;
+      max-width: 420px;
+      max-height: 86vh;
+      overflow-y: auto;
+      background: var(--bg-card);
+      border: 1.5px solid var(--border-hover);
+      border-radius: var(--radius-card);
+      padding: 30px 26px 26px;
+      box-shadow:
+        0 20px 60px rgba(0,0,0,0.6),
+        0 0 0 1px rgba(123,92,250,0.18),
+        0 0 60px var(--accent-glow);
+      transform: translateY(18px) scale(0.97);
+      transition: transform var(--transition);
+    }
+
+    .modal-overlay.active .app-modal {
+      transform: translateY(0) scale(1);
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid var(--border);
+      color: var(--text-muted);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: var(--transition);
+      flex-shrink: 0;
+    }
+    .modal-close:hover {
+      background: rgba(239,68,68,0.15);
+      border-color: rgba(239,68,68,0.35);
+      color: #ff6b6b;
+      transform: rotate(90deg);
+    }
+
+    .modal-header {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 12px;
+      margin-bottom: 22px;
+      padding-right: 0;
+    }
+
+    .modal-icon {
+    width: 90px;
+    height: 90px;
+      border-radius: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.8rem;
+      box-shadow: 0 4px 18px rgba(0,0,0,0.4);
+      flex-shrink: 0;
+    }
+
+    .modal-icon img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      border-radius: 18px;
+    }
+
+    .modal-title {
+      font-size: 1.15rem;
+      font-weight: 800;
+      color: var(--text-primary);
+      line-height: 1.3;
+    }
+
+    .modal-fields {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-bottom: 24px;
+    }
+
+    .modal-field {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      background: rgba(255,255,255,0.045);
+      border: 1.5px solid var(--border);
+      border-radius: 12px;
+      padding: 11px 14px;
+    }
+
+    .modal-field-info {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+      min-width: 0;
+      overflow: hidden;
+    }
+
+    .modal-field-label {
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: var(--text-dim);
+    }
+
+    .modal-field-value {
+      font-size: 0.92rem;
+      font-weight: 600;
+      color: var(--text-primary);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .modal-field-value.is-password {
+      letter-spacing: 0.12em;
+    }
+
+    .modal-copy-btn {
+      flex-shrink: 0;
+      width: 34px;
+      height: 34px;
+      border-radius: 10px;
+      background: rgba(123,92,250,0.14);
+      border: 1px solid rgba(123,92,250,0.3);
+      color: var(--accent);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+    .modal-copy-btn:hover {
+      background: rgba(123,92,250,0.28);
+      transform: translateY(-2px);
+    }
+    .modal-copy-btn.copied {
+      background: rgba(34,197,94,0.18);
+      border-color: rgba(34,197,94,0.4);
+      color: var(--badge-live);
+    }
+    .modal-copy-btn svg { width: 16px; height: 16px; }
+
+    .modal-toggle-btn {
+      flex-shrink: 0;
+      width: 34px;
+      height: 34px;
+      border-radius: 10px;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid var(--border);
+      color: var(--text-muted);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+    .modal-toggle-btn:hover {
+      color: var(--text-primary);
+      border-color: var(--border-hover);
+    }
+    .modal-toggle-btn svg { width: 16px; height: 16px; }
+
+    .modal-field-actions {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      flex-shrink: 0;
+    }
+
+    .modal-meta-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-bottom: 24px;
+    }
+
+    .modal-meta-grid .modal-field {
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: center;
+    }
+
+    .modal-download-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      width: 100%;
+      padding: 15px 20px;
+      border-radius: var(--radius-pill);
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      color: #fff;
+      font-size: 0.95rem;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+      border: none;
+      cursor: pointer;
+      text-decoration: none;
+      box-shadow: 0 8px 28px var(--accent-glow);
+      transition: var(--transition);
+    }
+    .modal-download-btn:hover {
+      transform: translateY(-3px) scale(1.02);
+      box-shadow: 0 12px 36px rgba(192,59,255,0.45);
+    }
+    .modal-download-btn svg { width: 19px; height: 19px; flex-shrink: 0; }
+
+    @media (max-width: 420px) {
+      .app-modal { padding: 26px 18px 20px; max-width: 100%; }
+      .modal-meta-grid { grid-template-columns: 1fr 1fr; }
+    }
   </style>
 </head>
 <body>
@@ -594,13 +842,44 @@
 
 </div><!-- /page-wrapper -->
 
+<!-- ===== APP DETAILS MODAL ===== -->
+<div class="modal-overlay" id="modal-overlay" aria-hidden="true">
+  <div class="app-modal" id="app-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <button class="modal-close" id="modal-close" aria-label="Close">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
+        <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+      </svg>
+    </button>
+
+ <div class="modal-header">
+  <div class="modal-icon" id="modal-icon"></div>
+
+  <h3 class="modal-title" id="modal-title"></h3>
+
+  <span id="modal-badge" class="card-badge"></span>
+</div>
+
+    <div class="modal-meta-grid" id="modal-meta-grid"></div>
+    <div class="modal-fields" id="modal-fields"></div>
+
+    <a class="modal-download-btn" id="modal-download" href="#" target="_blank" rel="noopener noreferrer">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+        <polyline points="7 10 12 15 17 10"/>
+        <line x1="12" y1="15" x2="12" y2="3"/>
+      </svg>
+      Download
+    </a>
+  </div>
+</div>
+
 <script>
   /* ============================================================
      APP DATA — add / edit / remove entries freely.
      badge values: 'live' | 'new' | 'update' | 'hot'
   ============================================================ */
  const APPS = [
-  { name: "🚀 AIRMAX TV", code: "New Code : 9794034725", icon: "images/airmax.png", color: "#1a1040", url: "#", badge: "hot", bg: "linear-gradient(135deg,#1a1040,#3b1d8a)" },
+  { name: "🚀 AIRMAX TV", code: "New Code : 9794034725", icon: "images/airmax.png", color: "#1a1040", url: "#", badge: "hot", bg: "linear-gradient(135deg,#1a1040,#3b1d8a)", category: "Movies & TV Shows", version: "4.2.1", size: "18 MB", developer: "ANUBIS", updated: "28 Jun 2026", activated: true },
   { name: "🔥 LYNX 4K TV", icon: "images/lynx4ktv.png", color: "#0d2240", url: "#", badge: "live", bg: "linear-gradient(135deg,#0d2240,#1a4a8a)" },
   { name: "🎬 SCREENIFY+", icon: "images/screenify.png", color: "#0f1f10", url: "#", badge: "new", bg: "linear-gradient(135deg,#0f1f10,#1e5c20)" },
   { name: "📺 AZUS BOX 4K", icon: "images/azusbox4k.png", color: "#1a0d10", url: "#", badge: "update", bg: "linear-gradient(135deg,#1a0d10,#8a3b6b)" },
@@ -670,17 +949,35 @@
 ];
   
   /* ============================================================
+     MODAL FIELD CONFIG — which keys trigger a modal & how to label them
+  ============================================================ */
+  const MODAL_TRIGGER_KEYS = ['code', 'username', 'password', 'activated', 'category', 'version', 'size', 'developer', 'updated'];
+
+  function appHasModalFields(app) {
+    return MODAL_TRIGGER_KEYS.some(key => app[key] !== undefined && app[key] !== null && app[key] !== '');
+  }
+
+  /* ============================================================
      CARD RENDERER
   ============================================================ */
   function createCard(app) {
-    const a = document.createElement('a');
-    a.className = 'app-card';
-    a.href    = app.url;
-    a.target  = '_blank';
-    a.rel     = 'noopener noreferrer';
-    a.setAttribute('aria-label', `Open ${app.name}`);
+    const hasModal = appHasModalFields(app);
 
-    a.innerHTML = `
+    let el;
+    if (hasModal) {
+      el = document.createElement('div');
+      el.setAttribute('role', 'button');
+      el.setAttribute('tabindex', '0');
+    } else {
+      el = document.createElement('a');
+      el.href   = app.url;
+      el.target = '_blank';
+      el.rel    = 'noopener noreferrer';
+    }
+    el.className = 'app-card';
+    el.setAttribute('aria-label', `Open ${app.name}`);
+
+    el.innerHTML = `
       <div class="card-icon" style="background:${app.bg};">
   <img src="${app.icon}" alt="${app.name}">
 </div>
@@ -692,7 +989,18 @@ ${app.username ? `<span class="card-code">👤 Username : ${app.username}</span>
         app.badge === 'update' ? 'Updated' : 'Hot'
       }</span>
     `;
-    return a;
+
+    if (hasModal) {
+      el.addEventListener('click', () => openAppModal(app));
+      el.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          openAppModal(app);
+        }
+      });
+    }
+
+    return el;
   }
 
   /* ============================================================
@@ -733,6 +1041,180 @@ ${app.username ? `<span class="card-code">👤 Username : ${app.username}</span>
     searchClear.classList.remove('visible');
     renderCards(APPS);
     searchInput.focus();
+  });
+
+  /* ============================================================
+     APP MODAL — open / close / copy logic
+  ============================================================ */
+  const modalOverlay   = document.getElementById('modal-overlay');
+  const appModal       = document.getElementById('app-modal');
+  const modalIcon      = document.getElementById('modal-icon');
+  const modalTitle     = document.getElementById('modal-title');
+  const modalMetaGrid  = document.getElementById('modal-meta-grid');
+  const modalFields    = document.getElementById('modal-fields');
+  const modalDownload  = document.getElementById('modal-download');
+  const modalCloseBtn  = document.getElementById('modal-close');
+
+  const SVG_COPY = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>`;
+  const SVG_CHECK = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>`;
+  const SVG_EYE = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>`;
+  const SVG_EYE_OFF = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"/><line x1="1" y1="1" x2="23" y2="23"/></svg>`;
+
+  // copyable secure fields → render with copy button
+  const COPY_FIELDS = [
+    { key: 'code',     label: 'Code' },
+    { key: 'username', label: 'Username' },
+    { key: 'password', label: 'Password', maskable: true },
+  ];
+
+  // simple meta fields → small 2-column grid
+  const META_FIELDS = [
+    { key: 'category',  label: 'Category' },
+    { key: 'version',   label: 'Version' },
+    { key: 'size',      label: 'Size' },
+    { key: 'developer', label: 'Developer' },
+    { key: 'updated',   label: 'Updated' },
+    { key: 'activated', label: 'Activated' },
+  ];
+
+  async function copyToClipboard(text, btn) {
+    try {
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        await navigator.clipboard.writeText(text);
+      } else {
+        const tmp = document.createElement('textarea');
+        tmp.value = text;
+        tmp.style.position = 'fixed';
+        tmp.style.opacity = '0';
+        document.body.appendChild(tmp);
+        tmp.select();
+        document.execCommand('copy');
+        document.body.removeChild(tmp);
+      }
+      const original = btn.innerHTML;
+      btn.innerHTML = SVG_CHECK;
+      btn.classList.add('copied');
+      setTimeout(() => {
+        btn.innerHTML = original;
+        btn.classList.remove('copied');
+      }, 1500);
+    } catch (err) {
+      console.error('Copy failed:', err);
+    }
+  }
+
+  function openAppModal(app) {
+    // header
+    modalIcon.style.background = app.bg || 'var(--bg-card-hover)';
+    modalIcon.innerHTML = `<img src="${app.icon}" alt="${app.name}">`;
+    modalTitle.textContent = app.name;
+  const modalBadge = document.getElementById("modal-badge");
+
+modalBadge.className = `card-badge badge-${app.badge}`;
+
+modalBadge.textContent =
+  app.badge === "live" ? "Live" :
+  app.badge === "new" ? "New" :
+  app.badge === "update" ? "Updated" :
+  "Hot";
+
+    // meta grid (category / version / size / developer / updated / activated)
+    modalMetaGrid.innerHTML = '';
+    META_FIELDS.forEach(({ key, label }) => {
+      if (app[key] === undefined || app[key] === null || app[key] === '') return;
+      const field = document.createElement('div');
+      field.className = 'modal-field';
+      field.innerHTML = `
+        <div class="modal-field-info">
+          <span class="modal-field-label">${label}</span>
+          <span class="modal-field-value">${
+  key === 'activated'
+    ? (app[key] ? '🟢 Activated' : '🔴 Not Activated')
+    : app[key]
+}</span>
+        </div>
+      `;
+      modalMetaGrid.appendChild(field);
+    });
+
+    // copyable fields (code / username / password)
+    modalFields.innerHTML = '';
+    COPY_FIELDS.forEach(({ key, label, maskable }) => {
+      if (app[key] === undefined || app[key] === null || app[key] === '') return;
+
+      const field = document.createElement('div');
+      field.className = 'modal-field';
+
+      const valueSpan = document.createElement('span');
+      valueSpan.className = 'modal-field-value' + (maskable ? ' is-password' : '');
+      let realValue = String(app[key]);
+      let masked = maskable;
+      valueSpan.textContent = maskable ? '•'.repeat(Math.min(realValue.length, 12)) : realValue;
+
+      const info = document.createElement('div');
+      info.className = 'modal-field-info';
+      const labelSpan = document.createElement('span');
+      labelSpan.className = 'modal-field-label';
+      labelSpan.textContent = label;
+      info.appendChild(labelSpan);
+      info.appendChild(valueSpan);
+
+      const actions = document.createElement('div');
+      actions.className = 'modal-field-actions';
+
+      if (maskable) {
+        const toggleBtn = document.createElement('button');
+        toggleBtn.type = 'button';
+        toggleBtn.className = 'modal-toggle-btn';
+        toggleBtn.setAttribute('aria-label', 'Show/Hide password');
+        toggleBtn.innerHTML = SVG_EYE;
+        toggleBtn.addEventListener('click', () => {
+          masked = !masked;
+          valueSpan.textContent = masked ? '•'.repeat(Math.min(realValue.length, 12)) : realValue;
+          toggleBtn.innerHTML = masked ? SVG_EYE : SVG_EYE_OFF;
+        });
+        actions.appendChild(toggleBtn);
+      }
+
+      const copyBtn = document.createElement('button');
+      copyBtn.type = 'button';
+      copyBtn.className = 'modal-copy-btn';
+      copyBtn.setAttribute('aria-label', `Copy ${label}`);
+      copyBtn.innerHTML = SVG_COPY;
+      copyBtn.addEventListener('click', () => copyToClipboard(realValue, copyBtn));
+      actions.appendChild(copyBtn);
+
+      field.appendChild(info);
+      field.appendChild(actions);
+      modalFields.appendChild(field);
+    });
+
+    // download button
+    modalDownload.href = app.url || '#';
+
+    // show
+    modalOverlay.classList.add('active');
+    modalOverlay.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeAppModal() {
+    modalOverlay.classList.remove('active');
+    modalOverlay.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+  }
+
+  // close interactions: X button, click outside, Esc key
+  modalCloseBtn.addEventListener('click', closeAppModal);
+
+  modalOverlay.addEventListener('click', (e) => {
+    if (e.target === modalOverlay) closeAppModal();
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && modalOverlay.classList.contains('active')) {
+      closeAppModal();
+    }
   });
 
   /* ============================================================
