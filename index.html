@@ -685,8 +685,8 @@
   <img src="${app.icon}" alt="${app.name}">
 </div>
 <span class="card-name">${app.name}</span>
-${app.code ? `<span class="card-code">${app.code}</span>` : ""}
-<span class="card-badge badge-${app.badge}">${
+${app.code ? `<span class="card-code">🔑 ${app.code}</span>` : ""}
+${app.username ? `<span class="card-code">👤 Username : ${app.username}</span>` : ""}<span class="card-badge badge-${app.badge}">${
         app.badge === 'live'   ? 'Live'    :
         app.badge === 'new'    ? 'New'     :
         app.badge === 'update' ? 'Updated' : 'Hot'
