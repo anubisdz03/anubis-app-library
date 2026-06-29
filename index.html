@@ -748,6 +748,72 @@
       .app-modal { padding: 26px 18px 20px; max-width: 100%; }
       .modal-meta-grid { grid-template-columns: 1fr 1fr; }
     }
+    /* ===== Support Popup ===== */
+.support-modal{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.75);
+  backdrop-filter:blur(8px);
+  display:none;
+  justify-content:center;
+  align-items:center;
+  z-index:9999;
+}
+
+.support-box{
+  width:90%;
+  max-width:430px;
+  background:linear-gradient(180deg,#1a1f3d,#12162d);
+  border:1px solid rgba(255,255,255,.08);
+  border-radius:22px;
+  padding:30px;
+  text-align:center;
+  color:#fff;
+  box-shadow:0 20px 60px rgba(0,0,0,.55);
+}
+
+.paypal-logo{
+  width:150px;
+  margin-bottom:20px;
+}
+
+.support-box h2{
+  margin:10px 0;
+  font-size:26px;
+}
+
+.support-box p{
+  color:#cfd6ff;
+  line-height:1.7;
+  margin:18px 0 28px;
+}
+
+.paypal-btn{
+  display:inline-block;
+  background:#0070ba;
+  color:#fff;
+  text-decoration:none;
+  padding:14px 28px;
+  border-radius:12px;
+  font-weight:bold;
+  transition:.25s;
+}
+
+.paypal-btn:hover{
+  background:#005ea6;
+  transform:translateY(-2px);
+}
+
+.close-support{
+  position:absolute;
+  right:18px;
+  top:18px;
+  background:none;
+  border:none;
+  color:#fff;
+  font-size:30px;
+  cursor:pointer;
+}
   </style>
   <link rel="icon" type="image/png" href="favicon.png">
 </head>
@@ -797,7 +863,7 @@
         <svg viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
         Facebook
       </a>
-      <a href="https://paypal.me/AnubisApps" target="_blank" rel="noopener" class="social-btn support">
+      <a href="#" onclick="openSupport(); return false;" class="social-btn support">
   ❤️ Support
 </a>
     </nav>
@@ -1315,5 +1381,45 @@ modalBadge.textContent =
     requestAnimationFrame(draw);
   })();
 </script>
+
+<script>
+function openSupport() {
+  document.getElementById("supportModal").style.display = "flex";
+}
+
+function closeSupport() {
+  document.getElementById("supportModal").style.display = "none";
+}
+
+window.onclick = function(event) {
+  const modal = document.getElementById("supportModal");
+  if (event.target === modal) {
+    closeSupport();
+  }
+};
+</script>
+
+  <!-- Support Popup -->
+<div id="supportModal" class="support-modal">
+  <div class="support-box">
+    <button class="close-support" onclick="closeSupport()">&times;</button>
+
+    <img src="images/paypal-logo.png" alt="PayPal" class="paypal-logo">
+
+    <h2>Support ANUBIS APP LIBRARY</h2>
+
+    <p>
+      If you enjoy this project and would like to support its development,
+      your donation helps us keep the library updated with the latest
+      Android TV & Google TV apps.
+    </p>
+
+    <a href="https://paypal.me/AnubisApps" target="_blank" class="paypal-btn">
+       target="_blank"
+       class="paypal-btn">
+       Donate with PayPal
+    </a>
+  </div>
+</div>
 </body>
 </html>
