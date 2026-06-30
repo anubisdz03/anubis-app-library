@@ -45,13 +45,19 @@
   "activated": true
 },
   {
-    "name": "📺 AZUS BOX 4K",
-    "icon": "images/azusbox4k.png",
-    "color": "#1a0d10",
-    "url": "#",
-    "badge": "update",
-    "bg": "linear-gradient(135deg,#1a0d10,#8a3b6b)"
-  },
+  "name": "🔥 ASUS BOX 4K",
+  "icon": "images/azusbox4k.png",
+  "color": "#10284d",
+  "url": "https://devuploads.com/a3t9wmnj4qve",
+  "badge": "live",
+  "bg": "linear-gradient(135deg,#10284d,#2b6cff)",
+  "category": "Live TV",
+  "version": "4.3.1",
+  "developer": "ANUBIS by B.Nacereddine",
+  "updated": "30 Jun 2026",
+  "size": "19.68 MB",
+  "activated": true
+},
   {
     "name": "⚽ ZD TV SPORT",
     "icon": "images/zdtvsport.png",
