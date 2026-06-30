@@ -1,33 +1,31 @@
 [
   {
-    "name": "🚀 AIRMAX TV",
-    "code": "New Code : 7827658906",
-    "icon": "images/airmax.png",
-    "color": "#1a1040",
-    "url": "https://devuploads.com/s4bskrw9gec0",
-    "badge": "hot",
-    "bg": "linear-gradient(135deg,#1a1040,#3b1d8a)",
-    "category": "Movies & TV Shows",
-    "version": "4.2.1",
-    "size": "11.6 MB",
-    "developer": "ANUBIS",
-    "updated": "28 Jun 2026",
-    "activated": true
-  },
-  {
+  "name": "🚀 AIRMAX TV",
+  "code": "New Code : 7827658906",
+  "icon": "images/airmax.png",
+  "color": "#1a1040",
+  "url": "https://devuploads.com/s4bskrw9gec0",
+  "badge": "live",
+  "bg": "linear-gradient(135deg,#1a1040,#3b1d8a)",
+  "category": "Movies & TV Shows",
+  "version": "4.2.1",
+  "size": "11.6 MB",
+  "developer": "ANUBIS by B.Nacereddine",
+  "updated": "28 Jun 2026",
+  "activated": true
+},
+{
   "name": "🔥 LYNX 4K TV",
   "icon": "images/lynx4ktv.png",
   "color": "#0d2240",
   "url": "https://devuploads.com/b002ncea9v7u",
   "badge": "live",
   "bg": "linear-gradient(135deg,#0d2240,#1a4a8a)",
-    
   "category": "Movies & TV Shows",
   "version": "4.8.2",
-  "developer": "ANUBIS",
-  "updated": "29 Jun 2026",
-
   "size": "34.1 MB",
+  "developer": "ANUBIS by B.Nacereddine",
+  "updated": "29 Jun 2026",
   "activated": true
 },
   {
