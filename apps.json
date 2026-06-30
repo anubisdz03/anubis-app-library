@@ -57,13 +57,19 @@
   "activated": true
 },
   {
-    "name": "⚽ ZD TV SPORT",
-    "icon": "images/zdtvsport.png",
-    "color": "#1c0d3a",
-    "url": "#",
-    "badge": "hot",
-    "bg": "linear-gradient(135deg,#1c0d3a,#6b3bb5)"
-  },
+  "name": "🔥 ZD TV SPORT",
+  "icon": "images/zdtvsport.png",
+  "color": "#0d2240",
+  "url": "https://devuploads.com/3vpt6hj3smge",
+  "badge": "live",
+  "bg": "linear-gradient(135deg,#0d2240,#1a4a8a)",
+  "category": "Live TV",
+  "version": "1.1.2",
+  "size": "31.46 MB",
+  "developer": "ANUBIS by B.Nacereddine",
+  "updated": "30 Jun 2026",
+  "activated": true
+},
   {
     "name": "▶️ STREAM PLAYER PRO",
     "icon": "images/streamplayerpro.png",
