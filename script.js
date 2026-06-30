@@ -212,8 +212,8 @@ ${app.username ? `<span class="card-code">👤 Username : ${app.username}</span>
       enCard.style.alignItems = 'flex-start';
       enCard.style.gap = '4px';
       enCard.innerHTML = `
-        <div class="modal-field-info" style="width:100%;">
-          <span class="modal-field-label">🇺🇸 Application Coming Soon</span>
+        <div class="modal-field-info" style="width:100%; margin-top:0; padding-top:0;">
+          <span class="modal-field-label" style="font-size:16px; font-weight:700; background:linear-gradient(135deg,#a855f7,#7c3aed); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; display:inline-block; line-height:1.3;">🚧 Application Coming Soon</span>
           <span class="modal-field-value" style="white-space:normal; line-height:1.6; display:block; margin-top:6px;">This application is currently<br>being uploaded.<br>Please check back later.<br>The latest version will be<br>available soon.</span>
         </div>
       `;
@@ -227,8 +227,8 @@ ${app.username ? `<span class="card-code">👤 Username : ${app.username}</span>
       arCard.style.direction = 'rtl';
       arCard.style.textAlign = 'right';
       arCard.innerHTML = `
-        <div class="modal-field-info" style="width:100%;">
-          <span class="modal-field-label">🇸🇦 التطبيق قيد الرفع</span>
+        <div class="modal-field-info" style="width:100%; margin-top:0; padding-top:0;">
+          <span class="modal-field-label" style="font-size:16px; font-weight:700; background:linear-gradient(135deg,#a855f7,#7c3aed); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; display:inline-block; line-height:1.3; margin-top:0;">🚧 التطبيق قيد الرفع</span>
           <span class="modal-field-value" style="white-space:normal; line-height:1.6; display:block; margin-top:6px;">هذا التطبيق جارٍ رفعه حاليًا.<br>يرجى العودة لاحقًا.<br>سيتم توفير أحدث إصدار قريبًا.</span>
         </div>
       `;
