@@ -99,13 +99,19 @@
   "activated": true
 },
   {
-    "name": "🎯 ALISHOOT",
-    "icon": "images/alishoot.png",
-    "color": "#0a2020",
-    "url": "#",
-    "badge": "hot",
-    "bg": "linear-gradient(135deg,#0a2020,#0d6060)"
-  },
+  "name": "🆕 ALISHOOT TV",
+  "icon": "images/alishoot.png",
+  "color": "#0d2240",
+  "url": "https://devuploads.com/jdfzhrm42rkv",
+  "badge": "new",
+  "bg": "linear-gradient(135deg,#0d2240,#1a4a8a)",
+  "category": "Live TV",
+  "version": "2.0",
+  "size": "15.58 MB",
+  "developer": "ANUBIS by B.Nacereddine",
+  "updated": "30 Jun 2026",
+  "activated": true
+},
   {
     "name": "🏆 QSPORT",
     "icon": "images/qsport.png",
