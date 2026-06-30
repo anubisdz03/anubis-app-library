@@ -31,13 +31,19 @@
   "activated": true
 },
   {
-    "name": "🎬 SCREENIFY+",
-    "icon": "images/screenify.png",
-    "color": "#0f1f10",
-    "url": "#",
-    "badge": "new",
-    "bg": "linear-gradient(135deg,#0f1f10,#1e5c20)"
-  },
+  "name": "🔥 SCREENIFY TV 4K",
+  "icon": "images/screenifytv4k.png",
+  "color": "#1a1f3d",
+  "url": "https://devuploads.com/obnk2yksl2te",
+  "badge": "live",
+  "bg": "linear-gradient(135deg,#1a1f3d,#4a5cff)",
+  "category": "Live TV",
+  "version": "5.1",
+  "developer": "ANUBIS by B.Nacereddine",
+  "updated": "30 Jun 2026",
+  "size": "18.4 MB",
+  "activated": true
+},
   {
     "name": "📺 AZUS BOX 4K",
     "icon": "images/azusbox4k.png",
