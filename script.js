@@ -338,12 +338,31 @@ ${app.username ? `<span class="card-code"${cardComingSoon ? ' style="position:re
     modalOverlay.classList.add('active');
     modalOverlay.setAttribute('aria-hidden', 'false');
     document.body.style.overflow = 'hidden';
+
+    // Android TV / D-pad support: focus the first interactive element so the
+    // remote's D-pad has something focused to navigate from immediately.
+    setTimeout(() => {
+      const focusable = getModalFocusableElements();
+      if (focusable.length) focusable[0].focus();
+    }, 0);
   }
 
   function closeAppModal() {
     modalOverlay.classList.remove('active');
     modalOverlay.setAttribute('aria-hidden', 'true');
     document.body.style.overflow = '';
+  }
+
+  // Android TV / D-pad support: collect the modal's interactive elements in
+  // their natural document order (close button, copy/toggle buttons, download).
+  function getModalFocusableElements() {
+    if (!modalOverlay.classList.contains('active')) return [];
+    const nodes = appModal.querySelectorAll(
+      'button, a[href], [tabindex]:not([tabindex="-1"])'
+    );
+    return Array.prototype.filter.call(nodes, el => {
+      return el.offsetParent !== null && el.getAttribute('aria-disabled') !== 'true';
+    });
   }
 
   // close interactions: X button, click outside, Esc key
@@ -363,6 +382,31 @@ ${app.username ? `<span class="card-code"${cardComingSoon ? ' style="position:re
     if (e.key === 'Escape' && modalOverlay.classList.contains('active')) {
       closeAppModal();
     }
+  });
+
+  // Android TV remote (D-pad) navigation: many TV/Downloader WebViews don't
+  // support spatial navigation, so map Arrow keys to move focus between the
+  // modal's interactive elements in order. This only runs while the modal
+  // is open and does not affect mouse/touch/keyboard(Tab) behavior at all.
+  document.addEventListener('keydown', (e) => {
+    if (!modalOverlay.classList.contains('active')) return;
+    const isNavKey = ['ArrowDown', 'ArrowRight', 'ArrowUp', 'ArrowLeft'].includes(e.key);
+    if (!isNavKey) return;
+
+    const focusable = getModalFocusableElements();
+    if (!focusable.length) return;
+
+    const currentIndex = focusable.indexOf(document.activeElement);
+    let nextIndex;
+
+    if (e.key === 'ArrowDown' || e.key === 'ArrowRight') {
+      nextIndex = currentIndex === -1 ? 0 : (currentIndex + 1) % focusable.length;
+    } else {
+      nextIndex = currentIndex === -1 ? 0 : (currentIndex - 1 + focusable.length) % focusable.length;
+    }
+
+    e.preventDefault();
+    focusable[nextIndex].focus();
   });
 
   /* ============================================================
