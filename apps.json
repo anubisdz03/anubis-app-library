@@ -71,13 +71,19 @@
   "activated": true
 },
   {
-    "name": "▶️ STREAM PLAYER PRO",
-    "icon": "images/streamplayerpro.png",
-    "color": "#0d1a30",
-    "url": "#",
-    "badge": "live",
-    "bg": "linear-gradient(135deg,#0d1a30,#1a4a80)"
-  },
+  "name": "🔥 STREAM PLAYER PRO",
+  "icon": "images/streamplayerpro.png",
+  "color": "#0d2240",
+  "url": "https://devuploads.com/nawwdvgidexr",
+  "badge": "hot",
+  "bg": "linear-gradient(135deg,#0d2240,#1a4a8a)",
+  "category": "Live TV",
+  "version": "8.1",
+  "size": "10.4 MB",
+  "developer": "ANUBIS by B.Nacereddine",
+  "updated": "30 Jun 2026",
+  "activated": true
+},
   {
     "name": "⭐ TAHAR TV",
     "icon": "images/tahartv.png",
