@@ -30,6 +30,7 @@
   ============================================================ */
   function createCard(app) {
     const hasModal = appHasModalFields(app) || isComingSoon(app);
+    const cardComingSoon = isComingSoon(app);
 
     let el;
     if (hasModal) {
@@ -45,18 +46,27 @@
     el.className = 'app-card';
     el.setAttribute('aria-label', `Open ${app.name}`);
 
+    const badgeMarkup = cardComingSoon
+      ? `<span class="card-badge" style="position:relative; z-index:1; background:linear-gradient(135deg,#a855f7,#7c3aed); color:#fff; border-color:transparent;">🚧 Coming Soon</span>`
+      : `<span class="card-badge badge-${app.badge}" style="position:relative; z-index:1;">${
+          app.badge === 'live'   ? 'Live'    :
+          app.badge === 'new'    ? 'New'     :
+          app.badge === 'update' ? 'Updated' : 'Hot'
+        }</span>`;
+
     el.innerHTML = `
-      <div class="card-icon" style="background:${app.bg};">
+      ${cardComingSoon ? `<div style="position:absolute; inset:0; background:rgba(8,6,18,0.15); border-radius:inherit; pointer-events:none; z-index:0;"></div>` : ''}
+      <div class="card-icon" style="background:${app.bg};${cardComingSoon ? ' position:relative; z-index:1;' : ''}">
   <img src="${app.icon}" alt="${app.name}" loading="lazy">
 </div>
-<span class="card-name">${app.name}</span>
-${app.code ? `<span class="card-code">🔑 ${app.code}</span>` : ""}
-${app.username ? `<span class="card-code">👤 Username : ${app.username}</span>` : ""}<span class="card-badge badge-${app.badge}">${
-        app.badge === 'live'   ? 'Live'    :
-        app.badge === 'new'    ? 'New'     :
-        app.badge === 'update' ? 'Updated' : 'Hot'
-      }</span>
+<span class="card-name"${cardComingSoon ? ' style="position:relative; z-index:1;"' : ''}>${app.name}</span>
+${app.code ? `<span class="card-code"${cardComingSoon ? ' style="position:relative; z-index:1;"' : ''}>🔑 ${app.code}</span>` : ""}
+${app.username ? `<span class="card-code"${cardComingSoon ? ' style="position:relative; z-index:1;"' : ''}>👤 Username : ${app.username}</span>` : ""}${badgeMarkup}
     `;
+
+    if (cardComingSoon) {
+      el.style.position = 'relative';
+    }
 
     if (hasModal) {
       el.addEventListener('click', () => openAppModal(app));
