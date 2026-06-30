@@ -85,13 +85,19 @@
   "activated": true
 },
   {
-    "name": "⭐ TAHAR TV",
-    "icon": "images/tahartv.png",
-    "color": "#0d2030",
-    "url": "#",
-    "badge": "new",
-    "bg": "linear-gradient(135deg,#0d2030,#8a3b6b)"
-  },
+  "name": "🔥 TAHAR TV",
+  "icon": "images/tahartv.png",
+  "color": "#0d2240",
+  "url": "https://devuploads.com/3ikwvtdqzp2u",
+  "badge": "live",
+  "bg": "linear-gradient(135deg,#0d2240,#1a4a8a)",
+  "category": "Live TV",
+  "version": "3.1",
+  "size": "16.36 MB",
+  "developer": "ANUBIS by B.Nacereddine",
+  "updated": "30 Jun 2026",
+  "activated": true
+},
   {
     "name": "🎯 ALISHOOT",
     "icon": "images/alishoot.png",
