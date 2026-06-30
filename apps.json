@@ -183,13 +183,19 @@
   "activated": true
 },
   {
-    "name": "📡 CRICZ",
-    "icon": "images/cricz.png",
-    "color": "#1a1200",
-    "url": "#",
-    "badge": "update",
-    "bg": "linear-gradient(135deg,#1a1200,#806000)"
-  },
+  "name": "📡 CRICZ",
+  "icon": "images/cricz.png",
+  "color": "#1a1200",
+  "url": "https://devuploads.com/7ngbpfrcd605",
+  "badge": "live",
+  "bg": "linear-gradient(135deg,#1a1200,#806000)",
+  "category": "Live TV",
+  "version": "2.0",
+  "size": "18.14 MB",
+  "developer": "ANUBIS by B.Nacereddine",
+  "updated": "30 Jun 2026",
+  "activated": true
+},
   {
     "name": "🍿 STREAMFLIX",
     "icon": "images/streamflix.png",
