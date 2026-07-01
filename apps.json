@@ -197,13 +197,19 @@
   "activated": true
 },
   {
-    "name": "🍿 STREAMFLIX",
-    "icon": "images/streamflix.png",
-    "color": "#0a1a0a",
-    "url": "#",
-    "badge": "hot",
-    "bg": "linear-gradient(135deg,#0a1a0a,#1a6a20)"
-  },
+  "name": "🎬 STREAMFLIX",
+  "icon": "images/streamflix.png",
+  "color": "#0d2240",
+  "url": "https://devuploads.com/uhvdmc0om7b5",
+  "badge": "live",
+  "bg": "linear-gradient(135deg,#0d2240,#1a4a8a)",
+  "category": "Movies, TV Shows & Anime",
+  "version": "1.7.225",
+  "size": "18.53 MB",
+  "developer": "ANUBIS by B.Nacereddine",
+  "updated": "01 Jul 2026",
+  "activated": true
+},
   {
     "name": "🎞️ STREMO PLAYER",
     "icon": "images/stremoplayer.png",
