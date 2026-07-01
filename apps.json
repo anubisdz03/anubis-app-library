@@ -211,13 +211,19 @@
   "activated": true
 },
   {
-    "name": "🎞️ STREMO PLAYER",
-    "icon": "images/stremoplayer.png",
-    "color": "#0a0a20",
-    "url": "#",
-    "badge": "live",
-    "bg": "linear-gradient(135deg,#0a0a20,#3030a0)"
-  },
+  "name": "▶️ STREMO PLAYER",
+  "icon": "images/stremo.png",
+  "color": "#0d2240",
+  "url": "https://devuploads.com/u9u52v11k476",
+  "badge": "live",
+  "bg": "linear-gradient(135deg,#0d2240,#1a4a8a)",
+  "category": "Live TV",
+  "version": "2.1",
+  "size": "28.65 MB",
+  "developer": "ANUBIS by B.Nacereddine",
+  "updated": "01 Jul 2026",
+  "activated": true
+},
   {
     "name": "✨ SHOWSAT TV",
     "icon": "images/showsat-tv.png",
