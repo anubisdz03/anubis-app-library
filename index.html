@@ -1,13 +1,3 @@
-<!--
-  ============================================================
-  ANUBIS APP LIBRARY
-  Copyright © 2026 B. Nacereddine
-  Official Website: https://anubisdz03.github.io/anubis-app-library/
-  All Rights Reserved.
-  Unauthorized copying, modification, redistribution or commercial
-  use without written permission is strictly prohibited.
-  ============================================================
--->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,9 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="Premium IPTV & streaming app library. Find the best apps for live TV, movies, and series." />
   <meta name="keywords" content="IPTV, streaming apps, live TV, movies, series, premium apps" />
-  <meta name="author" content="B. Nacereddine" />
-  <meta name="creator" content="B. Nacereddine" />
-  <meta name="copyright" content="Copyright © 2026 B. Nacereddine — ANUBIS APP LIBRARY. All Rights Reserved." />
+  <meta name="author" content="ANUBIS APP LIBRARY" />
   <title>ANUBIS APP LIBRARY</title>
 
   <link rel="stylesheet" href="style.css">
@@ -201,5 +189,44 @@
     </a>
   </div>
 </div>
+<!-- ===== SUPPORTER FORM MODAL ===== -->
+<div id="supporter-form-overlay" class="supporter-form-overlay" aria-hidden="true">
+  <div class="supporter-form-box" role="dialog" aria-modal="true" aria-labelledby="supporter-form-title">
+    <button class="supporter-form-close" id="supporter-form-close" aria-label="Close">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
+        <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+      </svg>
+    </button>
+    <div class="supporter-form-header">
+      <div class="supporter-form-heart">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#f5c842" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+      </div>
+      <h3 class="supporter-form-title" id="supporter-form-title">Support ANUBIS Library</h3>
+      <p class="supporter-form-subtitle">Leave your name before heading to PayPal — it means a lot!</p>
+    </div>
+    <div class="supporter-form-fields">
+      <div class="supporter-field-group">
+        <label class="supporter-field-label" for="supporter-name">Your Name <span class="supporter-required">*</span></label>
+        <input class="supporter-field-input" id="supporter-name" type="text" placeholder="Enter your name" maxlength="80" autocomplete="name" />
+        <span class="supporter-field-error" id="supporter-name-error">Please enter your name.</span>
+      </div>
+      <div class="supporter-field-group">
+        <label class="supporter-field-label" for="supporter-message">Message <span class="supporter-optional">(optional)</span></label>
+        <textarea class="supporter-field-input supporter-field-textarea" id="supporter-message" placeholder="A kind word for the project…" maxlength="300" rows="3"></textarea>
+      </div>
+      <label class="supporter-checkbox-row">
+        <input type="checkbox" id="supporter-show-name" checked />
+        <span class="supporter-checkbox-label">Show my name publicly in the supporters list</span>
+      </label>
+    </div>
+    <div class="supporter-form-actions">
+      <button class="supporter-submit-btn" id="supporter-submit-btn">
+        <span id="supporter-submit-label">❤️ Continue to PayPal</span>
+      </button>
+      <button class="supporter-skip-btn" id="supporter-skip-btn">Skip — go straight to PayPal</button>
+    </div>
+  </div>
+</div>
+
 </body>
 </html>

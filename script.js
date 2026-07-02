@@ -1,14 +1,3 @@
-/*
- * ============================================================
- * ANUBIS APP LIBRARY
- * Copyright © 2026 B. Nacereddine
- * Official Website: https://anubisdz03.github.io/anubis-app-library/
- * All Rights Reserved.
- * Unauthorized copying, modification, redistribution or commercial
- * use without written permission is strictly prohibited.
- * ============================================================
- */
-
 /* ============================================================
    ANUBIS APP LIBRARY — main script
    Loads app data from apps.json, renders cards, handles search,
@@ -588,5 +577,156 @@ ${app.username ? `<span class="card-code"${cardComingSoon ? ' style="position:re
       showingEn = !showingEn;
     }, 7000);
   })();
+
+})();
+
+/* ============================================================
+   SUPPORTER FORM — Supabase integration
+   Intercepts the existing banner-btn click, shows a small form,
+   saves to Supabase, then opens PayPal regardless of outcome.
+   No existing functionality is modified.
+============================================================ */
+(function () {
+  'use strict';
+
+  const SUPABASE_URL     = 'https://ypszdzznqaizopfulioa.supabase.co';
+  const SUPABASE_ANON    = 'sb_publishable_EKEuf19RbGaaQ_xjN9VmhA_mkOY9t2q';
+  const PAYPAL_URL       = 'https://www.paypal.com/paypalme/AnubisApps';
+  const TABLE_ENDPOINT   = SUPABASE_URL + '/rest/v1/supporters';
+
+  const bannerBtn        = document.getElementById('banner-btn');
+  const overlay          = document.getElementById('supporter-form-overlay');
+  const closeBtn         = document.getElementById('supporter-form-close');
+  const skipBtn          = document.getElementById('supporter-skip-btn');
+  const submitBtn        = document.getElementById('supporter-submit-btn');
+  const submitLabel      = document.getElementById('supporter-submit-label');
+  const nameInput        = document.getElementById('supporter-name');
+  const messageInput     = document.getElementById('supporter-message');
+  const showNameCheckbox = document.getElementById('supporter-show-name');
+  const nameError        = document.getElementById('supporter-name-error');
+
+  if (!bannerBtn || !overlay) return;
+
+  /* ---- open / close ---- */
+  function openSupporterForm(e) {
+    e.preventDefault();
+    resetForm();
+    overlay.classList.add('active');
+    overlay.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+    setTimeout(function () { if (nameInput) nameInput.focus(); }, 60);
+  }
+
+  function closeSupporterForm() {
+    overlay.classList.remove('active');
+    overlay.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+  }
+
+  function resetForm() {
+    if (nameInput)        nameInput.value = '';
+    if (messageInput)     messageInput.value = '';
+    if (showNameCheckbox) showNameCheckbox.checked = true;
+    if (nameError)        nameError.classList.remove('visible');
+    if (nameInput)        nameInput.classList.remove('input-error');
+    if (submitBtn)        submitBtn.disabled = false;
+    if (submitLabel)      submitLabel.textContent = '❤️ Continue to PayPal';
+  }
+
+  /* ---- open PayPal in new tab (mirrors existing banner-btn behaviour) ---- */
+  function openPayPal() {
+    window.open(PAYPAL_URL, '_blank', 'noopener,noreferrer');
+  }
+
+  /* ---- Supabase insert (INSERT-only; anon role needs INSERT only)
+     Returns true on success, false on failure so the caller can
+     re-enable the submit button if the request fails.              ---- */
+  async function saveToSupabase(name, message, showName) {
+    try {
+      const res = await fetch(TABLE_ENDPOINT, {
+        method:  'POST',
+        headers: {
+          'Content-Type':  'application/json',
+          'apikey':        SUPABASE_ANON,
+          'Authorization': 'Bearer ' + SUPABASE_ANON,
+          'Prefer':        'return=minimal',
+        },
+        body: JSON.stringify({
+          name:      name,
+          message:   message || null,
+          show_name: showName,
+          status:    'pending',
+        }),
+      });
+      return res.ok;
+    } catch (err) {
+      console.warn('Supabase insert failed (non-blocking):', err);
+      return false;
+    }
+  }
+
+  /* ---- submit handler ---- */
+  async function handleSubmit() {
+    const name     = nameInput     ? nameInput.value.trim()     : '';
+    const message  = messageInput  ? messageInput.value.trim()  : '';
+    const showName = showNameCheckbox ? showNameCheckbox.checked : true;
+
+    /* validate */
+    if (!name) {
+      if (nameError) nameError.classList.add('visible');
+      if (nameInput) nameInput.classList.add('input-error');
+      if (nameInput) nameInput.focus();
+      return;
+    }
+    if (nameError) nameError.classList.remove('visible');
+    if (nameInput) nameInput.classList.remove('input-error');
+
+    /* disable immediately to prevent duplicate submissions */
+    if (submitBtn)   submitBtn.disabled = true;
+    if (submitLabel) submitLabel.textContent = 'Saving…';
+
+    const ok = await saveToSupabase(name, message, showName);
+
+    if (ok) {
+      /* success — proceed to PayPal, button stays disabled */
+      closeSupporterForm();
+      openPayPal();
+    } else {
+      /* failure — re-enable so the user can try again */
+      if (submitBtn)   submitBtn.disabled = false;
+      if (submitLabel) submitLabel.textContent = '❤️ Continue to PayPal';
+    }
+  }
+
+  /* ---- event listeners ---- */
+  bannerBtn.addEventListener('click', openSupporterForm);
+
+  if (closeBtn) closeBtn.addEventListener('click', closeSupporterForm);
+
+  if (skipBtn) skipBtn.addEventListener('click', function () {
+    closeSupporterForm();
+    openPayPal();
+  });
+
+  if (submitBtn) submitBtn.addEventListener('click', handleSubmit);
+
+  /* close on backdrop click */
+  overlay.addEventListener('click', function (e) {
+    if (e.target === overlay) closeSupporterForm();
+  });
+
+  /* close on Escape */
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && overlay.classList.contains('active')) {
+      closeSupporterForm();
+    }
+  });
+
+  /* Enter in name field submits */
+  if (nameInput) {
+    nameInput.addEventListener('keydown', function (e) {
+      if (e.key === 'Enter') { e.preventDefault(); handleSubmit(); }
+    });
+  }
 
 })();
