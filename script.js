@@ -1,3 +1,14 @@
+/*
+ * ============================================================
+ * ANUBIS APP LIBRARY
+ * Copyright © 2026 B. Nacereddine
+ * Official Website: https://anubisdz03.github.io/anubis-app-library/
+ * All Rights Reserved.
+ * Unauthorized copying, modification, redistribution or commercial
+ * use without written permission is strictly prohibited.
+ * ============================================================
+ */
+
 /* ============================================================
    ANUBIS APP LIBRARY — main script
    Loads app data from apps.json, renders cards, handles search,
