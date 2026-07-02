@@ -167,7 +167,7 @@
     </a>
   </div>
 </div>
-
+<script src="https://www.paypal.com/sdk/js?client-id=AWwKGyHi3fEEfiv1zTnCOHPjX8jdv4G_XwWQ2tB0gVNCKWi0ESSifaWzmg3TVdsOEC2MwceF6V1cUnmo&currency=USD&intent=capture"></script>
 <script src="script.js" defer></script>
 
   <!-- Support Popup -->
@@ -211,6 +211,11 @@
         <span class="supporter-field-error" id="supporter-name-error">Please enter your name.</span>
       </div>
       <div class="supporter-field-group">
+        <label class="supporter-field-label" for="supporter-amount">Donation Amount (USD) <span class="supporter-required">*</span></label>
+        <input class="supporter-field-input" id="supporter-amount" type="number" placeholder="Enter amount" min="1" step="0.01" inputmode="decimal" />
+        <span class="supporter-field-error" id="supporter-amount-error">Please enter an amount of at least 1 USD.</span>
+      </div>
+      <div class="supporter-field-group">
         <label class="supporter-field-label" for="supporter-message">Message <span class="supporter-optional">(optional)</span></label>
         <textarea class="supporter-field-input supporter-field-textarea" id="supporter-message" placeholder="A kind word for the project…" maxlength="300" rows="3"></textarea>
       </div>
@@ -223,6 +228,7 @@
       <button class="supporter-submit-btn" id="supporter-submit-btn">
         <span id="supporter-submit-label">❤️ Continue to PayPal</span>
       </button>
+      <div id="paypal-button-container" style="display:none; margin-top:15px;"></div>
       <button class="supporter-skip-btn" id="supporter-skip-btn">Skip — go straight to PayPal</button>
     </div>
   </div>

@@ -581,18 +581,21 @@ ${app.username ? `<span class="card-code"${cardComingSoon ? ' style="position:re
 })();
 
 /* ============================================================
-   SUPPORTER FORM — Supabase integration
+   SUPPORTER FORM — Supabase + PayPal Checkout (Smart Buttons)
    Intercepts the existing banner-btn click, shows a small form,
-   saves to Supabase, then opens PayPal regardless of outcome.
-   No existing functionality is modified.
+   saves a pending supporter row, creates a PayPal Order via the
+   create-order Edge Function, renders PayPal Smart Buttons, and
+   captures the payment via the capture-order Edge Function on
+   approval. No existing functionality is modified.
 ============================================================ */
 (function () {
   'use strict';
 
   const SUPABASE_URL     = 'https://ypszdzznqaizopfulioa.supabase.co';
-  const SUPABASE_ANON    = 'sb_publishable_EKEuf19RbGaaQ_xjN9VmhA_mkOY9t2q';
-  const PAYPAL_URL       = 'https://www.paypal.com/paypalme/AnubisApps';
+  const SUPABASE_ANON = 'sb_publishable_EKEuf19RbGaaQ_xjN9VmhA_mkOY9t2q';
   const TABLE_ENDPOINT   = SUPABASE_URL + '/rest/v1/supporters';
+  const CREATE_ORDER_ENDPOINT  = SUPABASE_URL + '/functions/v1/create-order';
+  const CAPTURE_ORDER_ENDPOINT = SUPABASE_URL + '/functions/v1/capture-order';
 
   const bannerBtn        = document.getElementById('banner-btn');
   const overlay          = document.getElementById('supporter-form-overlay');
@@ -601,11 +604,19 @@ ${app.username ? `<span class="card-code"${cardComingSoon ? ' style="position:re
   const submitBtn        = document.getElementById('supporter-submit-btn');
   const submitLabel      = document.getElementById('supporter-submit-label');
   const nameInput        = document.getElementById('supporter-name');
+  const amountInput      = document.getElementById('supporter-amount');
   const messageInput     = document.getElementById('supporter-message');
   const showNameCheckbox = document.getElementById('supporter-show-name');
   const nameError        = document.getElementById('supporter-name-error');
+  const amountError      = document.getElementById('supporter-amount-error');
+  const paypalButtonContainer = document.getElementById('paypal-button-container');
+  const PAYPAL_URL       = 'https://www.paypal.com/paypalme/AnubisApps'; // used only by the "skip" fallback
+  const MIN_DONATION_USD = 1;
 
   if (!bannerBtn || !overlay) return;
+
+  let currentSupporterId  = null;
+  let paypalButtonsWidget = null;
 
   /* ---- open / close ---- */
   function openSupporterForm(e) {
@@ -625,23 +636,34 @@ ${app.username ? `<span class="card-code"${cardComingSoon ? ' style="position:re
 
   function resetForm() {
     if (nameInput)        nameInput.value = '';
+    if (amountInput)      amountInput.value = '';
     if (messageInput)     messageInput.value = '';
     if (showNameCheckbox) showNameCheckbox.checked = true;
     if (nameError)        nameError.classList.remove('visible');
+    if (amountError)      amountError.classList.remove('visible');
     if (nameInput)        nameInput.classList.remove('input-error');
-    if (submitBtn)        submitBtn.disabled = false;
+    if (amountInput)      amountInput.classList.remove('input-error');
+    if (submitBtn) {
+      submitBtn.disabled = false;
+      submitBtn.style.display = '';
+    }
     if (submitLabel)      submitLabel.textContent = '❤️ Continue to PayPal';
+    if (paypalButtonContainer) {
+      paypalButtonContainer.innerHTML = '';
+      paypalButtonContainer.style.display = 'none';
+    }
+    currentSupporterId  = null;
+    paypalButtonsWidget = null;
   }
 
-  /* ---- open PayPal in new tab (mirrors existing banner-btn behaviour) ---- */
+  /* ---- open PayPal.me in a new tab (kept only for the "skip" fallback) ---- */
   function openPayPal() {
     window.open(PAYPAL_URL, '_blank', 'noopener,noreferrer');
   }
 
-  /* ---- Supabase insert (INSERT-only; anon role needs INSERT only)
-     Returns true on success, false on failure so the caller can
-     re-enable the submit button if the request fails.              ---- */
-  async function saveToSupabase(name, message, showName) {
+  /* ---- Step 3: save the supporter as "pending" ----
+     Returns the inserted row (with its id) on success, or null on failure. */
+  async function saveSupporterPending(name, amount, message, showName) {
     try {
       const res = await fetch(TABLE_ENDPOINT, {
         method:  'POST',
@@ -649,29 +671,156 @@ ${app.username ? `<span class="card-code"${cardComingSoon ? ' style="position:re
           'Content-Type':  'application/json',
           'apikey':        SUPABASE_ANON,
           'Authorization': 'Bearer ' + SUPABASE_ANON,
-          'Prefer':        'return=minimal',
+          'Prefer':        'return=representation',
         },
         body: JSON.stringify({
           name:      name,
+          amount:    amount,
           message:   message || null,
           show_name: showName,
           status:    'pending',
         }),
       });
+      if (!res.ok) return null;
+      const rows = await res.json();
+      return Array.isArray(rows) ? rows[0] : rows;
+    } catch (err) {
+      console.warn('Supabase insert failed:', err);
+      return null;
+    }
+  }
+
+  /* ---- Step 6: attach the PayPal order id to the pending supporter row ---- */
+  async function attachPayPalOrderId(supporterId, orderId) {
+    try {
+      const res = await fetch(TABLE_ENDPOINT + '?id=eq.' + encodeURIComponent(supporterId), {
+        method:  'PATCH',
+        headers: {
+          'Content-Type':  'application/json',
+          'apikey':        SUPABASE_ANON,
+          'Authorization': 'Bearer ' + SUPABASE_ANON,
+          'Prefer':        'return=minimal',
+        },
+        body: JSON.stringify({ paypal_order_id: orderId }),
+      });
       return res.ok;
     } catch (err) {
-      console.warn('Supabase insert failed (non-blocking):', err);
+      console.warn('Supabase order-id update failed:', err);
       return false;
     }
   }
 
-  /* ---- submit handler ---- */
-  async function handleSubmit() {
-    const name     = nameInput     ? nameInput.value.trim()     : '';
-    const message  = messageInput  ? messageInput.value.trim()  : '';
-    const showName = showNameCheckbox ? showNameCheckbox.checked : true;
+  /* ---- Step 4/5: create the PayPal order via the create-order Edge Function ---- */
+  async function createPayPalOrder(amount) {
+    const res  = await fetch(CREATE_ORDER_ENDPOINT, {
+      method:  'POST',
+      headers: {
+        'Content-Type':  'application/json',
+        'apikey':        SUPABASE_ANON,
+        'Authorization': 'Bearer ' + SUPABASE_ANON,
+      },
+      body:    JSON.stringify({ amount: amount }),
+    });
+    const data = await res.json();
+    if (!res.ok || !data.id) {
+      throw new Error(data && data.error ? data.error : 'Failed to create PayPal order.');
+    }
+    return data.id;
+  }
 
-    /* validate */
+  /* ---- Step 9: capture the order via the capture-order Edge Function ---- */
+  async function capturePayPalOrder(orderID) {
+    const res  = await fetch(CAPTURE_ORDER_ENDPOINT, {
+      method:  'POST',
+      headers: {
+        'Content-Type':  'application/json',
+        'apikey':        SUPABASE_ANON,
+        'Authorization': 'Bearer ' + SUPABASE_ANON,
+      },
+      body:    JSON.stringify({ orderID: orderID }),
+    });
+
+    let data;
+    try {
+      data = await res.json();
+    } catch (err) {
+      throw new Error('Invalid response from capture-order.');
+    }
+
+    /* The function returns { error: "..." } with a non-2xx status on
+       failure, and { status, transactionId } on success. Validate the
+       actual payload rather than assuming a fixed shape. */
+    if (!res.ok || !data || data.error) {
+      throw new Error(data && data.error ? data.error : 'Failed to capture PayPal order.');
+    }
+    if (data.status !== 'COMPLETED' || !data.transactionId) {
+      throw new Error('PayPal capture did not complete (status: ' + (data && data.status ? data.status : 'unknown') + ').');
+    }
+
+    return data;
+  }
+
+  /* ---- Step 7: render PayPal Smart Buttons for the freshly-created order ---- */
+  function renderPayPalButtons(orderId) {
+    if (!paypalButtonContainer || typeof paypal === 'undefined') {
+      console.error('PayPal SDK is not available.');
+      if (submitLabel) submitLabel.textContent = 'Payment unavailable — please try again later.';
+      if (submitBtn) {
+        submitBtn.disabled = false;
+        submitBtn.style.display = '';
+      }
+      return;
+    }
+
+    paypalButtonContainer.innerHTML = '';
+    paypalButtonContainer.style.display = 'block';
+    if (submitBtn) submitBtn.style.display = 'none';
+    if (submitLabel) submitLabel.textContent = '❤️ Continue to PayPal';
+
+    paypalButtonsWidget = paypal.Buttons({
+      /* Step 8: user approves — createOrder just returns the order id we
+         already created server-side via create-order. */
+      createOrder: function () {
+        return orderId;
+      },
+
+      /* Step 9/10: capture the order; on success the supporter row becomes
+         "paid" server-side (status, public listing, and stats all update
+         automatically from the database — nothing further to do here). */
+      onApprove: async function (data) {
+        try {
+          await capturePayPalOrder(data.orderID);
+          closeSupporterForm();
+          resetForm();
+        } catch (err) {
+          console.error('Capture failed:', err);
+          alert('We could not confirm your payment. If you were charged, please contact support.');
+        }
+      },
+
+      /* Step 11: user cancels — leave the supporter row as "pending". */
+      onCancel: function () {
+        /* no-op: status remains "pending" */
+      },
+
+      onError: function (err) {
+        console.error('PayPal Buttons error:', err);
+        alert('Something went wrong with PayPal. Please try again.');
+      },
+    });
+
+    paypalButtonsWidget.render(paypalButtonContainer);
+  }
+
+  /* ---- submit handler: steps 3 → 7 ---- */
+  async function handleSubmit() {
+    const name       = nameInput     ? nameInput.value.trim()     : '';
+    const amountRaw  = amountInput   ? amountInput.value.trim()   : '';
+    const amount     = amountRaw ? Math.round(parseFloat(amountRaw) * 100) / 100 : NaN;
+    const message    = messageInput  ? messageInput.value.trim()  : '';
+    const showName   = showNameCheckbox ? showNameCheckbox.checked : true;
+
+    /* validate name */
     if (!name) {
       if (nameError) nameError.classList.add('visible');
       if (nameInput) nameInput.classList.add('input-error');
@@ -681,21 +830,56 @@ ${app.username ? `<span class="card-code"${cardComingSoon ? ' style="position:re
     if (nameError) nameError.classList.remove('visible');
     if (nameInput) nameInput.classList.remove('input-error');
 
+    /* validate amount */
+    if (!amountRaw || isNaN(amount) || amount < MIN_DONATION_USD) {
+      if (amountError) amountError.classList.add('visible');
+      if (amountInput) amountInput.classList.add('input-error');
+      if (amountInput) amountInput.focus();
+      return;
+    }
+    if (amountError) amountError.classList.remove('visible');
+    if (amountInput) amountInput.classList.remove('input-error');
+
     /* disable immediately to prevent duplicate submissions */
     if (submitBtn)   submitBtn.disabled = true;
     if (submitLabel) submitLabel.textContent = 'Saving…';
 
-    const ok = await saveToSupabase(name, message, showName);
-
-    if (ok) {
-      /* success — proceed to PayPal, button stays disabled */
-      closeSupporterForm();
-      openPayPal();
-    } else {
-      /* failure — re-enable so the user can try again */
+    /* Step 3: save supporter as pending */
+    const supporter = await saveSupporterPending(name, amount, message, showName);
+    if (!supporter || !supporter.id) {
       if (submitBtn)   submitBtn.disabled = false;
       if (submitLabel) submitLabel.textContent = '❤️ Continue to PayPal';
+      alert('Could not save your info. Please try again.');
+      return;
     }
+    currentSupporterId = supporter.id;
+
+    /* Step 4/5: create the PayPal order and get its order id */
+    if (submitLabel) submitLabel.textContent = 'Preparing PayPal…';
+    let orderId;
+    try {
+      orderId = await createPayPalOrder(amount);
+    } catch (err) {
+      console.error('create-order failed:', err);
+      if (submitBtn)   submitBtn.disabled = false;
+      if (submitLabel) submitLabel.textContent = '❤️ Continue to PayPal';
+      alert('Could not start the PayPal checkout. Please try again.');
+      return;
+    }
+
+    /* Step 6: attach the order id to the pending supporter row.
+       This must succeed before we show the PayPal Buttons — otherwise
+       capture-order won't be able to find the matching supporter row. */
+    const attached = await attachPayPalOrderId(currentSupporterId, orderId);
+    if (!attached) {
+      if (submitBtn)   submitBtn.disabled = false;
+      if (submitLabel) submitLabel.textContent = '❤️ Continue to PayPal';
+      alert('Could not prepare your donation record. Please try again.');
+      return;
+    }
+
+    /* Step 7: render the PayPal Smart Buttons for this order */
+    renderPayPalButtons(orderId);
   }
 
   /* ---- event listeners ---- */
