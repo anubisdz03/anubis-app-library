@@ -575,7 +575,7 @@ ${app.username ? `<span class="card-code"${cardComingSoon ? ' style="position:re
         bannerBtn.textContent = '❤️ Support Project';
       }
       showingEn = !showingEn;
-    }, 3000);
+    }, 7000);
   })();
 
 })();
