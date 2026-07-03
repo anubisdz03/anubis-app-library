@@ -790,6 +790,7 @@ ${app.username ? `<span class="card-code"${cardComingSoon ? ' style="position:re
       onApprove: async function (data) {
         try {
           await capturePayPalOrder(data.orderID);
+		  await loadTopSupporters();
           closeSupporterForm();
           resetForm();
         } catch (err) {
@@ -912,5 +913,66 @@ ${app.username ? `<span class="card-code"${cardComingSoon ? ' style="position:re
       if (e.key === 'Enter') { e.preventDefault(); handleSubmit(); }
     });
   }
+/* ===========================
+   TOP SUPPORTERS
+=========================== */
+
+async function loadTopSupporters() {
+
+    try {
+
+        const res = await fetch(
+            TABLE_ENDPOINT +
+            '?select=name,amount,message' +
+            '&status=eq.paid' +
+            '&show_name=eq.true' +
+            '&order=amount.desc' +
+            '&limit=3',
+            {
+                headers:{
+                    apikey:SUPABASE_ANON,
+                    Authorization:'Bearer '+SUPABASE_ANON
+                }
+            }
+        );
+
+        if(!res.ok) return;
+
+        const supporters = await res.json();
+
+        const container = document.getElementById('top-supporters');
+
+        if(!container) return;
+
+        if(supporters.length===0){
+
+            container.innerHTML =
+            '<div class="supporter-loading">🏆 Be the first supporter!</div>';
+
+            return;
+        }
+
+        const medals = ['🥇','🥈','🥉'];
+
+        container.innerHTML='';
+
+        supporters.forEach((s,index)=>{
+
+            container.innerHTML += `
+            <div class="supporter-card ${index===0?'first':''}">
+                <div class="supporter-medal">${medals[index]}</div>
+                <div class="supporter-name">${s.name}</div>
+                <div class="supporter-amount">$${s.amount}</div>
+                ${s.message?`<div class="supporter-message">${s.message}</div>`:''}
+            </div>`;
+        });
+
+    }catch(err){
+        console.error(err);
+    }
+
+}
+
+loadTopSupporters();
 
 })();
