@@ -1172,63 +1172,142 @@
     gap: 16px;
   }
 }
+
 /* ==========================
-   TOP SUPPORTERS
+   SUPPORTERS WIDGET
+   Single glassmorphism panel merging the Top 3 leaderboard and
+   the Live Support ticker. In-flow (below the hero) by default;
+   becomes a fixed right-side panel on wide desktop screens.
 ========================== */
 
-.top-supporters-section{
+.supporters-widget-section{
     margin:30px 0;
 }
 
-.top-supporters-grid{
-    display:flex;
-    gap:18px;
-    justify-content:center;
-    align-items:flex-end;
-    flex-wrap:wrap;
+.supporters-widget{
+    background:rgba(13,13,24,0.72);
+    border:1px solid var(--border);
+    border-radius:var(--radius-card);
+    padding:18px 18px 8px;
+    backdrop-filter:blur(10px);
+    -webkit-backdrop-filter:blur(10px);
+    box-shadow:0 8px 30px rgba(0,0,0,0.35);
 }
 
-.supporter-card{
+.supporters-widget-block{
+    padding:2px 2px 12px;
+}
+
+.widget-block-heading{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    margin-bottom:14px;
+    font-size:0.92rem;
+    font-weight:700;
+    letter-spacing:0.02em;
+    color:var(--text-primary);
+}
+
+.widget-block-tag{
+    margin-left:auto;
+    background:rgba(123,92,250,0.18);
+    color:var(--accent);
+    font-size:0.68rem;
+    font-weight:700;
+    padding:3px 10px;
+    border-radius:20px;
+    border:1px solid rgba(123,92,250,0.25);
+    letter-spacing:0.03em;
+    text-transform:uppercase;
+}
+
+.widget-divider{
+    height:1px;
+    background:linear-gradient(90deg, transparent, var(--border) 20%, var(--border) 80%, transparent);
+    margin:0 0 4px;
+}
+
+/* ---- Top 3 leaderboard: compact stacked rows ---- */
+
+.ts-list{
+    display:flex;
+    flex-direction:column;
+    gap:8px;
+}
+
+.ts-row{
+    display:flex;
+    align-items:center;
+    gap:12px;
     background:var(--bg-card);
     border:1px solid var(--border);
-    border-radius:18px;
-    padding:18px;
-    min-width:180px;
+    border-radius:12px;
+    padding:10px 12px;
+    transition:.25s;
+}
+
+.ts-row:hover{
+    border-color:var(--border-hover);
+    transform:translateX(2px);
+}
+
+/* Gold is only slightly emphasized — not a huge card */
+.ts-row.ts-gold{
+    padding:12px 13px;
+    border:1px solid rgba(245,200,66,0.5);
+    background:linear-gradient(135deg, rgba(245,200,66,0.08), var(--bg-card) 60%);
+}
+
+.ts-medal{
+    font-size:22px;
+    line-height:1;
+    min-width:26px;
     text-align:center;
-    transition:.3s;
 }
 
-.supporter-card:hover{
-    transform:translateY(-5px);
-    border-color:var(--accent);
+.ts-row.ts-gold .ts-medal{
+    font-size:25px;
 }
 
-.supporter-card.first{
-    transform:scale(1.08);
-    border:2px solid #f5c842;
+.ts-info{
+    flex:1;
+    min-width:0;
+    display:flex;
+    flex-direction:column;
+    gap:2px;
 }
 
-.supporter-medal{
-    font-size:42px;
-    margin-bottom:10px;
-}
-
-.supporter-name{
-    font-size:18px;
-    font-weight:700;
-    margin-bottom:6px;
-}
-
-.supporter-amount{
-    color:#f5c842;
-    font-weight:bold;
-    font-size:17px;
-}
-
-.supporter-message{
-    margin-top:10px;
-    opacity:.8;
+.ts-name{
     font-size:14px;
+    font-weight:700;
+    color:var(--text-primary);
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+}
+
+.ts-row.ts-gold .ts-name{
+    font-size:15px;
+}
+
+.ts-message{
+    font-size:11.5px;
+    color:var(--text-muted);
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+}
+
+.ts-amount{
+    color:#f5c842;
+    font-weight:800;
+    font-size:14px;
+    white-space:nowrap;
+}
+
+.ts-row.ts-gold .ts-amount{
+    font-size:15.5px;
 }
 
 .supporter-loading{
@@ -1236,40 +1315,10 @@
     text-align:center;
     opacity:.7;
     padding:20px;
+    font-size:13px;
 }
 
-/* ==========================
-   LIVE SUPPORT FEED
-========================== */
-
-.live-feed-section{
-    margin:0 0 30px;
-}
-
-.live-feed-widget{
-    background:rgba(13,13,24,0.72);
-    border:1px solid var(--border);
-    border-radius:var(--radius-card);
-    padding:16px 16px 6px;
-    backdrop-filter:blur(10px);
-    -webkit-backdrop-filter:blur(10px);
-    box-shadow:0 8px 30px rgba(0,0,0,0.35);
-}
-
-.live-feed-header{
-    display:flex;
-    align-items:center;
-    gap:10px;
-    margin-bottom:12px;
-    padding:0 2px;
-}
-
-.live-feed-title{
-    font-size:0.95rem;
-    font-weight:700;
-    letter-spacing:0.02em;
-    color:var(--text-primary);
-}
+/* ---- Live Support ticker ---- */
 
 .live-feed-live-dot{
     width:9px;
@@ -1288,9 +1337,11 @@
 }
 
 .live-feed-viewport{
-    height:300px;
+    height:260px;
     overflow:hidden;
     position:relative;
+    -webkit-mask-image:linear-gradient(to bottom, transparent 0, #000 12px, #000 calc(100% - 12px), transparent 100%);
+    mask-image:linear-gradient(to bottom, transparent 0, #000 12px, #000 calc(100% - 12px), transparent 100%);
 }
 
 .live-feed-track{
@@ -1301,8 +1352,8 @@
 }
 
 .live-feed-row{
-    height:60px;
-    min-height:60px;
+    height:52px;
+    min-height:52px;
     display:flex;
     align-items:center;
     gap:10px;
@@ -1315,15 +1366,15 @@
 }
 
 .live-feed-avatar{
-    width:34px;
-    height:34px;
-    min-width:34px;
+    width:30px;
+    height:30px;
+    min-width:30px;
     border-radius:50%;
     display:flex;
     align-items:center;
     justify-content:center;
     background:linear-gradient(135deg,var(--accent),var(--accent-2));
-    font-size:15px;
+    font-size:13px;
     font-weight:700;
     color:#fff;
 }
@@ -1340,24 +1391,24 @@
 }
 
 .live-feed-name{
-    font-size:14px;
+    font-size:13.5px;
     font-weight:700;
     color:var(--text-primary);
     white-space:nowrap;
     overflow:hidden;
     text-overflow:ellipsis;
-    max-width:130px;
+    max-width:120px;
 }
 
 .live-feed-amount{
-    font-size:13px;
+    font-size:12.5px;
     font-weight:700;
     color:#f5c842;
     white-space:nowrap;
 }
 
 .live-feed-message{
-    font-size:12px;
+    font-size:11.5px;
     color:var(--text-muted);
     white-space:nowrap;
     overflow:hidden;
@@ -1373,22 +1424,23 @@
     font-size:13px;
 }
 
-/* Desktop: float on the right side, out of document flow */
+/* Desktop: float the merged widget on the right side, out of flow */
 @media (min-width: 1300px) {
-  .live-feed-section{
+  .supporters-widget-section{
     margin:0;
   }
-  .live-feed-widget{
+  .supporters-widget{
     position:fixed;
     top:130px;
     right:24px;
-    width:280px;
+    width:290px;
     z-index:500;
     max-height:calc(100vh - 160px);
+    overflow-y:auto;
   }
 }
 
 @media (max-width: 640px) {
-  .live-feed-viewport{ height:260px; }
-  .live-feed-row{ height:52px; min-height:52px; }
+  .live-feed-viewport{ height:230px; }
+  .live-feed-row{ height:48px; min-height:48px; }
 }

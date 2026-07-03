@@ -954,17 +954,20 @@ async function loadTopSupporters() {
         }
 
         const medals = ['🥇','🥈','🥉'];
+        const tiers  = ['ts-gold','ts-silver','ts-bronze'];
 
         container.innerHTML='';
 
         supporters.forEach((s,index)=>{
 
             container.innerHTML += `
-            <div class="supporter-card ${index===0?'first':''}">
-                <div class="supporter-medal">${medals[index]}</div>
-                <div class="supporter-name">${s.name}</div>
-                <div class="supporter-amount">$${s.amount}</div>
-                ${s.message?`<div class="supporter-message">${s.message}</div>`:''}
+            <div class="ts-row ${tiers[index] || ''}">
+                <div class="ts-medal">${medals[index]}</div>
+                <div class="ts-info">
+                    <div class="ts-name">${s.name}</div>
+                    ${s.message?`<div class="ts-message">${s.message}</div>`:''}
+                </div>
+                <div class="ts-amount">$${s.amount}</div>
             </div>`;
         });
 
@@ -994,7 +997,8 @@ const liveFeedViewport = document.getElementById('live-feed-viewport');
 const liveFeedTrack    = document.getElementById('live-feed-track');
 
 let liveFeedItems      = [];
-let liveFeedRowHeight  = 60;
+let liveFeedSignature  = '';
+let liveFeedRowHeight  = 52;
 let liveFeedIndex      = 0;
 let liveFeedRotateTimer  = null;
 let liveFeedRefreshTimer = null;
@@ -1105,7 +1109,15 @@ async function loadLiveFeed() {
     if (!res.ok) return;
 
     const supporters = await res.json();
-    liveFeedItems = Array.isArray(supporters) ? supporters : [];
+    const list = Array.isArray(supporters) ? supporters : [];
+
+    // Avoid tearing down/rebuilding the ticker (and interrupting its
+    // scroll animation) when a poll returns the exact same data.
+    const signature = list.map(s => s.id + ':' + s.amount + ':' + s.show_name).join('|');
+    if (signature === liveFeedSignature && liveFeedTrack.children.length) return;
+    liveFeedSignature = signature;
+
+    liveFeedItems = list;
     renderLiveFeedTrack();
   } catch (err) {
     console.error(err);
