@@ -791,6 +791,7 @@ ${app.username ? `<span class="card-code"${cardComingSoon ? ' style="position:re
         try {
           await capturePayPalOrder(data.orderID);
 		  await loadTopSupporters();
+          await loadLiveFeed();
           closeSupporterForm();
           resetForm();
         } catch (err) {
@@ -974,5 +975,151 @@ async function loadTopSupporters() {
 }
 
 loadTopSupporters();
+
+/* ===========================
+   LIVE SUPPORT FEED
+   Reads the latest paid, publicly-shown supporters from Supabase,
+   shows 5 at a time in a vertical ticker that auto-advances every
+   3s and loops seamlessly. Refreshes every 15s and right after a
+   successful PayPal capture (see onApprove above). Does not touch
+   any PayPal logic.
+=========================== */
+
+const LIVE_FEED_FETCH_LIMIT = 20;
+const LIVE_FEED_VISIBLE     = 5;
+const LIVE_FEED_ROTATE_MS   = 3000;
+const LIVE_FEED_REFRESH_MS  = 15000;
+
+const liveFeedViewport = document.getElementById('live-feed-viewport');
+const liveFeedTrack    = document.getElementById('live-feed-track');
+
+let liveFeedItems      = [];
+let liveFeedRowHeight  = 60;
+let liveFeedIndex      = 0;
+let liveFeedRotateTimer  = null;
+let liveFeedRefreshTimer = null;
+
+function liveFeedInitial(name) {
+  const trimmed = (name || '').trim();
+  return trimmed ? trimmed.charAt(0).toUpperCase() : '💛';
+}
+
+function liveFeedEscape(str) {
+  const div = document.createElement('div');
+  div.textContent = str == null ? '' : String(str);
+  return div.innerHTML;
+}
+
+function buildLiveFeedRow(s) {
+  const row = document.createElement('div');
+  row.className = 'live-feed-row';
+  row.innerHTML = `
+    <div class="live-feed-avatar">${liveFeedEscape(liveFeedInitial(s.name))}</div>
+    <div class="live-feed-info">
+      <div class="live-feed-name-row">
+        <span class="live-feed-name">${liveFeedEscape(s.name || 'Anonymous')}</span>
+        <span class="live-feed-amount">$${liveFeedEscape(s.amount)}</span>
+      </div>
+      ${s.message ? `<div class="live-feed-message">${liveFeedEscape(s.message)}</div>` : ''}
+    </div>
+  `;
+  return row;
+}
+
+function stopLiveFeedTicker() {
+  if (liveFeedRotateTimer) {
+    clearInterval(liveFeedRotateTimer);
+    liveFeedRotateTimer = null;
+  }
+}
+
+function renderLiveFeedTrack() {
+  if (!liveFeedTrack) return;
+  stopLiveFeedTicker();
+  liveFeedTrack.style.transition = 'none';
+  liveFeedTrack.style.transform  = 'translateY(0)';
+  liveFeedTrack.innerHTML = '';
+  liveFeedIndex = 0;
+
+  if (liveFeedItems.length === 0) {
+    liveFeedTrack.innerHTML = '<div class="live-feed-empty">🔥 No support activity yet — be the first!</div>';
+    return;
+  }
+
+  // Duplicate the list so we can scroll continuously and reset
+  // seamlessly once we've scrolled through one full copy.
+  const doubled = liveFeedItems.concat(liveFeedItems);
+  doubled.forEach(s => liveFeedTrack.appendChild(buildLiveFeedRow(s)));
+
+  const firstRow = liveFeedTrack.querySelector('.live-feed-row');
+  if (firstRow) liveFeedRowHeight = firstRow.offsetHeight;
+
+  if (liveFeedItems.length > LIVE_FEED_VISIBLE) {
+    startLiveFeedTicker();
+  }
+}
+
+function startLiveFeedTicker() {
+  stopLiveFeedTicker();
+  liveFeedRotateTimer = setInterval(() => {
+    if (!liveFeedTrack || liveFeedItems.length === 0) return;
+
+    liveFeedIndex += 1;
+    liveFeedTrack.style.transition = 'transform .6s cubic-bezier(.4,0,.2,1)';
+    liveFeedTrack.style.transform  = `translateY(-${liveFeedIndex * liveFeedRowHeight}px)`;
+
+    if (liveFeedIndex >= liveFeedItems.length) {
+      // Once the transition finishes, jump back to the start
+      // instantly (no transition) — the duplicated list makes this
+      // invisible to the viewer, producing an infinite loop.
+      const onDone = () => {
+        liveFeedTrack.removeEventListener('transitionend', onDone);
+        liveFeedTrack.style.transition = 'none';
+        liveFeedTrack.style.transform  = 'translateY(0)';
+        liveFeedIndex = 0;
+      };
+      liveFeedTrack.addEventListener('transitionend', onDone);
+    }
+  }, LIVE_FEED_ROTATE_MS);
+}
+
+async function loadLiveFeed() {
+  if (!liveFeedTrack) return;
+
+  try {
+    const res = await fetch(
+      TABLE_ENDPOINT +
+      '?select=id,name,amount,message,created_at' +
+      '&status=eq.paid' +
+      '&show_name=eq.true' +
+      '&order=created_at.desc' +
+      '&limit=' + LIVE_FEED_FETCH_LIMIT,
+      {
+        headers: {
+          apikey: SUPABASE_ANON,
+          Authorization: 'Bearer ' + SUPABASE_ANON,
+        },
+      }
+    );
+
+    if (!res.ok) return;
+
+    const supporters = await res.json();
+    liveFeedItems = Array.isArray(supporters) ? supporters : [];
+    renderLiveFeedTrack();
+  } catch (err) {
+    console.error(err);
+  }
+}
+
+function startLiveFeedAutoRefresh() {
+  if (liveFeedRefreshTimer) clearInterval(liveFeedRefreshTimer);
+  liveFeedRefreshTimer = setInterval(loadLiveFeed, LIVE_FEED_REFRESH_MS);
+}
+
+if (liveFeedTrack) {
+  loadLiveFeed();
+  startLiveFeedAutoRefresh();
+}
 
 })();
