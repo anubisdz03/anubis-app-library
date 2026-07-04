@@ -1135,3 +1135,67 @@ if (liveFeedTrack) {
 }
 
 })();
+
+/* ============================================================
+   GOOGLE ANALYTICS — EVENT TRACKING (additive only)
+   Purely observational click tracking layered on top of the
+   existing buttons/links. Does not alter any existing behavior,
+   navigation, or logic. Fails silently if gtag is unavailable.
+============================================================ */
+(function () {
+  'use strict';
+
+  function trackEvent(eventName, params) {
+    try {
+      if (typeof gtag === 'function') {
+        gtag('event', eventName, params || {});
+      }
+    } catch (err) {
+      // fail silently
+    }
+  }
+
+  // ---- App Download buttons (modal) ----
+  var modalDownloadBtn = document.getElementById('modal-download');
+  var modalTitleEl     = document.getElementById('modal-title');
+  if (modalDownloadBtn) {
+    modalDownloadBtn.addEventListener('click', function () {
+      if (modalDownloadBtn.dataset.comingSoon === 'true') return;
+      var appName = modalTitleEl ? modalTitleEl.textContent : '';
+      trackEvent('download_app', { app_name: appName });
+    });
+  }
+
+  // ---- Support Project button ----
+  var supportBtn = document.getElementById('banner-btn');
+  if (supportBtn) {
+    supportBtn.addEventListener('click', function () {
+      trackEvent('support_click');
+    });
+  }
+
+  // ---- Telegram button ----
+  var telegramBtn = document.querySelector('.social-btn.telegram');
+  if (telegramBtn) {
+    telegramBtn.addEventListener('click', function () {
+      trackEvent('telegram_click');
+    });
+  }
+
+  // ---- Facebook button ----
+  var facebookBtn = document.querySelector('.social-btn.facebook');
+  if (facebookBtn) {
+    facebookBtn.addEventListener('click', function () {
+      trackEvent('facebook_click');
+    });
+  }
+
+  // ---- YouTube button ----
+  var youtubeBtn = document.querySelector('.social-btn.youtube');
+  if (youtubeBtn) {
+    youtubeBtn.addEventListener('click', function () {
+      trackEvent('youtube_click');
+    });
+  }
+
+})();
