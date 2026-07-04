@@ -690,28 +690,11 @@ ${app.username ? `<span class="card-code"${cardComingSoon ? ' style="position:re
     }
   }
 
-  /* ---- Step 6: attach the PayPal order id to the pending supporter row ---- */
-  async function attachPayPalOrderId(supporterId, orderId) {
-    try {
-      const res = await fetch(TABLE_ENDPOINT + '?id=eq.' + encodeURIComponent(supporterId), {
-        method:  'PATCH',
-        headers: {
-          'Content-Type':  'application/json',
-          'apikey':        SUPABASE_ANON,
-          'Authorization': 'Bearer ' + SUPABASE_ANON,
-          'Prefer':        'return=minimal',
-        },
-        body: JSON.stringify({ paypal_order_id: orderId }),
-      });
-      return res.ok;
-    } catch (err) {
-      console.warn('Supabase order-id update failed:', err);
-      return false;
-    }
-  }
-
-  /* ---- Step 4/5: create the PayPal order via the create-order Edge Function ---- */
-  async function createPayPalOrder(amount) {
+  /* ---- Step 4/5: create the PayPal order via the create-order Edge Function.
+     The Edge Function itself attaches the resulting order id to the
+     pending supporter row server-side — the browser never PATCHes
+     the supporters table directly. ---- */
+  async function createPayPalOrder(amount, supporterId) {
     const res  = await fetch(CREATE_ORDER_ENDPOINT, {
       method:  'POST',
       headers: {
@@ -719,7 +702,7 @@ ${app.username ? `<span class="card-code"${cardComingSoon ? ' style="position:re
         'apikey':        SUPABASE_ANON,
         'Authorization': 'Bearer ' + SUPABASE_ANON,
       },
-      body:    JSON.stringify({ amount: amount }),
+      body:    JSON.stringify({ amount: amount, supporterId: supporterId }),
     });
     const data = await res.json();
     if (!res.ok || !data.id) {
@@ -856,27 +839,18 @@ ${app.username ? `<span class="card-code"${cardComingSoon ? ' style="position:re
     }
     currentSupporterId = supporter.id;
 
-    /* Step 4/5: create the PayPal order and get its order id */
+    /* Step 4/5: create the PayPal order and get its order id.
+       The create-order Edge Function attaches the order id to the
+       pending supporter row itself before returning. */
     if (submitLabel) submitLabel.textContent = 'Preparing PayPal…';
     let orderId;
     try {
-      orderId = await createPayPalOrder(amount);
+      orderId = await createPayPalOrder(amount, currentSupporterId);
     } catch (err) {
       console.error('create-order failed:', err);
       if (submitBtn)   submitBtn.disabled = false;
       if (submitLabel) submitLabel.textContent = '❤️ Continue to PayPal';
       alert('Could not start the PayPal checkout. Please try again.');
-      return;
-    }
-
-    /* Step 6: attach the order id to the pending supporter row.
-       This must succeed before we show the PayPal Buttons — otherwise
-       capture-order won't be able to find the matching supporter row. */
-    const attached = await attachPayPalOrderId(currentSupporterId, orderId);
-    if (!attached) {
-      if (submitBtn)   submitBtn.disabled = false;
-      if (submitLabel) submitLabel.textContent = '❤️ Continue to PayPal';
-      alert('Could not prepare your donation record. Please try again.');
       return;
     }
 
