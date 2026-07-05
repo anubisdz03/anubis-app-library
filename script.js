@@ -110,16 +110,27 @@ ${app.username ? `<span class="card-code"${cardComingSoon ? ' style="position:re
   ============================================================ */
   const searchInput = document.getElementById('search-input');
   const searchClear = document.getElementById('search-clear');
+  const categoryFilter = document.getElementById('category-filter');
 
   let searchDebounceTimer = null;
+  let currentCategory = 'all';
 
   function runSearch() {
     const q = searchInput.value.trim().toLowerCase();
     searchClear.classList.toggle('visible', q.length > 0);
-    const filtered = q
-      ? APPS.filter(a => a.name.toLowerCase().includes(q))
-      : APPS;
+    let filtered = currentCategory === 'all'
+      ? APPS
+      : APPS.filter(a => (a.category || '').toLowerCase() === currentCategory.toLowerCase());
+    if (q) {
+      filtered = filtered.filter(a => a.name.toLowerCase().includes(q));
+    }
     renderCards(filtered);
+    const noResultsMsg = noResults.querySelector('p');
+    if (noResultsMsg) {
+      noResultsMsg.textContent = (filtered.length === 0 && currentCategory !== 'all' && !q)
+        ? 'No apps available in this category.'
+        : 'No apps match your search. Try a different keyword.';
+    }
   }
 
   searchInput.addEventListener('input', () => {
@@ -130,9 +141,16 @@ ${app.username ? `<span class="card-code"${cardComingSoon ? ' style="position:re
   searchClear.addEventListener('click', () => {
     searchInput.value = '';
     searchClear.classList.remove('visible');
-    renderCards(APPS);
+    runSearch();
     searchInput.focus();
   });
+
+  if (categoryFilter) {
+    categoryFilter.addEventListener('change', () => {
+      currentCategory = categoryFilter.value;
+      runSearch();
+    });
+  }
 
   /* ============================================================
      APP MODAL — open / close / copy logic

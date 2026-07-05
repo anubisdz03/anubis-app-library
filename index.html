@@ -20,6 +20,61 @@
     gtag('js', new Date());
     gtag('config', 'G-XM2WFCYW40');
   </script>
+
+  <!-- Category filter dropdown styles (scoped to .category-filter-*) -->
+  <style>
+    .section-heading{flex-wrap:wrap;row-gap:10px;}
+    .category-filter-wrap{
+      display:flex;
+      align-items:center;
+      gap:8px;
+      margin-left:auto;
+    }
+    .category-filter-label{
+      font-size:0.85rem;
+      color:rgba(255,255,255,0.6);
+      white-space:nowrap;
+      user-select:none;
+    }
+    .category-filter-select{
+      appearance:none;
+      -webkit-appearance:none;
+      -moz-appearance:none;
+      background:rgba(255,255,255,0.06);
+      backdrop-filter:blur(10px);
+      -webkit-backdrop-filter:blur(10px);
+      border:1px solid rgba(255,255,255,0.12);
+      color:#f2f2f7;
+      font-size:0.85rem;
+      font-family:inherit;
+      padding:8px 32px 8px 14px;
+      border-radius:14px;
+      cursor:pointer;
+      outline:none;
+      background-image:url("data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23f5c842' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+      background-repeat:no-repeat;
+      background-position:right 10px center;
+      background-size:14px;
+      transition:background-color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+    .category-filter-select:hover,
+    .category-filter-select:focus{
+      background-color:rgba(255,255,255,0.1);
+      border-color:rgba(245,200,66,0.5);
+      box-shadow:0 0 0 3px rgba(245,200,66,0.12);
+    }
+    .category-filter-select option{
+      background:#14121f;
+      color:#f2f2f7;
+    }
+    @media (max-width:600px){
+      .category-filter-wrap{
+        width:100%;
+        margin-left:0;
+        justify-content:flex-end;
+      }
+    }
+  </style>
 </head>
 <body>
 
@@ -159,6 +214,17 @@
   <div class="section-heading">
     <h2>All Apps</h2>
     <span class="pill-count" id="count-pill">0 apps</span>
+    <div class="category-filter-wrap">
+      <label class="category-filter-label" for="category-filter">Filter Apps ▾</label>
+      <select id="category-filter" class="category-filter-select" aria-label="Filter apps by category">
+        <option value="all">⭐ All Apps</option>
+        <option value="Live TV">📺 Live TV</option>
+        <option value="Movies & Series">🎬 Movies &amp; Series</option>
+        <option value="Music">🎵 Music</option>
+        <option value="PC Software">💻 PC Software</option>
+        <option value="Android Apps">📱 Android Apps</option>
+      </select>
+    </div>
   </div>
 
   <!-- ===== NO RESULTS ===== -->
