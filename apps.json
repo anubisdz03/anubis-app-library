@@ -42,6 +42,20 @@
     "activated": true
   },
   {
+  "name": "🆕 YASSIN TV GOLD",
+  "icon": "images/yassin-tv-gold.png",
+  "color": "#0d2240",
+  "url": "https://devuploads.com/23y9iazyqagj",
+  "badge": "new",
+  "bg": "linear-gradient(135deg,#0d2240,#1a4a8a)",
+  "category": "Live TV",
+  "version": "3.1",
+  "size": "9.9 MB",
+  "developer": "ANUBIS by B.Nacereddine",
+  "updated": "05 Jul 2026",
+  "activated": true
+},
+  {
     "name": "🆕 MATA TV",
     "icon": "images/matatv.png",
     "color": "#0d2240",
