@@ -681,13 +681,19 @@
     "bg": "linear-gradient(135deg,#203020,#4caf50)"
   },
   {
-    "name": "⭐ ABDO TV",
-    "icon": "images/abdo-tv.png",
-    "color": "#302010",
-    "url": "#",
-    "badge": "live",
-    "bg": "linear-gradient(135deg,#302010,#d18b00)"
-  },
+  "name": "⭐ ABDO TV",
+  "icon": "images/abdo-tv.png",
+  "color": "#0d2240",
+  "url": "https://devuploads.com/79oomasgbxce",
+  "badge": "hot",
+  "bg": "linear-gradient(135deg,#0d2240,#1a4a8a)",
+  "category": "Live TV",
+  "version": "2.0",
+  "size": "4.6 MB",
+  "developer": "ANUBIS by B.Nacereddine",
+  "updated": "05 Jul 2026",
+  "activated": true
+},
   {
     "name": "💠 MAGICO OTT",
     "icon": "images/magico-ott.png",
