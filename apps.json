@@ -1,5 +1,19 @@
 [
    {
+  "name": "🐍 COBRA KING PRO",
+  "icon": "images/cobra-king-pro.png",
+  "color": "#102010",
+  "url": "https://devuploads.com/4shk1wt9vq7w",
+  "badge": "hot",
+  "bg": "linear-gradient(135deg,#102010,#2d8a38)",
+  "category": "Live TV",
+  "version": "3.4",
+  "size": "68.1 MB",
+  "developer": "ANUBIS by B.Nacereddine",
+  "updated": "05 Jul 2026",
+  "activated": true
+},
+   {
   "name": "👑 AL BASHA TV",
   "icon": "images/al-basha-tv.png",
   "color": "#3a2500",
@@ -363,14 +377,6 @@
     "url": "#",
     "badge": "live",
     "bg": "linear-gradient(135deg,#201030,#6c42b8)"
-  },
-  {
-    "name": "🐍 COBRA KING PRO",
-    "icon": "images/cobra-king-pro.png",
-    "color": "#102010",
-    "url": "#",
-    "badge": "live",
-    "bg": "linear-gradient(135deg,#102010,#2d8a38)"
   },
   {
     "name": "📺 DAX TV",
