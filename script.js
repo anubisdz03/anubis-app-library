@@ -593,8 +593,8 @@ ${app.username ? `<span class="card-code"${cardComingSoon ? ' style="position:re
 
   const SUPABASE_URL     = 'https://ypszdzznqaizopfulioa.supabase.co';
   const SUPABASE_ANON = 'sb_publishable_EKEuf19RbGaaQ_xjN9VmhA_mkOY9t2q';
-  const TABLE_ENDPOINT   = SUPABASE_URL + '/rest/v1/supporters';
-  const CREATE_ORDER_ENDPOINT  = SUPABASE_URL + '/functions/v1/create-order';
+const TABLE_ENDPOINT = SUPABASE_URL + '/rest/v1/public_supporters';
+const CREATE_ORDER_ENDPOINT  = SUPABASE_URL + '/functions/v1/create-order';
   const CAPTURE_ORDER_ENDPOINT = SUPABASE_URL + '/functions/v1/capture-order';
 
   const bannerBtn        = document.getElementById('banner-btn');
