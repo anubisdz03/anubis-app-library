@@ -1,5 +1,19 @@
 [
    {
+  "name": "👑 AL BASHA TV",
+  "icon": "images/al-basha-tv.png",
+  "color": "#3a2500",
+  "url": "https://devuploads.com/bq7j9g7bxrfs",
+  "badge": "hot",
+  "bg": "linear-gradient(135deg,#3a2500,#d4af37)",
+  "category": "Live TV",
+  "version": "2.1",
+  "size": "15.4 MB",
+  "developer": "ANUBIS by B.Nacereddine",
+  "updated": "05 Jul 2026",
+  "activated": true
+},
+   {
   "name": "⭐ ABDO TV",
   "icon": "images/abdo-tv.png",
   "color": "#0d2240",
@@ -661,14 +675,6 @@
     "url": "#",
     "badge": "live",
     "bg": "linear-gradient(135deg,#2a1020,#b03b6a)"
-  },
-  {
-    "name": "👑 AL BASHA TV",
-    "icon": "images/al-basha-tv.png",
-    "color": "#3a2500",
-    "url": "#",
-    "badge": "live",
-    "bg": "linear-gradient(135deg,#3a2500,#d4af37)"
   },
   {
     "name": "💎 CAST X TV PLUS",
