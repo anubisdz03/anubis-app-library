@@ -28,6 +28,20 @@
   "activated": true
 },
   {
+  "name": "🆕 MAJED KOORA",
+  "icon": "images/majedkoora.png",
+  "color": "#0d2240",
+  "url": "https://devuploads.com/i4llnbifughl",
+  "badge": "new",
+  "bg": "linear-gradient(135deg,#0d2240,#1a4a8a)",
+  "category": "Live TV",
+  "version": "2.0",
+  "size": "11.3 MB",
+  "developer": "ANUBIS by B.Nacereddine",
+  "updated": "05 Jul 2026",
+  "activated": true
+},
+  {
   "name": "🆕 MATA TV",
   "icon": "images/matatv.png",
   "color": "#0d2240",
