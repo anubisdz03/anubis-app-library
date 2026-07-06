@@ -1,5 +1,19 @@
 [
   {
+  "name": "📺 LOOK 4K",
+  "icon": "images/look-4k.png",
+  "color": "#0d2240",
+  "url": "https://devuploads.com/j13em1m2wduz",
+  "badge": "live",
+  "bg": "linear-gradient(135deg,#0d2240,#1a4a8a)",
+  "category": "Live TV",
+  "version": "2.0",
+  "size": "77.5 MB",
+  "developer": "ANUBIS by B.Nacereddine",
+  "updated": "07 Jul 2026",
+  "activated": true
+},
+  {
   "name": "📺 NETFLY TV VIP",
   "icon": "images/netflytv_vip_tv.png",
   "color": "#0d2240",
@@ -357,14 +371,6 @@
     "url": "#",
     "badge": "live",
     "bg": "linear-gradient(135deg,#1a0800,#803000)"
-  },
-  {
-    "name": "💎 LOOK 4K",
-    "icon": "images/look-4k.png",
-    "color": "#001a1a",
-    "url": "#",
-    "badge": "live",
-    "bg": "linear-gradient(135deg,#001a1a,#006060)"
   },
   {
     "name": "🛡️ CASPER PRO TV",
