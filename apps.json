@@ -1,5 +1,19 @@
 [
   {
+  "name": "📺 REMO",
+  "icon": "images/remo.png",
+  "color": "#c62828",
+  "url": "https://devuploads.com/3i74jgftk26h",
+  "badge": "hot",
+  "bg": "linear-gradient(135deg,#c62828,#ff7043)",
+  "category": "Live TV",
+  "version": "2.0",
+  "size": "26.3 MB",
+  "developer": "ANUBIS by B.Nacereddine",
+  "updated": "07 Jul 2026",
+  "activated": true
+}
+  {
   "name": "📺 LOOK 4K",
   "icon": "images/look-4k.png",
   "color": "#0d2240",
