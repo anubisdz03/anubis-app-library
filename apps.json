@@ -1,5 +1,16 @@
 [
   {
+  "name": "💠 DELUX IPTV",
+  "icon": "images/delux-iptv.png",
+  "color": "#203030",
+  "url": "https://devuploads.com/p2sq3enywm9z",
+  "badge": "hot",
+  "bg": "linear-gradient(135deg,#203030,#2b8f8f)",
+  "category": "Live TV",
+  "version": "3.1",
+  "size": "31.7 MB"
+},
+  {
   "name": "📺 AHMED TV",
   "icon": "images/ahmed-tv.png",
   "color": "#c62828",
@@ -495,14 +506,6 @@
     "url": "#",
     "badge": "live",
     "bg": "linear-gradient(135deg,#202040,#5555cc)"
-  },
-  {
-    "name": "💠 DELUX IPTV",
-    "icon": "images/delux-iptv.png",
-    "color": "#203030",
-    "url": "#",
-    "badge": "live",
-    "bg": "linear-gradient(135deg,#203030,#2b8f8f)"
   },
   {
     "name": "❌ XOVER TV",
