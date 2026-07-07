@@ -1,5 +1,19 @@
 [
   {
+  "name": "⚽ ELMOSTADIRA TV",
+  "icon": "images/elmostadira-tv.png",
+  "color": "#2e7d32",
+  "url": "https://devuploads.com/4ip3dwduia0m",
+  "badge": "hot",
+  "bg": "linear-gradient(135deg,#2e7d32,#66bb6a)",
+  "category": "Live TV",
+  "version": "8.0",
+  "size": "25.3 MB",
+  "developer": "ANUBIS by B.Nacereddine",
+  "updated": "07 Jul 2026",
+  "activated": true
+},
+  {
   "name": "💠 DELUX IPTV",
   "icon": "images/delux-iptv.png",
   "color": "#203030",
