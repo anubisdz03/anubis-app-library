@@ -1,0 +1,12 @@
+{
+  "version": "1.0.0",
+  "build": 1,
+  "apk": "https://example.com/app-release.apk",
+  "force": false,
+  "title": "Update Available",
+  "message": "A new version of ANUBIS APP LIBRARY is available.",
+  "changelog": [
+    "Performance improvements",
+    "Bug fixes"
+  ]
+}
