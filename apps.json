@@ -393,14 +393,6 @@
     "activated": true
   },
   {
-    "name": "👑 AHMED TV",
-    "icon": "images/ahmed-tv.png",
-    "color": "#1a0800",
-    "url": "#",
-    "badge": "live",
-    "bg": "linear-gradient(135deg,#1a0800,#803000)"
-  },
-  {
     "name": "🛡️ CASPER PRO TV",
     "icon": "images/casper-pro-tv.png",
     "color": "#102030",
