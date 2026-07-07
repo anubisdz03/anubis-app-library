@@ -1,5 +1,19 @@
 [
   {
+  "name": "📺 AHMED TV",
+  "icon": "images/ahmed-tv.png",
+  "color": "#c62828",
+  "url": "https://devuploads.com/06op214yl2t3",
+  "badge": "hot",
+  "bg": "linear-gradient(135deg,#c62828,#ff7043)",
+  "category": "Live TV",
+  "version": "1.5",
+  "size": "26.2 MB",
+  "developer": "ANUBIS by B.Nacereddine",
+  "updated": "07 Jul 2026",
+  "activated": true
+},
+  {
   "name": "📺 REMO",
   "icon": "images/remo.png",
   "color": "#c62828",
