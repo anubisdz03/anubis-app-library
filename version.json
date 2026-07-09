@@ -6,8 +6,13 @@
   "title": "Update Available",
   "message": "A new version of ANUBIS APP LIBRARY is available.",
   "changelog": [
-    "Fixed app ordering to match apps.json",
-    "Performance improvements",
-    "Bug fixes"
+    "Improved app ordering",
+    "تحسين ترتيب عرض التطبيقات",
+
+    "Better loading performance",
+    "تحسين سرعة التطبيق",
+
+    "General bug fixes and stability improvements",
+    "إصلاحات عامة وتحسين استقرار التطبيق"
   ]
 }
