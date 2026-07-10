@@ -1,27 +1,18 @@
 {
-  "version": "1.0.4",
-  "build": 4,
-  "apk": "https://github.com/anubisdz03/anubis-app-library/releases/download/v1.0.4/Anubis_App_Library_v1.0.4.apk",
+  "version": "1.0.5",
+  "build": 5,
+  "apk": "https://github.com/anubisdz03/anubis-app-library/releases/download/v1.0.5/Anubis_App_Library_v1.0.5.apk",
   "force": false,
   "title": "Update Available",
   "message": "A new version of ANUBIS APP LIBRARY is available.",
   "changelog": [
-    "Improved update experience",
-    "تحسين تجربة التحديث",
-
-    "Install button appears after download",
-    "ظهور زر التثبيت بعد اكتمال التحميل",
-
-    "Green INSTALL button after download completion",
-    "تحول زر INSTALL إلى اللون الأخضر بعد انتهاء التحميل",
-
-    "Better app ordering",
-    "تحسين ترتيب عرض التطبيقات",
-
-    "Improved loading performance",
-    "تحسين سرعة وأداء التطبيق",
-
-    "General bug fixes and stability improvements",
-    "إصلاحات عامة وتحسين استقرار التطبيق"
+    "Improved Android TV navigation.",
+    "تحسين تجربة التنقل على أجهزة Android TV.",
+    "Removed the search bar for a smoother TV experience.",
+    "إزالة مربع البحث لتوفير تجربة أكثر سلاسة على أجهزة التلفزيون.",
+    "Improved overall app stability and responsiveness.",
+    "تحسين استقرار التطبيق وسرعة الاستجابة.",
+    "General bug fixes and performance improvements.",
+    "إصلاحات عامة وتحسينات في الأداء."
   ]
 }
