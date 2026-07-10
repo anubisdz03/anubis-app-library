@@ -1,18 +1,20 @@
 {
-  "version": "1.0.5",
-  "build": 5,
-  "apk": "https://github.com/anubisdz03/anubis-app-library/releases/download/v1.0.5/Anubis_App_Library_v1.0.5.apk",
+  "version": "1.0.6",
+  "build": 6,
+  "apk": "https://github.com/anubisdz03/anubis-app-library/releases/download/v1.0.6/Anubis_App_Library_v1.0.6.apk",
   "force": false,
   "title": "Update Available",
   "message": "A new version of ANUBIS APP LIBRARY is available.",
   "changelog": [
-    "Improved Android TV navigation.",
+    "Improved Android TV interface.",
+    "تحسين واجهة Android TV.",
+    "Centered app icons and names on TV.",
+    "توسيط أيقونات التطبيقات وأسمائها على التلفاز.",
+    "Cleaner TV card layout.",
+    "تحسين تصميم بطاقات التطبيقات على التلفاز.",
+    "Improved navigation experience on Android TV.",
     "تحسين تجربة التنقل على أجهزة Android TV.",
-    "Removed the search bar for a smoother TV experience.",
-    "إزالة مربع البحث لتوفير تجربة أكثر سلاسة على أجهزة التلفزيون.",
-    "Improved overall app stability and responsiveness.",
-    "تحسين استقرار التطبيق وسرعة الاستجابة.",
-    "General bug fixes and performance improvements.",
+    "General stability and performance improvements.",
     "إصلاحات عامة وتحسينات في الأداء."
   ]
 }
