@@ -1,6 +1,6 @@
 {
-  "version": "1.0.3",
-  "build": 3,
+  "version": "1.0.4",
+  "build": 4,
   "apk": "https://github.com/anubisdz03/anubis-app-library/releases/download/v1.0.3/Anubis_App_Library_v1.0.3.apk",
   "force": false,
   "title": "Update Available",
