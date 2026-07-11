@@ -6,12 +6,15 @@ document.addEventListener("DOMContentLoaded", () => {
 <div class="welcome-overlay show" id="welcomeOverlay">
   <div class="welcome-box">
 
-    <img src="favicon.png" alt="ANUBIS APP LIBRARY" style="width:90px;height:90px;border-radius:50%;margin-bottom:15px;">
+    <img src="favicon.png" alt="ANUBIS APP LIBRARY"
+         style="width:90px;height:90px;border-radius:50%;margin-bottom:15px;">
 
     <h2>👋 Welcome | مرحبًا بك</h2>
 
     <p>
-      <b>ANUBIS APP LIBRARY</b><br><br>
+      <b>ANUBIS APP LIBRARY</b>
+
+      <br><br>
 
       Your destination for the best entertainment apps for:
 
@@ -24,12 +27,12 @@ document.addEventListener("DOMContentLoaded", () => {
       <br><br>
 
       📺 New apps are added regularly.
-      <br>
+      <br><br>
       🚀 Stay tuned for the latest updates.
 
       <br><br>
 
-      <div id="welcomeCountdown" style="margin-top:15px;font-size:14px;opacity:.8;">
+      <div id="welcomeCountdown" style="font-size:14px;opacity:.8;">
         ⏳ Entering in <span id="countdown">10</span>...
       </div>
 
@@ -39,7 +42,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
       <br><br>
 
-      وجهتك لأفضل التطبيقات الترفيهية لـ
+      وجهتك لأفضل التطبيقات الترفيهية:
 
       <br><br>
 
@@ -50,7 +53,7 @@ document.addEventListener("DOMContentLoaded", () => {
       <br><br>
 
       📺 يتم إضافة تطبيقات جديدة باستمرار.
-      <br>
+      <br><br>
       🚀 تابع آخر التحديثات أولًا بأول.
     </p>
 
@@ -82,13 +85,13 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }, 1000);
 
-  document.getElementById("welcomeClose").onclick = () => {
+  document.getElementById("welcomeClose").addEventListener("click", () => {
     clearInterval(timer);
 
     const overlay = document.getElementById("welcomeOverlay");
     if (overlay) overlay.remove();
 
     localStorage.setItem("anubis_welcome", "1");
-  };
+  });
 
 });
