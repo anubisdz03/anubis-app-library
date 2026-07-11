@@ -1,5 +1,19 @@
 [
   {
+  "name": "🦈 SHARK TV",
+  "icon": "images/shark-tv.png",
+  "color": "#1565c0",
+  "url": "https://devuploads.com/93r77wpav1om",
+  "badge": "new",
+  "bg": "linear-gradient(135deg,#1565c0,#42a5f5)",
+  "category": "Live TV",
+  "version": "2.0",
+  "size": "29 MB",
+  "developer": "ANUBIS by B.Nacereddine",
+  "updated": "11 Jul 2026",
+  "activated": true
+}
+  {
   "name": "⚽ ELMOSTADIRA TV",
   "icon": "images/elmostadira-tv.png",
   "color": "#2e7d32",
