@@ -6,7 +6,7 @@ const html=`
 <div class="welcome-overlay show" id="welcomeOverlay">
 <div class="welcome-box">
 
-
+<img src="favicon.png" alt="ANUBIS APP LIBRARY" style="width:90px;height:90px;border-radius:50%;margin-bottom:15px;">
 <h2>👋 Welcome | مرحبًا بك</h2>
 
 <p>
