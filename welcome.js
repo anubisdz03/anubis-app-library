@@ -65,7 +65,7 @@ document.getElementById("welcomeClose").onclick=()=>{
 document.getElementById("welcomeOverlay").remove();
 localStorage.setItem("anubis_welcome","1");
 };
-  let seconds = 5;
+  let seconds = 10;
 
 const countdown = document.getElementById("countdown");
 
