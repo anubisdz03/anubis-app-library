@@ -12,11 +12,40 @@ const html=`
 <p>
 <b>ANUBIS APP LIBRARY</b><br><br>
 
-🇬🇧 Your destination for the best entertainment apps
-for Android TV & Google TV.
+Your destination for the best entertainment apps for:
+
 <br><br>
-🇸🇦 وجهتك لأفضل التطبيقات الترفيهية
-لأجهزة Android TV و Google TV.
+
+Android TV
+<br>
+Google TV
+
+<br><br>
+
+📺 New apps are added regularly.
+<br>
+🚀 Stay tuned for the latest updates.
+
+<br><br>
+
+━━━━━━━━━━━━━━━━━━━━
+
+<br><br>
+
+وجهتك لأفضل التطبيقات الترفيهية لـ
+
+<br><br>
+
+Android TV
+<br>
+Google TV
+
+<br><br>
+
+📺 يتم إضافة تطبيقات جديدة باستمرار.
+<br>
+🚀 تابع آخر التحديثات أولًا بأول.
+
 </p>
 
 <button class="welcome-btn" id="welcomeClose">
