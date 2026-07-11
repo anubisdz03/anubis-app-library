@@ -611,7 +611,8 @@ ${app.username ? `<span class="card-code"${cardComingSoon ? ' style="position:re
 
   const SUPABASE_URL     = 'https://ypszdzznqaizopfulioa.supabase.co';
   const SUPABASE_ANON = 'sb_publishable_EKEuf19RbGaaQ_xjN9VmhA_mkOY9t2q';
-const TABLE_ENDPOINT = SUPABASE_URL + '/rest/v1/public_supporters';
+const SUPPORTERS_TABLE_ENDPOINT = SUPABASE_URL + '/rest/v1/supporters';
+const PUBLIC_SUPPORTERS_ENDPOINT = SUPABASE_URL + '/rest/v1/public_supporters';
 const CREATE_ORDER_ENDPOINT  = SUPABASE_URL + '/functions/v1/create-order';
   const CAPTURE_ORDER_ENDPOINT = SUPABASE_URL + '/functions/v1/capture-order';
 
@@ -683,7 +684,7 @@ const CREATE_ORDER_ENDPOINT  = SUPABASE_URL + '/functions/v1/create-order';
      Returns the inserted row (with its id) on success, or null on failure. */
   async function saveSupporterPending(name, amount, message, showName) {
     try {
-      const res = await fetch(TABLE_ENDPOINT, {
+      const res = await fetch(SUPPORTERS_TABLE_ENDPOINT, {
         method:  'POST',
         headers: {
           'Content-Type':  'application/json',
@@ -699,7 +700,11 @@ const CREATE_ORDER_ENDPOINT  = SUPABASE_URL + '/functions/v1/create-order';
           status:    'pending',
         }),
       });
-      if (!res.ok) return null;
+      if (!res.ok) {
+        const errorText = await res.text().catch(() => "");
+        console.error("Supabase insert failed:", res.status, errorText);
+        return null;
+      }
       const rows = await res.json();
       return Array.isArray(rows) ? rows[0] : rows;
     } catch (err) {
@@ -915,7 +920,7 @@ async function loadTopSupporters() {
     try {
 
         const res = await fetch(
-            TABLE_ENDPOINT +
+            PUBLIC_SUPPORTERS_ENDPOINT +
             '?select=name,amount,message' +
             '&status=eq.paid' +
             '&show_name=eq.true' +
@@ -1084,7 +1089,7 @@ async function loadLiveFeed() {
 
   try {
     const res = await fetch(
-      TABLE_ENDPOINT +
+      PUBLIC_SUPPORTERS_ENDPOINT +
       '?select=id,name,amount,message,created_at' +
       '&status=eq.paid' +
       '&show_name=eq.true' +
