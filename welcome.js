@@ -1,84 +1,94 @@
 document.addEventListener("DOMContentLoaded", () => {
 
-if(localStorage.getItem("anubis_welcome")) return;
+  if (localStorage.getItem("anubis_welcome")) return;
 
-const html=`
+  const html = `
 <div class="welcome-overlay show" id="welcomeOverlay">
-<div class="welcome-box">
+  <div class="welcome-box">
 
-<img src="favicon.png" alt="ANUBIS APP LIBRARY" style="width:90px;height:90px;border-radius:50%;margin-bottom:15px;">
-<h2>👋 Welcome | مرحبًا بك</h2>
+    <img src="favicon.png" alt="ANUBIS APP LIBRARY" style="width:90px;height:90px;border-radius:50%;margin-bottom:15px;">
 
-<p>
-<b>ANUBIS APP LIBRARY</b><br><br>
+    <h2>👋 Welcome | مرحبًا بك</h2>
 
-Your destination for the best entertainment apps for:
+    <p>
+      <b>ANUBIS APP LIBRARY</b><br><br>
 
-<br><br>
+      Your destination for the best entertainment apps for:
 
-Android TV
-<br>
-Google TV
+      <br><br>
 
-<br><br>
+      Android TV
+      <br>
+      Google TV
 
-📺 New apps are added regularly.
-<br>
-🚀 Stay tuned for the latest updates.
+      <br><br>
 
-<br><br>
+      📺 New apps are added regularly.
+      <br>
+      🚀 Stay tuned for the latest updates.
 
-━━━━━━━━━━━━━━━━━━━━
+      <br><br>
 
-<br><br>
+      <div id="welcomeCountdown" style="margin-top:15px;font-size:14px;opacity:.8;">
+        ⏳ Entering in <span id="countdown">10</span>...
+      </div>
 
-وجهتك لأفضل التطبيقات الترفيهية لـ
+      <br><br>
 
-<br><br>
+      ━━━━━━━━━━━━━━━━━━━━
 
-Android TV
-<br>
-Google TV
+      <br><br>
 
-<br><br>
+      وجهتك لأفضل التطبيقات الترفيهية لـ
 
-📺 يتم إضافة تطبيقات جديدة باستمرار.
-<br>
-🚀 تابع آخر التحديثات أولًا بأول.
+      <br><br>
 
-</p>
+      Android TV
+      <br>
+      Google TV
 
-<button class="welcome-btn" id="welcomeClose">
-🚀 Start Browsing
-</button>
+      <br><br>
 
-<div id="welcomeCountdown" style="margin-top:15px;font-size:14px;opacity:.8;">
-⏳ Entering in <span id="countdown">5</span>...
-</div>
-</div>
+      📺 يتم إضافة تطبيقات جديدة باستمرار.
+      <br>
+      🚀 تابع آخر التحديثات أولًا بأول.
+    </p>
+
+    <button class="welcome-btn" id="welcomeClose">
+      🚀 Start Browsing
+    </button>
+
+  </div>
 </div>
 `;
 
-document.body.insertAdjacentHTML("beforeend",html);
+  document.body.insertAdjacentHTML("beforeend", html);
 
-document.getElementById("welcomeClose").onclick=()=>{
-document.getElementById("welcomeOverlay").remove();
-localStorage.setItem("anubis_welcome","1");
-};
   let seconds = 10;
 
-const countdown = document.getElementById("countdown");
+  const countdown = document.getElementById("countdown");
 
-const timer = setInterval(() => {
-  seconds--;
-  countdown.textContent = seconds;
+  const timer = setInterval(() => {
+    seconds--;
+    countdown.textContent = seconds;
 
-  if (seconds <= 0) {
+    if (seconds <= 0) {
+      clearInterval(timer);
+
+      const overlay = document.getElementById("welcomeOverlay");
+      if (overlay) overlay.remove();
+
+      localStorage.setItem("anubis_welcome", "1");
+    }
+  }, 1000);
+
+  document.getElementById("welcomeClose").onclick = () => {
     clearInterval(timer);
 
-    document.getElementById("welcomeOverlay").remove();
+    const overlay = document.getElementById("welcomeOverlay");
+    if (overlay) overlay.remove();
+
     localStorage.setItem("anubis_welcome", "1");
-  }
-}, 1000);
+  };
 
 });
