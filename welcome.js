@@ -51,6 +51,10 @@ Google TV
 <button class="welcome-btn" id="welcomeClose">
 🚀 Start Browsing
 </button>
+
+<div id="welcomeCountdown" style="margin-top:15px;font-size:14px;opacity:.8;">
+⏳ Entering in <span id="countdown">5</span>...
+</div>
 </div>
 </div>
 `;
@@ -61,5 +65,20 @@ document.getElementById("welcomeClose").onclick=()=>{
 document.getElementById("welcomeOverlay").remove();
 localStorage.setItem("anubis_welcome","1");
 };
+  let seconds = 5;
+
+const countdown = document.getElementById("countdown");
+
+const timer = setInterval(() => {
+  seconds--;
+  countdown.textContent = seconds;
+
+  if (seconds <= 0) {
+    clearInterval(timer);
+
+    document.getElementById("welcomeOverlay").remove();
+    localStorage.setItem("anubis_welcome", "1");
+  }
+}, 1000);
 
 });
