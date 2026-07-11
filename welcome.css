@@ -1,0 +1,52 @@
+.welcome-overlay{
+position:fixed;
+inset:0;
+background:rgba(0,0,0,.75);
+backdrop-filter:blur(8px);
+display:flex;
+justify-content:center;
+align-items:center;
+z-index:999999;
+opacity:0;
+visibility:hidden;
+transition:.35s;
+}
+
+.welcome-overlay.show{
+opacity:1;
+visibility:visible;
+}
+
+.welcome-box{
+width:90%;
+max-width:520px;
+background:#14121f;
+border:1px solid rgba(255,255,255,.1);
+border-radius:24px;
+padding:35px;
+text-align:center;
+box-shadow:0 20px 60px rgba(0,0,0,.45);
+color:#fff;
+}
+
+.welcome-box h2{
+margin:15px 0;
+font-size:28px;
+}
+
+.welcome-box p{
+color:#cfcfcf;
+line-height:1.8;
+}
+
+.welcome-btn{
+display:inline-block;
+margin-top:25px;
+padding:14px 28px;
+background:#f5c842;
+color:#000;
+font-weight:bold;
+border-radius:14px;
+text-decoration:none;
+cursor:pointer;
+}
