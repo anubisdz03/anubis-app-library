@@ -1,4 +1,19 @@
 [
+   {
+    "name": "🚀 AIRMAX TV",
+    "code": "New Code : 7800266028",
+    "icon": "images/airmax.png",
+    "color": "#1a1040",
+    "url": "https://devuploads.com/s4bskrw9gec0",
+    "badge": "live",
+    "bg": "linear-gradient(135deg,#1a1040,#3b1d8a)",
+    "category": "Live TV",
+    "version": "4.2.1",
+    "size": "11.6 MB",
+    "developer": "ANUBIS by B.Nacereddine",
+    "updated": "28 Jun 2026",
+    "activated": true
+  },
   {
   "name": "🎬 MovieBox TV",
   "icon": "images/MovieBoxTV.png",
@@ -330,21 +345,6 @@
     "size": "169.64 MB",
     "developer": "ANUBIS by B.Nacereddine",
     "updated": "30 Jun 2026",
-    "activated": true
-  },
-  {
-    "name": "🚀 AIRMAX TV",
-    "code": "New Code : 1478324505",
-    "icon": "images/airmax.png",
-    "color": "#1a1040",
-    "url": "https://devuploads.com/s4bskrw9gec0",
-    "badge": "live",
-    "bg": "linear-gradient(135deg,#1a1040,#3b1d8a)",
-    "category": "Live TV",
-    "version": "4.2.1",
-    "size": "11.6 MB",
-    "developer": "ANUBIS by B.Nacereddine",
-    "updated": "28 Jun 2026",
     "activated": true
   },
   {
