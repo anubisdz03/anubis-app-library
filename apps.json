@@ -548,14 +548,6 @@
     "bg": "linear-gradient(135deg,#181830,#5656c5)"
   },
   {
-    "name": "🦈 SHARK TV+",
-    "icon": "images/shark-tv.png",
-    "color": "#102535",
-    "url": "#",
-    "badge": "live",
-    "bg": "linear-gradient(135deg,#102535,#1f83b8)"
-  },
-  {
     "name": "📡 TVA TV",
     "icon": "images/tva-tv.png",
     "color": "#202040",
