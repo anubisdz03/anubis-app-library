@@ -1,27 +1,67 @@
-name: Notify Telegram on New YouTube Video
+name: YouTube to Telegram Notifier
+
+# ---------------------------------------------------------------------------
+# Watches a YouTube channel's RSS feed and posts a Telegram message whenever
+# a NEW video is published. Runs on a schedule and can also be triggered
+# manually from the Actions tab.
+#
+# Required repository secrets (already configured per project requirements):
+#   - TELEGRAM_BOT_TOKEN
+#   - TELEGRAM_CHAT_ID
+#
+# This workflow only touches:
+#   - .github/scripts/youtube_notify.js   (executed)
+#   - .github/state/last_video.json       (created/updated automatically to
+#                                           remember the last posted video)
+# It does not read, build, or deploy any part of the website.
+# ---------------------------------------------------------------------------
 
 on:
   schedule:
-    - cron: "*/30 * * * *"
-  workflow_dispatch:
+    # Every 30 minutes.
+    - cron: '*/30 * * * *'
+  workflow_dispatch: {}
+    # Allows manual "Run workflow" execution from the GitHub Actions UI.
+
+# Needed so the job can commit the updated "last posted video" state file
+# back to the repository using the automatically-provided GITHUB_TOKEN.
+permissions:
+  contents: write
+
+# Prevents two overlapping runs from racing to update/commit the same
+# state file (e.g. a manual run firing while the scheduled run is active).
+concurrency:
+  group: youtube-notify
+  cancel-in-progress: false
 
 jobs:
-  youtube:
+  check-and-notify:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout
+      - name: Checkout repository
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          persist-credentials: true
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: '20'
 
+      # No project-wide package.json is touched/created. The one small
+      # dependency (RSS parsing) is installed on the fly, isolated to this
+      # job's runner, and is not saved into any manifest file.
       - name: Install dependencies
-        run: npm install rss-parser node-fetch
+        run: npm install rss-parser@3.13.0 --no-save --no-audit --no-fund
 
-      - name: Run YouTube notifier
+      # The script itself (youtube_notify.js) writes .github/state/last_video.json
+      # and then commits + pushes it back to the repository via
+      # child_process.execSync, using the "contents: write" permission granted
+      # to the default GITHUB_TOKEN above. No separate workflow-level commit
+      # step is needed.
+      - name: Run YouTube -> Telegram check
         env:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
