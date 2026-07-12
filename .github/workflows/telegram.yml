@@ -1,11 +1,7 @@
 name: Notify Telegram on New App
 
 on:
-  push:
-    branches:
-      - main
-    paths:
-      - 'apps.json'
+  workflow_dispatch:
 
 jobs:
   notify:
