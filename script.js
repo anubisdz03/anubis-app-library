@@ -455,7 +455,7 @@ ${app.username ? `<span class="card-code"${cardComingSoon ? ' style="position:re
     try {
       const res = await fetch('apps.json', { cache: 'no-cache' });
       if (!res.ok) throw new Error(`HTTP ${res.status}`);
-      APPS = await res.json();
+      APPS = (await res.json()).filter(app => app.activated !== false);
     } catch (err) {
       console.error('Failed to load apps.json:', err);
       APPS = [];
