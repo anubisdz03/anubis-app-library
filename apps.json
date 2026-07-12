@@ -1,5 +1,75 @@
 [
   {
+  "name": "🎬 MovieBox TV",
+  "icon": "images/MovieBoxTV.png",
+  "color": "#8e24aa",
+  "url": "https://devuploads.com/88bqc1qxy312",
+  "badge": "new",
+  "bg": "linear-gradient(135deg,#8e24aa,#d81b60)",
+  "category": "Movies & Series",
+  "version": "1.1",
+  "size": "30.3 MB",
+  "developer": "ANUBIS by B.Nacereddine",
+  "updated": "12 Jul 2026",
+  "activated": true
+},
+  {
+  "name": "📺 ATLAS PRO",
+  "icon": "images/ATLAS_PRO.png",
+  "color": "#1b5e20",
+  "url": "https://devuploads.com/8j5vxqwj17z5",
+  "badge": "new",
+  "bg": "linear-gradient(135deg,#1b5e20,#43a047)",
+  "category": "Live TV",
+  "version": "3.0",
+  "size": "29.1 MB",
+  "developer": "ANUBIS by B.Nacereddine",
+  "updated": "12 Jul 2026",
+  "activated": true
+},
+  {
+  "name": "📺 RB TV",
+  "icon": "images/RBTV.png",
+  "color": "#f4b400",
+  "url": "https://devuploads.com/mldzbdge294w",
+  "badge": "new",
+  "bg": "linear-gradient(135deg,#f4b400,#ffcc33)",
+  "category": "Live TV",
+  "version": "3.0",
+  "size": "24.2 MB",
+  "developer": "ANUBIS by B.Nacereddine",
+  "updated": "12 Jul 2026",
+  "activated": true
+},
+  {
+  "name": "📺 SPORT2YOU",
+  "icon": "images/sport2you.png",
+  "color": "#1e88e5",
+  "url": "https://devuploads.com/lxcdym37g2xs",
+  "badge": "new",
+  "bg": "linear-gradient(135deg,#1e88e5,#00c853)",
+  "category": "Live TV",
+  "version": "4.0",
+  "size": "28.5 MB",
+  "developer": "ANUBIS by B.Nacereddine",
+  "updated": "12 Jul 2026",
+  "activated": true
+},
+  {
+  "name": "📺 exoTV",
+  "icon": "images/exoTV.png",
+  "color": "#0d2240",
+  "url": "https://devuploads.com/aw09dj7a0rbc",
+  "badge": "new",
+  "bg": "linear-gradient(135deg,#0d2240,#1a4a8a)",
+  "category": "Live TV",
+  "version": "4.0",
+  "size": "61.4 MB",
+  "developer": "ANUBIS by B.Nacereddine",
+  "updated": "12 Jul 2026",
+  "activated": true
+},
+  {
   "name": "📺 OZ LIVE TV",
   "icon": "images/OzTV_3.5.8_.png",
   "color": "#8e24aa",
@@ -530,14 +600,6 @@
     "url": "#",
     "badge": "live",
     "bg": "linear-gradient(135deg,#2b102b,#8a3b8a)"
-  },
-  {
-    "name": "⚽ SPORT2YOU",
-    "icon": "images/sport2you.png",
-    "color": "#102030",
-    "url": "#",
-    "badge": "live",
-    "bg": "linear-gradient(135deg,#102030,#2a7db5)"
   },
   {
     "name": "🌙 LOUNA TV",
