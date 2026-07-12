@@ -35,6 +35,7 @@
 
 const fs = require('fs');
 const path = require('path');
+const { execSync } = require('child_process');
 const Parser = require('rss-parser');
 
 // ---------------------------------------------------------------------------
@@ -53,8 +54,9 @@ const POST_ON_FIRST_RUN =
   String(process.env.POST_ON_FIRST_RUN || 'false').toLowerCase() === 'true';
 
 // State file lives alongside this script's repo, under .github/state/.
-// It is created automatically on first run and updated/committed by the
-// workflow after each successful post.
+// It is created automatically on first run, and this script itself commits
+// and pushes it back to the repository (see commitAndPushState below) so
+// the state survives across workflow runs.
 const STATE_DIR = path.join(__dirname, '..', 'state');
 const STATE_FILE = path.join(STATE_DIR, 'last_video.json');
 
@@ -87,7 +89,10 @@ function readState() {
 }
 
 /**
- * Persists the newest video id so it is never posted again.
+ * Persists the newest video id so it is never posted again, then commits
+ * and pushes that state file back to the repository so it survives future
+ * workflow runs (each run gets a fresh checkout, so anything not committed
+ * to the repo would otherwise be lost).
  */
 function writeState(videoId, title) {
   fs.mkdirSync(STATE_DIR, { recursive: true });
@@ -98,6 +103,60 @@ function writeState(videoId, title) {
   };
   fs.writeFileSync(STATE_FILE, JSON.stringify(payload, null, 2) + '\n', 'utf8');
   console.log(`[state] State file updated -> ${videoId}`);
+
+  commitAndPushState();
+}
+
+/**
+ * Commits and pushes the updated .github/state/last_video.json file back to
+ * the repository using the Git CLI (child_process.execSync). This is what
+ * makes the "last posted video" state survive across workflow runs, since
+ * each run starts from a fresh checkout of the repo.
+ *
+ * - Uses the github-actions[bot] identity.
+ * - Treats "nothing to commit" as an expected, non-fatal outcome.
+ * - Never throws: any Git failure is logged and swallowed so the workflow
+ *   never fails just because of state persistence.
+ */
+function commitAndPushState() {
+  try {
+    console.log('[git] Ensuring .github/state directory exists...');
+    fs.mkdirSync(STATE_DIR, { recursive: true });
+
+    console.log('[git] Configuring git user identity...');
+    execSync('git config user.name "github-actions[bot]"', { stdio: 'inherit' });
+    execSync(
+      'git config user.email "41898282+github-actions[bot]@users.noreply.github.com"',
+      { stdio: 'inherit' }
+    );
+
+    console.log('[git] Staging .github/state/last_video.json...');
+    execSync('git add .github/state/last_video.json', { stdio: 'inherit' });
+
+    console.log('[git] Attempting to commit state changes...');
+    try {
+      execSync('git commit -m "Update last YouTube video state"', {
+        stdio: 'inherit',
+      });
+      console.log('[git] Commit created successfully.');
+    } catch (commitErr) {
+      // "git commit" exits non-zero when there is nothing new to commit
+      // (state file unchanged). That's an expected, normal situation here.
+      console.log(
+        '[git] Nothing to commit (state file already up to date). Continuing normally.'
+      );
+    }
+
+    console.log('[git] Pushing changes to remote...');
+    execSync('git push', { stdio: 'inherit' });
+    console.log('[git] Push completed successfully.');
+  } catch (err) {
+    // Any other Git failure (auth, network, conflict, etc.) is logged but
+    // does not crash the run — the Telegram notification (the important
+    // part) has already succeeded by the time this is called.
+    console.error(`[git] Git operation failed: ${err.message}`);
+    console.error('[git] Continuing without failing the workflow run.');
+  }
 }
 
 /**
