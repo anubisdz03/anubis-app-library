@@ -26,11 +26,45 @@
   }
 
   /* ============================================================
+     TODAY'S UPDATES HELPER — true when app.updated falls on the
+     user's current local calendar date. The "updated" field is
+     stored as "DD Mon YYYY" (e.g. "13 Jul 2026"), which is parsed
+     manually here (no `new Date(app.updated)`) since that string
+     format is not reliably parsed across all browsers/WebViews
+     (including Android TV / Google TV WebView).
+  ============================================================ */
+  const MONTH_MAP = {
+    jan: 0, feb: 1, mar: 2, apr: 3, may: 4, jun: 5,
+    jul: 6, aug: 7, sep: 8, oct: 9, nov: 10, dec: 11,
+  };
+
+  function isUpdatedToday(app) {
+    if (!app.updated) return false;
+    const raw = String(app.updated).trim();
+    const match = /^(\d{1,2})\s+([A-Za-z]{3})\s+(\d{4})$/.exec(raw);
+    if (!match) return false;
+
+    const day = Number(match[1]);
+    const month = MONTH_MAP[match[2].toLowerCase()];
+    const year = Number(match[3]);
+    if (month === undefined) return false;
+
+    const d = new Date(year, month, day);
+    if (isNaN(d.getTime())) return false;
+
+    const now = new Date();
+    return d.getFullYear() === now.getFullYear() &&
+           d.getMonth() === now.getMonth() &&
+           d.getDate() === now.getDate();
+  }
+
+  /* ============================================================
      CARD RENDERER
   ============================================================ */
   function createCard(app) {
     const hasModal = appHasModalFields(app) || isComingSoon(app);
     const cardComingSoon = isComingSoon(app);
+    const updatedToday = isUpdatedToday(app);
 
     let el;
     if (hasModal) {
@@ -56,6 +90,7 @@
 
     el.innerHTML = `
       ${cardComingSoon ? `<div style="position:absolute; inset:0; background:rgba(8,6,18,0.15); border-radius:inherit; pointer-events:none; z-index:0;"></div>` : ''}
+      ${updatedToday ? `<span class="card-updated-today-badge" style="position:absolute; top:8px; right:8px; z-index:3;">UPDATED TODAY</span>` : ''}
       <div class="card-icon" style="background:${app.bg};${cardComingSoon ? ' position:relative; z-index:1;' : ''}">
   <img src="${app.icon}" alt="${app.name}" loading="lazy">
 </div>
@@ -91,11 +126,50 @@ ${app.password ? `<span class="card-code"${cardComingSoon ? ' style="position:re
   const countPill = document.getElementById('count-pill');
   const noResults = document.getElementById('no-results');
 
+  /* ---- Today's Updates styles — scoped, additive, injected once ---- */
+  (function injectTodayUpdatesStyles() {
+    const s = document.createElement('style');
+    s.id = 'today-updates-styles';
+    s.textContent = [
+      '.today-updates-title      { grid-column: 1 / -1; width: 100%; font-size: 20px; font-weight: 800; margin: 4px 0 10px; background: linear-gradient(135deg,#f97316,#ef4444); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }',
+      '.today-updates-hr         { grid-column: 1 / -1; width: 100%; height: 1px; border: 0; margin: 0 0 16px; background: linear-gradient(90deg, rgba(249,115,22,.65), rgba(239,68,68,.05)); }',
+      '.today-updates-divider    { grid-column: 1 / -1; width: 100%; display: flex; align-items: center; gap: 10px; margin: 26px 0 14px; font-size: 13px; font-weight: 700; letter-spacing: .4px; color: #9ca3af; }',
+      '.today-updates-divider::after { content: ""; flex: 1; height: 1px; background: rgba(255,255,255,0.12); }',
+      '.card-updated-today-badge { background: linear-gradient(135deg,#f97316,#ef4444); color: #fff; font-size: 10px; font-weight: 800; letter-spacing: .3px; padding: 3px 7px; border-radius: 999px; box-shadow: 0 2px 6px rgba(0,0,0,.35); }',
+    ].join('\n');
+    document.head.appendChild(s);
+  })();
+
   let APPS = [];
 
   function renderCards(list) {
     const fragment = document.createDocumentFragment();
-    list.forEach(app => fragment.appendChild(createCard(app)));
+
+    const todayApps = list.filter(isUpdatedToday);
+    const restApps  = list.filter(app => !isUpdatedToday(app));
+
+    if (todayApps.length > 0) {
+      const title = document.createElement('div');
+      title.className = 'today-updates-title';
+      title.textContent = "🔥 TODAY'S UPDATES";
+      fragment.appendChild(title);
+
+      const hr = document.createElement('hr');
+      hr.className = 'today-updates-hr';
+      fragment.appendChild(hr);
+
+      todayApps.forEach(app => fragment.appendChild(createCard(app)));
+
+      const divider = document.createElement('div');
+      divider.className = 'today-updates-divider';
+      divider.textContent = '📦 ALL APPLICATIONS';
+      fragment.appendChild(divider);
+
+      restApps.forEach(app => fragment.appendChild(createCard(app)));
+    } else {
+      list.forEach(app => fragment.appendChild(createCard(app)));
+    }
+
     grid.innerHTML = '';
     grid.appendChild(fragment);
 
