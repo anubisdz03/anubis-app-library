@@ -181,6 +181,9 @@ ${app.username ? `<span class="card-code"${cardComingSoon ? ' style="position:re
       '#app-modal .modal-field    { padding: 8px 10px; }',
       '#app-modal .modal-actions  { margin-top: 4px; gap: 8px; }',
       '#app-modal .modal-download { padding: 10px 16px; }',
+      '#app-modal .modal-field-row { display: flex; gap: 6px; width: 100%; }',
+      '#app-modal .modal-field-row .modal-field { flex: 1 1 0; min-width: 0; }',
+      '#app-modal .modal-field-row .modal-field-value { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }',
     ].join('\n');
     document.head.appendChild(s);
   })();
@@ -302,9 +305,8 @@ ${app.username ? `<span class="card-code"${cardComingSoon ? ' style="position:re
 
     // copyable fields (code / username / password)
     modalFields.innerHTML = '';
-    COPY_FIELDS.forEach(({ key, label, maskable }) => {
-      if (app[key] === undefined || app[key] === null || app[key] === '') return;
 
+    function buildCopyField(key, label, maskable) {
       const field = document.createElement('div');
       field.className = 'modal-field';
 
@@ -349,8 +351,29 @@ ${app.username ? `<span class="card-code"${cardComingSoon ? ' style="position:re
 
       field.appendChild(info);
       field.appendChild(actions);
-      modalFields.appendChild(field);
+      return field;
+    }
+
+    const hasUsername = app.username !== undefined && app.username !== null && app.username !== '';
+    const hasPassword = app.password !== undefined && app.password !== null && app.password !== '';
+    const pairUsernameAndPassword = hasUsername && hasPassword;
+
+    COPY_FIELDS.forEach(({ key, label, maskable }) => {
+      if (app[key] === undefined || app[key] === null || app[key] === '') return;
+      // Username and Password are rendered together in a single row below
+      // when both are present, so skip their individual full-width render here.
+      if (pairUsernameAndPassword && (key === 'username' || key === 'password')) return;
+
+      modalFields.appendChild(buildCopyField(key, label, maskable));
     });
+
+    if (pairUsernameAndPassword) {
+      const row = document.createElement('div');
+      row.className = 'modal-field-row';
+      row.appendChild(buildCopyField('username', 'Username', false));
+      row.appendChild(buildCopyField('password', 'Password', true));
+      modalFields.appendChild(row);
+    }
 
     // download button
     if (comingSoon) {
