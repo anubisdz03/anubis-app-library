@@ -61,7 +61,8 @@
 </div>
 <span class="card-name"${cardComingSoon ? ' style="position:relative; z-index:1;"' : ''}>${app.name}</span>
 ${app.code ? `<span class="card-code"${cardComingSoon ? ' style="position:relative; z-index:1;"' : ''}>🔑 ${app.code}</span>` : ""}
-${app.username ? `<span class="card-code"${cardComingSoon ? ' style="position:relative; z-index:1;"' : ''}>👤 Username : ${app.username}</span>` : ""}${badgeMarkup}
+${app.username ? `<span class="card-code"${cardComingSoon ? ' style="position:relative; z-index:1;"' : ''}>👤 Username : ${app.username}</span>` : ""}
+${app.password ? `<span class="card-code"${cardComingSoon ? ' style="position:relative; z-index:1;"' : ''}>🔑 Password : ${app.password}</span>` : ""}${badgeMarkup}
     `;
 
     if (cardComingSoon) {
@@ -196,8 +197,6 @@ ${app.username ? `<span class="card-code"${cardComingSoon ? ' style="position:re
   // copyable secure fields → render with copy button
   const COPY_FIELDS = [
     { key: 'code',     label: 'Code' },
-    { key: 'username', label: 'Username' },
-    { key: 'password', label: 'Password', maskable: false },
   ];
 
   // simple meta fields → small 2-column grid
@@ -303,7 +302,7 @@ ${app.username ? `<span class="card-code"${cardComingSoon ? ' style="position:re
       });
     }
 
-    // copyable fields (code / username / password)
+    // copyable fields (code)
     modalFields.innerHTML = '';
 
     function buildCopyField(key, label, maskable) {
@@ -354,26 +353,11 @@ ${app.username ? `<span class="card-code"${cardComingSoon ? ' style="position:re
       return field;
     }
 
-    const hasUsername = app.username !== undefined && app.username !== null && app.username !== '';
-    const hasPassword = app.password !== undefined && app.password !== null && app.password !== '';
-    const pairUsernameAndPassword = hasUsername && hasPassword;
-
     COPY_FIELDS.forEach(({ key, label, maskable }) => {
       if (app[key] === undefined || app[key] === null || app[key] === '') return;
-      // Username and Password are rendered together in a single row below
-      // when both are present, so skip their individual full-width render here.
-      if (pairUsernameAndPassword && (key === 'username' || key === 'password')) return;
 
       modalFields.appendChild(buildCopyField(key, label, maskable));
     });
-
-    if (pairUsernameAndPassword) {
-      const row = document.createElement('div');
-      row.className = 'modal-field-row';
-      row.appendChild(buildCopyField('username', 'Username', false));
-      row.appendChild(buildCopyField('password', 'Password', true));
-      modalFields.appendChild(row);
-    }
 
     // download button
     if (comingSoon) {
