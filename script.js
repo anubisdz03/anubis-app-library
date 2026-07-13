@@ -194,7 +194,7 @@ ${app.username ? `<span class="card-code"${cardComingSoon ? ' style="position:re
   const COPY_FIELDS = [
     { key: 'code',     label: 'Code' },
     { key: 'username', label: 'Username' },
-    { key: 'password', label: 'Password', maskable: true },
+    { key: 'password', label: 'Password', maskable: false },
   ];
 
   // simple meta fields → small 2-column grid
