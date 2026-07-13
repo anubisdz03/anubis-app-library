@@ -1,5 +1,19 @@
 [
    {
+  "name": "🎬 Cima Cloud",
+  "icon": "images/Cima_Cloud.png",
+  "color": "#b71c1c",
+  "url": "https://devuploads.com/nyslo2eagrnv",
+  "badge": "new",
+  "bg": "linear-gradient(135deg,#b71c1c,#ff5252)",
+  "category": "Movies & Series",
+  "version": "2.1",
+  "size": "26.4 MB",
+  "developer": "ANUBIS by B.Nacereddine",
+  "updated": "13 Jul 2026",
+  "activated": true
+},
+   {
   "name": "📺 Marvel 4K",
   "icon": "images/Marvel4K.png",
   "color": "#d32f2f",
