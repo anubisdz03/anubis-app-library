@@ -1,5 +1,21 @@
 [
    {
+  "name": "📺 Mood TV",
+  "icon": "images/mood_tv.png",
+  "color": "#3b3b3b",
+  "url": "https://devuploads.com/1gttex1kpwx3",
+  "badge": "new",
+  "bg": "linear-gradient(135deg,#2f2f2f,#8a8a8a)",
+  "category": "Live TV",
+  "version": "Latest",
+  "size": "N/A",
+  "developer": "ANUBIS by B.Nacereddine",
+  "updated": "14 Jul 2026",
+  "player_required": true,
+  "player_code": "1774683",
+  "activated": true
+},
+   {
   "name": "🎬 Cima Cloud",
   "icon": "images/Cima_Cloud.png",
   "color": "#b71c1c",
