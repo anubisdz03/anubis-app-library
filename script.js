@@ -374,7 +374,7 @@ ${app.password ? `<span class="card-code"${cardComingSoon ? ' style="position:re
       playerEnCard.innerHTML = `
         <div class="modal-field-info" style="width:100%; margin-top:0; padding-top:0;">
           <span class="modal-field-label" style="font-size:16px; font-weight:700; background:linear-gradient(135deg,#a855f7,#7c3aed); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; display:inline-block; line-height:1.3;">📺 Player Required</span>
-          <span class="modal-field-value" style="white-space:normal; line-height:1.6; display:block; margin-top:6px;">Download the required player first.<br>Use this Downloader code:</span>
+          <span class="modal-field-value" style="white-space:normal; line-height:1.6; display:block; margin-top:6px;">Before downloading this application, you must first install the required player.<br>Download the player using the Downloader application.<br>Enter the Downloader code below.</span>
         </div>
       `;
       playerEnCard.appendChild(buildCopyField('player_code', 'Downloader Code'));
@@ -390,7 +390,7 @@ ${app.password ? `<span class="card-code"${cardComingSoon ? ' style="position:re
       playerArCard.innerHTML = `
         <div class="modal-field-info" style="width:100%; margin-top:0; padding-top:0;">
           <span class="modal-field-label" style="font-size:16px; font-weight:700; background:linear-gradient(135deg,#a855f7,#7c3aed); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; display:inline-block; line-height:1.3; margin-top:0;">📺 المشغل مطلوب</span>
-          <span class="modal-field-value" style="white-space:normal; line-height:1.6; display:block; margin-top:6px;">قم بتحميل المشغل أولاً.<br>استخدم كود Downloader التالي:</span>
+          <span class="modal-field-value" style="white-space:normal; line-height:1.6; display:block; margin-top:6px;">قبل تحميل هذا التطبيق يجب أولاً تثبيت المشغل المطلوب.<br>قم بتحميل المشغل باستخدام تطبيق Downloader.<br>ثم أدخل كود Downloader التالي.</span>
         </div>
       `;
       const playerArCopyField = buildCopyField('player_code', 'كود Downloader');
