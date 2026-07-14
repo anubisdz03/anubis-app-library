@@ -11,7 +11,7 @@
   /* ============================================================
      MODAL FIELD CONFIG — which keys trigger a modal & how to label them
   ============================================================ */
-  const MODAL_TRIGGER_KEYS = ['code', 'username', 'password', 'activated', 'category', 'version', 'size', 'developer', 'updated'];
+  const MODAL_TRIGGER_KEYS = ['code', 'username', 'password', 'activated', 'category', 'version', 'size', 'developer', 'updated', 'player_code'];
 
   function appHasModalFields(app) {
     return MODAL_TRIGGER_KEYS.some(key => app[key] !== undefined && app[key] !== null && app[key] !== '');
@@ -327,6 +327,7 @@ ${app.password ? `<span class="card-code"${cardComingSoon ? ' style="position:re
     // meta grid (category / version / size / developer / updated / activated)
     modalMetaGrid.innerHTML = '';
     const comingSoon = isComingSoon(app);
+    const hasPlayerCode = app.player_code !== undefined && app.player_code !== null && app.player_code !== '';
     if (comingSoon) {
       // "Coming Soon" mode — show two informational cards instead of the
       // normal meta fields (category/version/size/developer/updated/activated).
@@ -357,6 +358,45 @@ ${app.password ? `<span class="card-code"${cardComingSoon ? ' style="position:re
         </div>
       `;
       modalMetaGrid.appendChild(arCard);
+    } else if (hasPlayerCode) {
+      // "Player Required" mode — an optional apps.json field. When present,
+      // hide all normal meta fields (category/version/size/developer/updated/
+      // activated) and the Code/Username/Password copy fields below, and show
+      // two informational cards (English + Arabic) instead, each containing
+      // the required Downloader code via the existing copy-button component
+      // (buildCopyField — same function/markup/clipboard logic used for the
+      // normal "Code" field, hoisted below and reused here as-is).
+      const playerEnCard = document.createElement('div');
+      playerEnCard.className = 'modal-field';
+      playerEnCard.style.flexDirection = 'column';
+      playerEnCard.style.alignItems = 'flex-start';
+      playerEnCard.style.gap = '4px';
+      playerEnCard.innerHTML = `
+        <div class="modal-field-info" style="width:100%; margin-top:0; padding-top:0;">
+          <span class="modal-field-label" style="font-size:16px; font-weight:700; background:linear-gradient(135deg,#a855f7,#7c3aed); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; display:inline-block; line-height:1.3;">📺 Player Required</span>
+          <span class="modal-field-value" style="white-space:normal; line-height:1.6; display:block; margin-top:6px;">Download the required player first.<br>Use this Downloader code:</span>
+        </div>
+      `;
+      playerEnCard.appendChild(buildCopyField('player_code', 'Downloader Code'));
+      modalMetaGrid.appendChild(playerEnCard);
+
+      const playerArCard = document.createElement('div');
+      playerArCard.className = 'modal-field';
+      playerArCard.style.flexDirection = 'column';
+      playerArCard.style.alignItems = 'flex-start';
+      playerArCard.style.gap = '4px';
+      playerArCard.style.direction = 'rtl';
+      playerArCard.style.textAlign = 'right';
+      playerArCard.innerHTML = `
+        <div class="modal-field-info" style="width:100%; margin-top:0; padding-top:0;">
+          <span class="modal-field-label" style="font-size:16px; font-weight:700; background:linear-gradient(135deg,#a855f7,#7c3aed); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; display:inline-block; line-height:1.3; margin-top:0;">📺 المشغل مطلوب</span>
+          <span class="modal-field-value" style="white-space:normal; line-height:1.6; display:block; margin-top:6px;">قم بتحميل المشغل أولاً.<br>استخدم كود Downloader التالي:</span>
+        </div>
+      `;
+      const playerArCopyField = buildCopyField('player_code', 'كود Downloader');
+      playerArCopyField.style.direction = 'rtl';
+      playerArCard.appendChild(playerArCopyField);
+      modalMetaGrid.appendChild(playerArCard);
     } else {
       META_FIELDS.forEach(({ key, label }) => {
         if (app[key] === undefined || app[key] === null || app[key] === '') return;
@@ -427,11 +467,13 @@ ${app.password ? `<span class="card-code"${cardComingSoon ? ' style="position:re
       return field;
     }
 
-    COPY_FIELDS.forEach(({ key, label, maskable }) => {
-      if (app[key] === undefined || app[key] === null || app[key] === '') return;
+    if (!hasPlayerCode) {
+      COPY_FIELDS.forEach(({ key, label, maskable }) => {
+        if (app[key] === undefined || app[key] === null || app[key] === '') return;
 
-      modalFields.appendChild(buildCopyField(key, label, maskable));
-    });
+        modalFields.appendChild(buildCopyField(key, label, maskable));
+      });
+    }
 
     // download button
     if (comingSoon) {
