@@ -15,22 +15,6 @@
   "player_code": "1774683",
   "activated": true
 },
-    {
-  "name": "📺 Marvel 4K",
-  "icon": "images/Marvel4K.png",
-  "color": "#d32f2f",
-  "url": "https://devuploads.com/eameq2dh8oc3",
-  "badge": "new",
-  "bg": "linear-gradient(135deg,#d32f2f,#ff9800)",
-  "category": "Live TV",
-  "version": "7.1",
-  "size": "95.6 MB",
-  "developer": "ANUBIS by B.Nacereddine",
-  "updated": "13 Jul 2026",
-  "username": "taggroup1990",
-  "password": "newborn1990",
-  "activated": true
-},
    {
   "name": "🎬 Cima Cloud",
   "icon": "images/Cima_Cloud.png",
