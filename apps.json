@@ -1,5 +1,19 @@
 [
    {
+  "name": "📺 Macias TV",
+  "icon": "images/macias_tv_5.9.png",
+  "color": "#3b3b3b",
+  "url": "https://devuploads.com/bql2pbp6tlvc",
+  "badge": "new",
+  "bg": "linear-gradient(135deg,#2f2f2f,#8a8a8a)",
+  "category": "Live TV",
+  "version": "5.9",
+  "size": "69.2 MB",
+  "developer": "ANUBIS by B.Nacereddine",
+  "updated": "17 Jul 2026",
+  "activated": true
+}
+   {
   "name": "📺 Mood TV",
   "icon": "images/mood_tv.png",
   "color": "#3b3b3b",
