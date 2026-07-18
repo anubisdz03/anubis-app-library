@@ -86,19 +86,13 @@
   "updated": "12 Jul 2026",
   "activated": true
 },
-  {
+{
   "name": "📺 ATLAS PRO",
   "icon": "images/ATLAS_PRO.png",
-  "color": "#1b5e20",
-  "url": "https://devuploads.com/8j5vxqwj17z5",
-  "badge": "new",
-  "bg": "linear-gradient(135deg,#1b5e20,#43a047)",
-  "category": "Live TV",
-  "version": "3.0",
-  "size": "29.1 MB",
-  "developer": "ANUBIS by B.Nacereddine",
-  "updated": "12 Jul 2026",
-  "activated": false
+  "color": "#181830",
+  "url": "#",
+  "badge": "coming-soon",
+  "bg": "linear-gradient(135deg,#181830,#5656c5)"
 },
   {
   "name": "📺 RB TV",
