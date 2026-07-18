@@ -86,14 +86,6 @@
   "updated": "12 Jul 2026",
   "activated": true
 },
-{
-  "name": "📺 ATLAS PRO",
-  "icon": "images/ATLAS_PRO.png",
-  "color": "#181830",
-  "url": "#",
-  "badge": "coming-soon",
-  "bg": "linear-gradient(135deg,#181830,#5656c5)"
-},
   {
   "name": "📺 RB TV",
   "icon": "images/RBTV.png",
@@ -580,6 +572,14 @@
     "developer": "ANUBIS by B.Nacereddine",
     "updated": "01 Jul 2026",
     "activated": true
+  },
+  {
+  "name": "📺 ATLAS PRO",
+  "icon": "images/ATLAS_PRO.png",
+  "color": "#181830",
+  "url": "#",
+  "badge": "coming-soon",
+  "bg": "linear-gradient(135deg,#181830,#5656c5)"
   },
   {
     "name": "🛡️ CASPER PRO TV",
