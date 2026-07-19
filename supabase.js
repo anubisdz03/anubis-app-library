@@ -24,5 +24,11 @@ async function getApps() {
     throw new Error(`Supabase Error: ${response.status}`);
   }
 
-  return await response.json();
+  const apps = await response.json();
+
+  return apps.map(app => ({
+    ...app,
+    url: app.download_url,
+    activated: app.is_active,
+  }));
 }
