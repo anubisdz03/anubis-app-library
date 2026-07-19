@@ -580,19 +580,19 @@ ${app.password ? `<span class="card-code"${cardComingSoon ? ' style="position:re
      APP DATA — loaded from apps.json so the library can scale to
      thousands of entries without touching index.html or script.js.
   ============================================================ */
-  async function loadApps() {
-    try {
-      const res = await fetch('apps.json', { cache: 'no-cache' });
-      if (!res.ok) throw new Error(`HTTP ${res.status}`);
-      APPS = await res.json();
-    } catch (err) {
-      console.error('Failed to load apps.json:', err);
-      APPS = [];
-      noResults.querySelector('p').textContent = 'Could not load the app list. Please try again later.';
-      noResults.classList.add('visible');
-    }
-    renderCards(APPS);
+ async function loadApps() {
+  try {
+    APPS = await getApps();
+  } catch (err) {
+    console.error('Failed to load apps from Supabase:', err);
+    APPS = [];
+    noResults.querySelector('p').textContent =
+      'Could not load the app list. Please try again later.';
+    noResults.classList.add('visible');
   }
+
+  renderCards(APPS);
+}
 
   loadApps();
 
