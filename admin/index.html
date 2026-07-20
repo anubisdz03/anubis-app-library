@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Anubis Admin</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="admin-shell">
+
+  <header class="admin-header" id="admin-header">
+    <h1 class="admin-header__title">ANUBIS <span class="accent">ADMIN</span></h1>
+    <div class="admin-header__account" id="admin-header-account">
+      <button id="logout-btn" class="btn btn-primary">Logout</button>
+    </div>
+  </header>
+
+  <aside class="admin-sidebar" id="admin-sidebar">
+    <div class="admin-sidebar__brand">
+      <div class="admin-sidebar__brand-mark" aria-hidden="true"></div>
+      <span class="admin-sidebar__brand-name">Anubis App Library</span>
+    </div>
+
+    <nav class="admin-nav" id="admin-nav" aria-label="Admin navigation">
+      <a class="admin-nav__item is-active" id="nav-dashboard" href="#dashboard">Dashboard</a>
+      <a class="admin-nav__item" id="nav-apps" href="#apps">Apps</a>
+      <a class="admin-nav__item" id="nav-categories" href="#categories">Categories</a>
+      <a class="admin-nav__item" id="nav-downloads" href="#downloads">Downloads</a>
+      <a class="admin-nav__item" id="nav-reports" href="#reports">Reports</a>
+      <a class="admin-nav__item" id="nav-settings" href="#settings">Settings</a>
+    </nav>
+  </aside>
+
+  <main class="admin-main" id="admin-main">
+
+    <div class="admin-main__intro">
+      <div>
+        <h2 id="dashboard-title">Dashboard</h2>
+        <p id="dashboard-subtitle">Overview of your app library.</p>
+      </div>
+    </div>
+
+    <section class="stats-grid" id="stats-grid" aria-label="Statistics">
+      <article class="stat-card" id="stat-total-apps">
+        <span class="stat-card__label">Total Apps</span>
+        <span class="stat-card__value" id="stat-total-apps-value">—</span>
+      </article>
+      <article class="stat-card" id="stat-active-apps">
+        <span class="stat-card__label">Active Apps</span>
+        <span class="stat-card__value" id="stat-active-apps-value">—</span>
+      </article>
+      <article class="stat-card" id="stat-featured-apps">
+        <span class="stat-card__label">Featured Apps</span>
+        <span class="stat-card__value" id="stat-featured-apps-value">—</span>
+      </article>
+      <article class="stat-card" id="stat-coming-soon">
+        <span class="stat-card__label">Coming Soon</span>
+        <span class="stat-card__value" id="stat-coming-soon-value">—</span>
+      </article>
+      <article class="stat-card" id="stat-categories">
+        <span class="stat-card__label">Categories</span>
+        <span class="stat-card__value" id="stat-categories-value">—</span>
+      </article>
+      <article class="stat-card" id="stat-downloads">
+        <span class="stat-card__label">Downloads</span>
+        <span class="stat-card__value" id="stat-downloads-value">—</span>
+      </article>
+      <article class="stat-card" id="stat-views">
+        <span class="stat-card__label">Views</span>
+        <span class="stat-card__value" id="stat-views-value">—</span>
+      </article>
+    </section>
+
+    <section class="apps-section" id="apps-section" aria-label="Apps management">
+
+      <div class="apps-toolbar" id="apps-toolbar">
+        <form class="apps-toolbar__search" id="apps-search-form" role="search">
+          <label for="apps-search-input" class="visually-hidden">Search apps</label>
+          <input type="search" id="apps-search-input" name="q" placeholder="Search by name, slug, category, badge, developer, description…" autocomplete="off">
+        </form>
+
+        <button type="button" class="btn btn-primary" id="add-app-btn">
+          Add App
+        </button>
+      </div>
+
+      <div class="apps-table-wrap" id="apps-table-wrap">
+        <table class="apps-table" id="apps-table">
+          <thead>
+            <tr>
+              <th scope="col">Name</th>
+              <th scope="col">Category</th>
+              <th scope="col">Version</th>
+              <th scope="col">Badge</th>
+              <th scope="col">Updated</th>
+              <th scope="col">Actions</th>
+            </tr>
+          </thead>
+          <tbody id="apps-table-body">
+            <tr class="apps-table__empty-row" id="apps-table-empty-row">
+              <td colspan="6">Loading apps…</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+    </section>
+
+  </main>
+
+</div>
+
+<!-- ============================================================
+     ADD / EDIT APP MODAL — tabbed, covers every real column
+============================================================ -->
+<div class="modal-overlay" id="app-modal" hidden>
+  <div class="modal-card modal-card--wide" id="app-modal-card" role="dialog" aria-modal="true" aria-labelledby="app-modal-title">
+
+    <div class="modal-card__header">
+      <h3 class="modal-card__title" id="app-modal-title">Add App</h3>
+      <button type="button" class="modal-close-btn" id="app-modal-close-btn" aria-label="Close">&times;</button>
+    </div>
+
+    <div class="modal-error" id="app-modal-error"></div>
+
+    <div class="modal-tabs" id="app-modal-tabs" role="tablist">
+      <button type="button" class="modal-tab is-active" data-tab="general" role="tab">General</button>
+      <button type="button" class="modal-tab" data-tab="media" role="tab">Media</button>
+      <button type="button" class="modal-tab" data-tab="links" role="tab">Links</button>
+      <button type="button" class="modal-tab" data-tab="details" role="tab">Version &amp; Developer</button>
+      <button type="button" class="modal-tab" data-tab="access" role="tab">Access</button>
+      <button type="button" class="modal-tab" data-tab="publishing" role="tab">Publishing</button>
+      <button type="button" class="modal-tab" data-tab="info" role="tab">Info &amp; Metadata</button>
+      <button type="button" class="modal-tab" data-tab="internal" role="tab">Internal</button>
+      <button type="button" class="modal-tab" data-tab="stats" role="tab">Stats (read-only)</button>
+    </div>
+
+    <form id="app-form" novalidate>
+      <input type="hidden" id="app-id" name="id">
+
+      <!-- General -->
+      <div class="modal-tab-panel is-active" data-tab-panel="general">
+        <div class="modal-form-grid">
+          <div class="modal-field">
+            <label for="app-name">Name <span class="required-mark">*</span></label>
+            <input type="text" id="app-name" name="name" required>
+          </div>
+          <div class="modal-field">
+            <label for="app-slug">Slug</label>
+            <input type="text" id="app-slug" name="slug" placeholder="e.g. my-app-name">
+          </div>
+          <div class="modal-field">
+            <label for="app-category">Category <span class="required-mark">*</span></label>
+            <input type="text" id="app-category" name="category" required>
+          </div>
+          <div class="modal-field">
+            <label for="app-badge">Badge</label>
+            <input type="text" id="app-badge" name="badge" placeholder="e.g. New, Hot, Updated">
+          </div>
+        </div>
+        <div class="modal-field" style="margin-top:14px;">
+          <label for="app-description">Description</label>
+          <textarea id="app-description" name="description" rows="3"></textarea>
+        </div>
+      </div>
+
+      <!-- Media -->
+      <div class="modal-tab-panel" data-tab-panel="media">
+        <div class="modal-form-grid">
+          <div class="modal-field">
+            <label for="app-icon">Icon URL</label>
+            <input type="text" id="app-icon" name="icon">
+          </div>
+          <div class="modal-field">
+            <label for="app-background">Background</label>
+            <input type="text" id="app-background" name="background">
+          </div>
+          <div class="modal-field">
+            <label for="app-color">Color</label>
+            <input type="text" id="app-color" name="color" placeholder="e.g. #c9a227">
+          </div>
+        </div>
+        <div class="modal-field" style="margin-top:14px;">
+          <label for="app-screenshots">Screenshots</label>
+          <textarea id="app-screenshots" name="screenshots" rows="3" placeholder="One URL per line, or comma-separated"></textarea>
+        </div>
+      </div>
+
+      <!-- Links -->
+      <div class="modal-tab-panel" data-tab-panel="links">
+        <div class="modal-form-grid">
+          <div class="modal-field">
+            <label for="app-download_url">Download URL</label>
+            <input type="text" id="app-download_url" name="download_url" placeholder="https:// or # for coming soon">
+          </div>
+          <div class="modal-field">
+            <label for="app-youtube_url">YouTube URL</label>
+            <input type="text" id="app-youtube_url" name="youtube_url">
+          </div>
+          <div class="modal-field">
+            <label for="app-telegram_url">Telegram URL</label>
+            <input type="text" id="app-telegram_url" name="telegram_url">
+          </div>
+          <div class="modal-field">
+            <label for="app-website_url">Website URL</label>
+            <input type="text" id="app-website_url" name="website_url">
+          </div>
+        </div>
+      </div>
+
+      <!-- Version & Developer -->
+      <div class="modal-tab-panel" data-tab-panel="details">
+        <div class="modal-form-grid">
+          <div class="modal-field">
+            <label for="app-version">Version</label>
+            <input type="text" id="app-version" name="version">
+          </div>
+          <div class="modal-field">
+            <label for="app-size">Size</label>
+            <input type="text" id="app-size" name="size" placeholder="e.g. 24 MB">
+          </div>
+          <div class="modal-field">
+            <label for="app-developer">Developer</label>
+            <input type="text" id="app-developer" name="developer">
+          </div>
+        </div>
+      </div>
+
+      <!-- Access -->
+      <div class="modal-tab-panel" data-tab-panel="access">
+        <div class="modal-form-grid">
+          <div class="modal-field">
+            <label for="app-username">Username</label>
+            <input type="text" id="app-username" name="username">
+          </div>
+          <div class="modal-field">
+            <label for="app-password">Password</label>
+            <input type="text" id="app-password" name="password">
+          </div>
+          <div class="modal-field">
+            <label for="app-code">Code</label>
+            <input type="text" id="app-code" name="code">
+          </div>
+          <div class="modal-field">
+            <label for="app-player_code">Player Code</label>
+            <input type="text" id="app-player_code" name="player_code">
+          </div>
+          <div class="modal-field modal-field--checkbox">
+            <label for="app-player_required">
+              <input type="checkbox" id="app-player_required" name="player_required">
+              Player Required
+            </label>
+          </div>
+        </div>
+      </div>
+
+      <!-- Publishing -->
+      <div class="modal-tab-panel" data-tab-panel="publishing">
+        <div class="modal-form-grid">
+          <div class="modal-field">
+            <label for="app-status">Status</label>
+            <input type="text" id="app-status" name="status" placeholder="e.g. draft, published">
+          </div>
+          <div class="modal-field">
+            <label for="app-published_at">Published At</label>
+            <input type="text" id="app-published_at" name="published_at" placeholder="e.g. 2026-07-20T12:00:00Z">
+          </div>
+          <div class="modal-field">
+            <label for="app-sort_order">Sort Order</label>
+            <input type="text" id="app-sort_order" name="sort_order" placeholder="e.g. 10" inputmode="numeric">
+          </div>
+          <div class="modal-field modal-field--checkbox">
+            <label for="app-is_active">
+              <input type="checkbox" id="app-is_active" name="is_active">
+              Active
+            </label>
+          </div>
+          <div class="modal-field modal-field--checkbox">
+            <label for="app-is_featured">
+              <input type="checkbox" id="app-is_featured" name="is_featured">
+              Is Featured
+            </label>
+          </div>
+          <div class="modal-field modal-field--checkbox">
+            <label for="app-featured">
+              <input type="checkbox" id="app-featured" name="featured">
+              Featured
+            </label>
+          </div>
+        </div>
+      </div>
+
+      <!-- Info & Metadata -->
+      <div class="modal-tab-panel" data-tab-panel="info">
+        <div class="modal-form-grid">
+          <div class="modal-field">
+            <label for="app-info_title">Info Title</label>
+            <input type="text" id="app-info_title" name="info_title">
+          </div>
+          <div class="modal-field">
+            <label for="app-tags">Tags</label>
+            <input type="text" id="app-tags" name="tags" placeholder="comma-separated, e.g. action, offline">
+          </div>
+        </div>
+        <div class="modal-field" style="margin-top:14px;">
+          <label for="app-info_message">Info Message</label>
+          <textarea id="app-info_message" name="info_message" rows="2"></textarea>
+        </div>
+        <div class="modal-field" style="margin-top:14px;">
+          <label for="app-changelog">Changelog</label>
+          <textarea id="app-changelog" name="changelog" rows="3"></textarea>
+        </div>
+      </div>
+
+      <!-- Internal -->
+      <div class="modal-tab-panel" data-tab-panel="internal">
+        <div class="modal-field">
+          <label for="app-admin_notes">Admin Notes</label>
+          <textarea id="app-admin_notes" name="admin_notes" rows="4" placeholder="Internal notes, not shown publicly"></textarea>
+        </div>
+      </div>
+
+      <!-- Stats (read-only) -->
+      <div class="modal-tab-panel" data-tab-panel="stats">
+        <div class="modal-readonly-grid">
+          <div class="modal-readonly-item">
+            <span class="label">Downloads</span>
+            <span class="value" id="app-readonly-downloads">—</span>
+          </div>
+          <div class="modal-readonly-item">
+            <span class="label">Views</span>
+            <span class="value" id="app-readonly-views">—</span>
+          </div>
+          <div class="modal-readonly-item">
+            <span class="label">Created At</span>
+            <span class="value" id="app-readonly-created_at">—</span>
+          </div>
+          <div class="modal-readonly-item">
+            <span class="label">Updated At</span>
+            <span class="value" id="app-readonly-updated_at">—</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal-actions">
+        <button type="button" class="btn btn-secondary" id="app-modal-cancel-btn">Cancel</button>
+        <button type="submit" class="btn btn-primary" id="app-form-submit-btn">
+          <span class="spinner" id="app-form-spinner" aria-hidden="true"></span>
+          <span id="app-form-submit-label">Save App</span>
+        </button>
+      </div>
+    </form>
+
+  </div>
+</div>
+
+<!-- ============================================================
+     DELETE CONFIRMATION MODAL
+============================================================ -->
+<div class="modal-overlay" id="confirm-modal" hidden>
+  <div class="modal-card modal-card--small" id="confirm-modal-card" role="alertdialog" aria-modal="true" aria-labelledby="confirm-modal-title">
+    <h3 class="modal-card__title" id="confirm-modal-title">Delete App</h3>
+    <p class="modal-card__text" id="confirm-modal-text">
+      Are you sure you want to delete this app? This action cannot be undone.
+    </p>
+    <div class="modal-actions">
+      <button type="button" class="btn btn-secondary" id="confirm-cancel-btn">Cancel</button>
+      <button type="button" class="btn btn-danger" id="confirm-delete-btn">
+        <span class="spinner" id="confirm-delete-spinner" aria-hidden="true"></span>
+        <span id="confirm-delete-label">Delete</span>
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================
+     TOAST NOTIFICATIONS
+============================================================ -->
+<div class="toast-container" id="toast-container" aria-live="polite" aria-atomic="true"></div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="auth.js"></script>
+
+</body>
+</html>

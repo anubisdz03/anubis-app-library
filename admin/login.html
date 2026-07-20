@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Anubis Admin — Log In</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body class="login-body">
+
+<div class="login-shell" id="login-shell">
+
+  <div class="login-card" id="login-card">
+
+    <div class="login-brand" id="login-brand">
+      <div class="login-brand-mark" aria-hidden="true"></div>
+      <span class="login-brand-name">ANUBIS <span class="accent">ADMIN</span></span>
+    </div>
+
+    <p class="login-subtitle" id="login-subtitle">Sign in to manage your app library.</p>
+
+    <div class="login-error" id="login-error" role="alert">
+      Invalid email or password.
+    </div>
+
+    <form class="login-form" id="login-form">
+
+      <div class="login-field" id="login-field-email">
+        <label for="login-email">Email</label>
+        <input type="email" id="login-email" name="email" placeholder="you@example.com" autocomplete="username">
+      </div>
+
+      <div class="login-field" id="login-field-password">
+        <label for="login-password">Password</label>
+        <input type="password" id="login-password" name="password" placeholder="••••••••" autocomplete="current-password">
+      </div>
+
+      <button type="submit" class="btn btn-primary login-submit" id="login-submit">
+        <span class="login-spinner" id="login-spinner" aria-hidden="true"></span>
+        <span class="login-submit-label" id="login-submit-label">Log In</span>
+      </button>
+
+    </form>
+
+    <a class="login-back-link" id="login-back-link" href="../index.html">&larr; Back to Website</a>
+
+  </div>
+
+</div>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="script.js"></script>
+</body>
+</html>

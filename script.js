@@ -57,7 +57,7 @@
      CARD RENDERER
   ============================================================ */
   function createCard(app) {
-    const hasModal = appHasModalFields(app) || isComingSoon(app);
+    const hasModal = appHasModalFields(app) || isComingSoon(app) || app.status === 'maintenance' || app.status === 'disabled';
     const cardComingSoon = isComingSoon(app);
     const updatedToday = isUpdatedToday(app);
 
@@ -322,8 +322,11 @@ ${app.password ? `<span class="card-code"${cardComingSoon ? ' style="position:re
     // meta grid (category / version / size / developer / updated / activated)
     modalMetaGrid.innerHTML = '';
     const comingSoon = isComingSoon(app);
-    const hasPlayerCode = app.player_code !== undefined && app.player_code !== null && app.player_code !== '';
-    if (comingSoon) {
+const isMaintenance = app.status === 'maintenance';
+const isDisabled = app.status === 'disabled';
+const hasPlayerCode = app.player_code !== undefined && app.player_code !== null && app.player_code !== '';
+
+if (comingSoon) {
       // "Coming Soon" mode — show two informational cards instead of the
       // normal meta fields (category/version/size/developer/updated/activated).
       const enCard = document.createElement('div');
@@ -353,6 +356,44 @@ ${app.password ? `<span class="card-code"${cardComingSoon ? ' style="position:re
         </div>
       `;
       modalMetaGrid.appendChild(arCard);
+    } else if (isMaintenance || isDisabled) {
+      // "Maintenance" / "Disabled" mode — an optional apps.json/apps table
+      // field (app.status). When set to "maintenance" or "disabled", hide
+      // all normal meta fields (category/version/size/developer/updated/
+      // activated) and show two informational cards (English + Arabic)
+      // instead, using the same design/spacing/layout as the existing
+      // "Coming Soon" cards above. Content comes entirely from
+      // app.info_title / app.info_message — the database already stores
+      // bilingual text there, so nothing is hardcoded here.
+      const statusIcon = isMaintenance ? '🛠️' : '❌';
+
+      const statusEnCard = document.createElement('div');
+      statusEnCard.className = 'modal-field';
+      statusEnCard.style.flexDirection = 'column';
+      statusEnCard.style.alignItems = 'flex-start';
+      statusEnCard.style.gap = '4px';
+      statusEnCard.innerHTML = `
+        <div class="modal-field-info" style="width:100%; margin-top:0; padding-top:0;">
+          <span class="modal-field-label" style="font-size:16px; font-weight:700; background:linear-gradient(135deg,#a855f7,#7c3aed); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; display:inline-block; line-height:1.3;">${statusIcon} ${app.info_title}</span>
+          <span class="modal-field-value" style="white-space:normal; line-height:1.6; display:block; margin-top:6px;">${app.info_message}</span>
+        </div>
+      `;
+      modalMetaGrid.appendChild(statusEnCard);
+
+      const statusArCard = document.createElement('div');
+      statusArCard.className = 'modal-field';
+      statusArCard.style.flexDirection = 'column';
+      statusArCard.style.alignItems = 'flex-start';
+      statusArCard.style.gap = '4px';
+      statusArCard.style.direction = 'rtl';
+      statusArCard.style.textAlign = 'right';
+      statusArCard.innerHTML = `
+        <div class="modal-field-info" style="width:100%; margin-top:0; padding-top:0;">
+          <span class="modal-field-label" style="font-size:16px; font-weight:700; background:linear-gradient(135deg,#a855f7,#7c3aed); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; display:inline-block; line-height:1.3; margin-top:0;">${statusIcon} ${app.info_title}</span>
+          <span class="modal-field-value" style="white-space:normal; line-height:1.6; display:block; margin-top:6px;">${app.info_message}</span>
+        </div>
+      `;
+      modalMetaGrid.appendChild(statusArCard);
     } else if (hasPlayerCode) {
       // "Player Required" mode — an optional apps.json field. When present,
       // hide all normal meta fields (category/version/size/developer/updated/
@@ -486,6 +527,15 @@ ${app.password ? `<span class="card-code"${cardComingSoon ? ' style="position:re
       modalDownload.style.opacity = '0.55';
       modalDownload.style.cursor = 'not-allowed';
       modalDownload.textContent = '⏳ Coming Soon';
+    } else if (isMaintenance || isDisabled) {
+      modalDownload.href = 'javascript:void(0)';
+      modalDownload.removeAttribute('target');
+      modalDownload.setAttribute('aria-disabled', 'true');
+      modalDownload.dataset.comingSoon = 'true';
+      modalDownload.style.pointerEvents = 'none';
+      modalDownload.style.opacity = '0.55';
+      modalDownload.style.cursor = 'not-allowed';
+      modalDownload.textContent = isMaintenance ? '🛠️ Under Maintenance' : '❌ Unavailable';
     } else {
       modalDownload.href = app.url || '#';
       modalDownload.removeAttribute('aria-disabled');
