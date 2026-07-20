@@ -39,24 +39,19 @@
   };
 
   function isUpdatedToday(app) {
-    if (!app.updated) return false;
-    const raw = String(app.updated).trim();
-    const match = /^(\d{1,2})\s+([A-Za-z]{3})\s+(\d{4})$/.exec(raw);
-    if (!match) return false;
+  if (!app.updated_at) return false;
 
-    const day = Number(match[1]);
-    const month = MONTH_MAP[match[2].toLowerCase()];
-    const year = Number(match[3]);
-    if (month === undefined) return false;
+  const d = new Date(app.updated_at);
+  if (isNaN(d.getTime())) return false;
 
-    const d = new Date(year, month, day);
-    if (isNaN(d.getTime())) return false;
+  const now = new Date();
 
-    const now = new Date();
-    return d.getFullYear() === now.getFullYear() &&
-           d.getMonth() === now.getMonth() &&
-           d.getDate() === now.getDate();
-  }
+  return (
+    d.getFullYear() === now.getFullYear() &&
+    d.getMonth() === now.getMonth() &&
+    d.getDate() === now.getDate()
+  );
+}
 
   /* ============================================================
      CARD RENDERER
@@ -583,6 +578,15 @@ ${app.password ? `<span class="card-code"${cardComingSoon ? ' style="position:re
  async function loadApps() {
   try {
     APPS = await getApps();
+    console.table(
+  APPS.map(app => ({
+    name: app.name,
+    created_at: app.created_at,
+    updated_at: app.updated_at,
+    url: app.url,
+    isToday: isUpdatedToday(app)
+  }))
+);
   } catch (err) {
     console.error('Failed to load apps from Supabase:', err);
     APPS = [];

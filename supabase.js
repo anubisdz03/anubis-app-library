@@ -11,7 +11,7 @@ const SUPABASE_ANON =
 
 async function getApps() {
   const response = await fetch(
-    `${SUPABASE_URL}/rest/v1/apps?select=*`,
+    `${SUPABASE_URL}/rest/v1/apps?select=*&order=created_at.desc`,
     {
       headers: {
         apikey: SUPABASE_ANON,
