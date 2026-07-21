@@ -12,7 +12,6 @@
    screenshots, youtube_url, telegram_url, website_url,
    changelog, tags, views, admin_notes
 ============================================================ */
-console.log("AUTH.JS VERSION TEST");
 
 const { createClient } = window.supabase;
 
@@ -509,7 +508,6 @@ async function handleAppFormSubmit(e) {
 
   hideModalError();
   const values = readFormValues();
-  console.log("[DEBUG 1] values from readFormValues():", values);
 
   const validationError = validateAppValues(values);
   if (validationError) {
@@ -518,8 +516,6 @@ async function handleAppFormSubmit(e) {
   }
 
   const { id, ...fields } = values;
-  console.log("[DEBUG 2] id:", id);
-  console.log("[DEBUG 2] fields:", fields);
 
   isSavingApp = true;
   setBtnLoading(el.appFormSubmitBtn, true, el.appFormSubmitLabel, "Saving…");
@@ -532,9 +528,7 @@ async function handleAppFormSubmit(e) {
         .from("apps")
         .update(fields)
         .eq("id", id)
-        .select("*");
 
-      console.log("[DEBUG 3] Supabase update response:", updateResponse);
 
       ({ error } = updateResponse);
     } else {
@@ -542,7 +536,6 @@ async function handleAppFormSubmit(e) {
         .from("apps")
         .insert(fields);
 
-      console.log("[DEBUG 3] Supabase insert response:", insertResponse);
 
       ({ error } = insertResponse);
     }
@@ -553,7 +546,6 @@ async function handleAppFormSubmit(e) {
     await refreshApps();
     showToast(id ? "App updated successfully." : "App added successfully.", "success");
   } catch (error) {
-    console.error("[DEBUG ERROR]", error);
     showModalError(readableError(error, "Operation failed."));
   } finally {
     isSavingApp = false;
