@@ -1,5 +1,19 @@
 [
   {
+  "name": "OTF TV V3",
+  "icon": "images/OTF_TV_V3.png",
+  "color": "#0d2240",
+  "url": "https://devuploads.com/m3nh9fi18e74",
+  "badge": "live",
+  "bg": "linear-gradient(135deg, #0d2240, #315500)",
+  "category": "Live TV",
+  "version": "3.2",
+  "size": "55.0 MB",
+  "developer": "ANUBIS by B.Nacereddine",
+  "updated": "21 Jul 2026",
+  "activated": true
+},
+  {
   "name": "📺 4K OTT Satellite Pro",
   "icon": "images/4K_OTT_Satellite_Pro_5.9.png",
   "color": "#3b3b3b",
