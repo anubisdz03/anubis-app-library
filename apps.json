@@ -1,19 +1,5 @@
 [
   {
-  "name": "📺 Macias TV",
-  "icon": "images/Macias_TV_5.9.png",
-  "color": "#3b3b3b",
-  "url": "https://devuploads.com/bql2pbp6tlvc",
-  "badge": "new",
-  "bg": "linear-gradient(135deg,#2f2f2f,#8a8a8a)",
-  "category": "Live TV",
-  "version": "5.9",
-  "size": "69.2 MB",
-  "developer": "ANUBIS by B.Nacereddine",
-  "updated": "17 Jul 2026",
-  "activated": true
-},
-   {
   "name": "📺 4K OTT Satellite Pro",
   "icon": "images/4K_OTT_Satellite_Pro_5.9.png",
   "color": "#3b3b3b",
@@ -23,6 +9,20 @@
   "category": "Live TV",
   "version": "5.9",
   "size": "73.1 MB",
+  "developer": "ANUBIS by B.Nacereddine",
+  "updated": "17 Jul 2026",
+  "activated": true
+},
+  {
+  "name": "📺 Macias TV",
+  "icon": "images/Macias_TV_5.9.png",
+  "color": "#3b3b3b",
+  "url": "https://devuploads.com/bql2pbp6tlvc",
+  "badge": "new",
+  "bg": "linear-gradient(135deg,#2f2f2f,#8a8a8a)",
+  "category": "Live TV",
+  "version": "5.9",
+  "size": "69.2 MB",
   "developer": "ANUBIS by B.Nacereddine",
   "updated": "17 Jul 2026",
   "activated": true
