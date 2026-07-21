@@ -42,6 +42,20 @@
   "activated": true
 },
    {
+  "name": "🎬 MovieBox TV",
+  "icon": "images/MovieBoxTV.png",
+  "color": "#8e24aa",
+  "url": "https://devuploads.com/88bqc1qxy312",
+  "badge": "new",
+  "bg": "linear-gradient(135deg,#8e24aa,#d81b60)",
+  "category": "Movies & Series",
+  "version": "1.1",
+  "size": "30.3 MB",
+  "developer": "ANUBIS by B.Nacereddine",
+  "updated": "12 Jul 2026",
+  "activated": true
+},
+   {
   "name": "📺 Mood TV",
   "icon": "images/mood_tv.png",
   "color": "#3b3b3b",
@@ -86,20 +100,6 @@
     "updated": "28 Jun 2026",
     "activated": true
   },
-  {
-  "name": "🎬 MovieBox TV",
-  "icon": "images/MovieBoxTV.png",
-  "color": "#8e24aa",
-  "url": "https://devuploads.com/88bqc1qxy312",
-  "badge": "new",
-  "bg": "linear-gradient(135deg,#8e24aa,#d81b60)",
-  "category": "Movies & Series",
-  "version": "1.1",
-  "size": "30.3 MB",
-  "developer": "ANUBIS by B.Nacereddine",
-  "updated": "12 Jul 2026",
-  "activated": true
-},
   {
   "name": "📺 RB TV",
   "icon": "images/RBTV.png",
