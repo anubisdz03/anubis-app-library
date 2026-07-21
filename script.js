@@ -326,7 +326,7 @@ const isMaintenance = app.status === 'maintenance';
 const isDisabled = app.status === 'disabled';
 const hasPlayerCode = app.player_code !== undefined && app.player_code !== null && app.player_code !== '';
 
-if (comingSoon) {
+if (comingSoon && !isMaintenance && !isDisabled) {
       // "Coming Soon" mode — show two informational cards instead of the
       // normal meta fields (category/version/size/developer/updated/activated).
       const enCard = document.createElement('div');
