@@ -532,6 +532,7 @@ async function handleAppFormSubmit(e) {
         .from("apps")
         .update(fields)
         .eq("id", id);
+        .select();
 
       console.log("[DEBUG 3] Supabase update response:", updateResponse);
 
