@@ -518,7 +518,7 @@ if (comingSoon && !isMaintenance && !isDisabled) {
     }
 
     // download button
-    if (comingSoon) {
+    if (comingSoon && !isMaintenance && !isDisabled) {
       modalDownload.href = 'javascript:void(0)';
       modalDownload.removeAttribute('target');
       modalDownload.setAttribute('aria-disabled', 'true');
