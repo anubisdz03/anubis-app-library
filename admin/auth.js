@@ -531,7 +531,7 @@ async function handleAppFormSubmit(e) {
       const updateResponse = await supabaseClient
         .from("apps")
         .update(fields)
-        .eq("id", id);
+        .eq("id", id)
         .select();
 
       console.log("[DEBUG 3] Supabase update response:", updateResponse);
