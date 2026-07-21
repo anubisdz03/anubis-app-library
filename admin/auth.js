@@ -368,6 +368,7 @@ function openAppModal(mode, app) {
   resetTabsToFirst();
 
   if (mode === "edit" && app) {
+    console.log(app);
     el.appModalTitle.textContent = "Edit App";
     el.appIdField.value = app.id;
 
