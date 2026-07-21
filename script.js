@@ -58,7 +58,10 @@
   ============================================================ */
   function createCard(app) {
     const hasModal = appHasModalFields(app) || isComingSoon(app) || app.status === 'maintenance' || app.status === 'disabled';
-    const cardComingSoon = isComingSoon(app);
+    const cardComingSoon =
+  isComingSoon(app) &&
+  app.status !== 'maintenance' &&
+  app.status !== 'disabled';
     const updatedToday = isUpdatedToday(app);
 
     let el;
