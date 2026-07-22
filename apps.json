@@ -1,5 +1,19 @@
 [
    {
+  "name": "AKIRA IPTV",
+  "icon": "images/AKIRA_IPTV_3.0.8.png",
+  "color": "#0d2240",
+  "url": "https://devuploads.com/mkfly5fv1doh",
+  "badge": "new",
+  "bg": "linear-gradient(135deg, #0d2240, #315500)",
+  "category": "Live TV",
+  "version": "3.0",
+  "size": "29.8 MB",
+  "developer": "ANUBIS by B.Nacereddine",
+  "updated": "21 Jul 2026",
+  "activated": true
+},
+   {
     "name": "🚀 AIRMAX TV",
     "code": "New Code : 6003967238",
     "icon": "images/airmax.png",
