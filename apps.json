@@ -27,6 +27,20 @@
   "updated": "21 Jul 2026",
   "activated": true
 },
+    {
+    "name": "🆕 CAPTIN TV",
+    "icon": "images/captintv.png",
+    "color": "#0d2240",
+    "url": "https://devuploads.com/7zd1wxmve2pq",
+    "badge": "new",
+    "bg": "linear-gradient(135deg,#0d2240,#1a4a8a)",
+    "category": "Live TV",
+    "version": "4.6",
+    "size": "11.25 MB",
+    "developer": "ANUBIS by B.Nacereddine",
+    "updated": "30 Jun 2026",
+    "activated": true
+  },
    {
     "name": "🚀 AIRMAX TV",
     "code": "New Code : 6003967238",
@@ -349,20 +363,6 @@
   "updated": "05 Jul 2026",
   "activated": true
 },
-  {
-    "name": "🆕 CAPTIN TV",
-    "icon": "images/captintv.png",
-    "color": "#0d2240",
-    "url": "https://devuploads.com/7zd1wxmve2pq",
-    "badge": "new",
-    "bg": "linear-gradient(135deg,#0d2240,#1a4a8a)",
-    "category": "Live TV",
-    "version": "4.6",
-    "size": "11.25 MB",
-    "developer": "ANUBIS by B.Nacereddine",
-    "updated": "30 Jun 2026",
-    "activated": true
-  },
   {
     "name": "🆕 VORTEX TV",
     "icon": "images/vortextv.png",
