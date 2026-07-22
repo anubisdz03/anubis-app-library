@@ -1,5 +1,19 @@
 [
    {
+  "name": "Babalmoshahd",
+  "icon": "images/Babalmoshahd_v1.5.0.png",
+  "color": "#0d2240",
+  "url": "https://devuploads.com/t61ezo7l6inb",
+  "badge": "new",
+  "bg": "linear-gradient(135deg, #0d2240, #315500)",
+  "category": "Live TV",
+  "version": "1.5",
+  "size": "9.1 MB",
+  "developer": "ANUBIS by B.Nacereddine",
+  "updated": "21 Jul 2026",
+  "activated": true
+},
+   {
   "name": "AKIRA IPTV",
   "icon": "images/AKIRA_IPTV_3.0.8.png",
   "color": "#0d2240",
