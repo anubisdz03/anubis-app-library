@@ -1,5 +1,19 @@
 [
    {
+  "name": "✨ REEZEN",
+  "icon": "images/reezen.png",
+  "color": "#301030",
+  "url": "https://devuploads.com/1tt706mvlp22",
+  "badge": "new",
+  "bg": "linear-gradient(135deg,#301030,#a14ec9)",
+  "category": "Live TV",
+  "version": "2.0",
+  "size": "29.0 MB",
+  "developer": "ANUBIS by B.Nacereddine",
+  "updated": "21 Jul 2026",
+  "activated": true
+},
+   {
   "name": "Babalmoshahd",
   "icon": "images/Babalmoshahd_v1.5.0.png",
   "color": "#0d2240",
@@ -872,14 +886,6 @@
     "bg": "linear-gradient(135deg,#202020,#6b6b6b)"
   },
   {
-    "name": "🌸 AKIRA IPTV",
-    "icon": "images/akira-iptv.png",
-    "color": "#301020",
-    "url": "#",
-    "badge": "live",
-    "bg": "linear-gradient(135deg,#301020,#b04d7d)"
-  },
-  {
     "name": "🐉 HYDRA TV",
     "icon": "images/hydra-tv.png",
     "color": "#102010",
@@ -926,14 +932,6 @@
     "url": "#",
     "badge": "live",
     "bg": "linear-gradient(135deg,#102030,#2f6fa8)"
-  },
-  {
-    "name": "✨ REEZEN",
-    "icon": "images/reezen.png",
-    "color": "#301030",
-    "url": "#",
-    "badge": "live",
-    "bg": "linear-gradient(135deg,#301030,#a14ec9)"
   },
   {
     "name": "🎭 DRAMA LIVE",
