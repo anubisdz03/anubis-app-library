@@ -1,5 +1,19 @@
 [
     {
+  "name": "VORTEX",
+  "icon": "images/vortex_2.5.0.png",
+  "color": "#1565C0",
+  "url": "https://devuploads.com/7zaqoty5acmf",
+  "badge": "NEW",
+  "bg": "linear-gradient(135deg,#301030,#a14ec9)",
+  "category": "Movies & Series",
+  "version": "2.5.0",
+  "size": "26.5 MB",
+  "developer": "ANUBIS by B.Nacereddine",
+  "updated": "30 Jul 2026",
+  "activated": true
+},
+    {
   "name": "🆕 YASSIN TV GOLD",
   "icon": "images/yassin-tv-gold.png",
   "color": "#0d2240",
