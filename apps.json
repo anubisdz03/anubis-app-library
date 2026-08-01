@@ -1,4 +1,18 @@
 [
+     {
+    "name": "📺 SHOWSAT TV",
+    "icon": "images/showsat-tv.png",
+    "color": "#0d2240",
+    "url": "https://devuploads.com/u43f7esb8ky8",
+    "badge": "live",
+    "bg": "linear-gradient(135deg,#0d2240,#1a4a8a)",
+    "category": "Live TV",
+    "version": "5.40",
+    "size": "66.10 MB",
+    "developer": "ANUBIS by B.Nacereddine",
+    "updated": "01 Jul 2026",
+    "activated": true
+  },
    {
   "name": "VORTEX",
   "icon": "images/VORTEX_2.5.0.png",
@@ -611,20 +625,6 @@
     "category": "Live TV",
     "version": "2.1",
     "size": "28.65 MB",
-    "developer": "ANUBIS by B.Nacereddine",
-    "updated": "01 Jul 2026",
-    "activated": true
-  },
-  {
-    "name": "📺 SHOWSAT TV",
-    "icon": "images/showsat-tv.png",
-    "color": "#0d2240",
-    "url": "https://devuploads.com/cdt4gcygj0t2",
-    "badge": "live",
-    "bg": "linear-gradient(135deg,#0d2240,#1a4a8a)",
-    "category": "Live TV",
-    "version": "5.40",
-    "size": "66.10 MB",
     "developer": "ANUBIS by B.Nacereddine",
     "updated": "01 Jul 2026",
     "activated": true
