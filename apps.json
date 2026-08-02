@@ -16,6 +16,21 @@
   "password": "3090914536649669"
 },
      {
+  "name": "ALOKA Live",
+  "icon": "images/ALOKA_v2.png",
+  "color": "#6A1BFF",
+  "url": "https://devuploads.com/tzq0zeh58yn4",
+  "badge": "NEW",
+  "bg": "linear-gradient(135deg,#0d2240,#1a4a8a)",
+  "category": "Live TV",
+  "version": "2.0",
+  "size": "16.6 MB",
+  "developer": "ANUBIS by B.Nacereddine",
+  "updated": "02 Aug 2026",
+  "activated": true,
+  "code": "2222"
+},
+     {
     "name": "📺 SHOWSAT TV",
     "icon": "images/showsat-tv.png",
     "color": "#0d2240",
