@@ -57,6 +57,20 @@
   "updated": "05 Jul 2026",
   "activated": true
 },
+     {
+    "name": "🔥 STREAM PLAYER PRO",
+    "icon": "images/streamplayerpro.png",
+    "color": "#0d2240",
+    "url": "https://devuploads.com/0wvkn571tmkf",
+    "badge": "hot",
+    "bg": "linear-gradient(135deg,#0d2240,#1a4a8a)",
+    "category": "Live TV",
+    "version": "8.1",
+    "size": "10.4 MB",
+    "developer": "ANUBIS by B.Nacereddine",
+    "updated": "30 Jun 2026",
+    "activated": true
+  },
    {
   "name": "✨ REEZEN",
   "icon": "images/reezen.png",
@@ -543,20 +557,6 @@
     "category": "Live TV",
     "version": "1.1.2",
     "size": "31.46 MB",
-    "developer": "ANUBIS by B.Nacereddine",
-    "updated": "30 Jun 2026",
-    "activated": true
-  },
-  {
-    "name": "🔥 STREAM PLAYER PRO",
-    "icon": "images/streamplayerpro.png",
-    "color": "#0d2240",
-    "url": "https://devuploads.com/nawwdvgidexr",
-    "badge": "hot",
-    "bg": "linear-gradient(135deg,#0d2240,#1a4a8a)",
-    "category": "Live TV",
-    "version": "8.1",
-    "size": "10.4 MB",
     "developer": "ANUBIS by B.Nacereddine",
     "updated": "30 Jun 2026",
     "activated": true
