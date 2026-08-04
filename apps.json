@@ -1,5 +1,19 @@
 [
      {
+  "name": "CHQ",
+  "icon": "images/CHQ.png",
+  "color": "#1565C0",
+  "url": "https://devuploads.com/2dw18r645age",
+  "badge": "new",
+  "bg": "linear-gradient(135deg,#0d2240,#1a4a8a)",
+  "category": "Live TV",
+  "version": "3.2",
+  "size": "45.1 MB",
+  "developer": "ANUBIS by B.Nacereddine",
+  "updated": "04 Aug 2026",
+  "activated": true
+},
+     {
   "name": "Lion Ultra TV",
   "icon": "images/Lion-Ultra-tv.png",
   "color": "#1976D2",
