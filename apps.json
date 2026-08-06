@@ -1,5 +1,19 @@
 [
      {
+  "name": "📺 AHMED TV",
+  "icon": "images/ahmed-tv.png",
+  "color": "#c62828",
+  "url": "https://devuploads.com/zezobq3vp19m",
+  "badge": "hot",
+  "bg": "linear-gradient(135deg,#c62828,#ff7043)",
+  "category": "Live TV",
+  "version": "1.5",
+  "size": "31.4 MB",
+  "developer": "ANUBIS by B.Nacereddine",
+  "updated": "07 Jul 2026",
+  "activated": true
+},
+     {
   "name": "CHQ",
   "icon": "images/CHQ.png",
   "color": "#1565C0",
@@ -379,20 +393,6 @@
   "category": "Live TV",
   "version": "3.1",
   "size": "31.7 MB"
-},
-  {
-  "name": "📺 AHMED TV",
-  "icon": "images/ahmed-tv.png",
-  "color": "#c62828",
-  "url": "https://devuploads.com/kddv5rsrnv1n",
-  "badge": "hot",
-  "bg": "linear-gradient(135deg,#c62828,#ff7043)",
-  "category": "Live TV",
-  "version": "1.5",
-  "size": "31.4 MB",
-  "developer": "ANUBIS by B.Nacereddine",
-  "updated": "07 Jul 2026",
-  "activated": true
 },
   {
   "name": "📺 REMO",
