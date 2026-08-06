@@ -1,5 +1,21 @@
 [
-        {
+     {
+  "name": "Lion Ultra TV",
+  "icon": "images/Lion-Ultra-tv.png",
+  "color": "#1976D2",
+  "url": "https://devuploads.com/jipqs9c22wjg",
+  "badge": "hot",
+  "bg": "linear-gradient(135deg,#0d2240,#1a4a8a)",
+  "category": "Live TV",
+  "version": "7.1",
+  "size": "35.6 MB",
+  "developer": "ANUBIS by B.Nacereddine",
+  "updated": "01 Aug 2026",
+  "activated": true,
+  "username": "b0:99:d7:15:88:50",
+  "password": "3090914536649669"
+},     
+     {
   "name": "CHQ",
   "icon": "images/CHQ.png",
   "color": "#1565C0",
@@ -26,22 +42,6 @@
   "developer": "ANUBIS by B.Nacereddine",
   "updated": "07 Jul 2026",
   "activated": true
-},
-     {
-  "name": "Lion Ultra TV",
-  "icon": "images/Lion-Ultra-tv.png",
-  "color": "#1976D2",
-  "url": "https://devuploads.com/jipqs9c22wjg",
-  "badge": "hot",
-  "bg": "linear-gradient(135deg,#0d2240,#1a4a8a)",
-  "category": "Live TV",
-  "version": "7.1",
-  "size": "35.6 MB",
-  "developer": "ANUBIS by B.Nacereddine",
-  "updated": "01 Aug 2026",
-  "activated": true,
-  "username": "b0:99:d7:15:88:50",
-  "password": "3090914536649669"
 },
      {
   "name": "ALOKA Live",
