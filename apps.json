@@ -1,33 +1,5 @@
 [
         {
-  "name": "🏟️ SPORTZX",
-  "icon": "images/sportzx.png",
-  "color": "#203010",
-  "url": "https://devuploads.com/u6fi1v89ucyg",
-  "badge": "NEW",
-  "bg": "linear-gradient(135deg,#203010,#5d8a24)",
-  "category": "LIVE TV",
-  "version": "3.1",
-  "size": "19.9 MB",
-  "developer": "ANUBIS by B.Nacereddine",
-  "updated": "06 Aug 2026",
-  "activated": true
-},
-     {
-  "name": "📺 AHMED TV",
-  "icon": "images/ahmed-tv.png",
-  "color": "#c62828",
-  "url": "https://devuploads.com/zezobq3vp19m",
-  "badge": "hot",
-  "bg": "linear-gradient(135deg,#c62828,#ff7043)",
-  "category": "Live TV",
-  "version": "1.5",
-  "size": "31.4 MB",
-  "developer": "ANUBIS by B.Nacereddine",
-  "updated": "07 Jul 2026",
-  "activated": true
-},
-        {
   "name": "Lion Ultra TV",
   "icon": "images/Lion-Ultra-tv.png",
   "color": "#1976D2",
@@ -48,7 +20,7 @@
   "icon": "images/CHQ.png",
   "color": "#1565C0",
   "url": "https://devuploads.com/2dw18r645age",
-  "badge": "new",
+  "badge": "hot",
   "bg": "linear-gradient(135deg,#0d2240,#1a4a8a)",
   "category": "Live TV",
   "version": "3.2",
