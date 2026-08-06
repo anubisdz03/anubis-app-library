@@ -1,4 +1,18 @@
 [
+        {
+  "name": "CHQ",
+  "icon": "images/CHQ.png",
+  "color": "#1565C0",
+  "url": "https://devuploads.com/2dw18r645age",
+  "badge": "hot",
+  "bg": "linear-gradient(135deg,#0d2240,#1a4a8a)",
+  "category": "Live TV",
+  "version": "3.2",
+  "size": "45.1 MB",
+  "developer": "ANUBIS by B.Nacereddine",
+  "updated": "04 Aug 2026",
+  "activated": true
+},
      {
   "name": "📺 AHMED TV",
   "icon": "images/ahmed-tv.png",
@@ -11,20 +25,6 @@
   "size": "31.4 MB",
   "developer": "ANUBIS by B.Nacereddine",
   "updated": "07 Jul 2026",
-  "activated": true
-},
-     {
-  "name": "CHQ",
-  "icon": "images/CHQ.png",
-  "color": "#1565C0",
-  "url": "https://devuploads.com/2dw18r645age",
-  "badge": "hot",
-  "bg": "linear-gradient(135deg,#0d2240,#1a4a8a)",
-  "category": "Live TV",
-  "version": "3.2",
-  "size": "45.1 MB",
-  "developer": "ANUBIS by B.Nacereddine",
-  "updated": "04 Aug 2026",
   "activated": true
 },
      {
