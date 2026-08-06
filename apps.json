@@ -1,19 +1,5 @@
 [
      {
-  "name": "🏟️ SPORTZX",
-  "icon": "images/sportzx.png",
-  "color": "#203010",
-  "url": "https://devuploads.com/u6fi1v89ucyg",
-  "badge": "NEW",
-  "bg": "linear-gradient(135deg,#203010,#5d8a24)",
-  "category": "LIVE TV",
-  "version": "3.1",
-  "size": "19.9 MB",
-  "developer": "ANUBIS by B.Nacereddine",
-  "updated": "06 Aug 2026",
-  "activated": true
-},
-     {
   "name": "📺 AHMED TV",
   "icon": "images/ahmed-tv.png",
   "color": "#c62828",
