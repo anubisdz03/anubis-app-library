@@ -1,5 +1,19 @@
 [
      {
+  "name": "MATA TV",
+  "icon": "images/MATA-TV.png",
+  "color": "#7CFF00",
+  "url": "https://devuploads.com/7kqeu5fix4xy",
+  "badge": "new",
+  "bg": "#101010",
+  "category": "LIVE TV",
+  "version": "3.1",
+  "size": "40.7 MB",
+  "developer": "ANUBIS by B.Nacereddine",
+  "updated": "06 Aug 2026",
+  "activated": true
+},
+     {
   "name": "🏟️ SPORTZX",
   "icon": "images/sportzx.png",
   "color": "#203010",
