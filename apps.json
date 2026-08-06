@@ -1,5 +1,19 @@
 [
      {
+  "name": "📺 AHMED TV",
+  "icon": "images/ahmed-tv.png",
+  "color": "#c62828",
+  "url": "https://devuploads.com/zezobq3vp19m",
+  "badge": "hot",
+  "bg": "linear-gradient(135deg,#c62828,#ff7043)",
+  "category": "Live TV",
+  "version": "1.5",
+  "size": "31.4 MB",
+  "developer": "ANUBIS by B.Nacereddine",
+  "updated": "07 Jul 2026",
+  "activated": true
+},
+     {
   "name": "Lion Ultra TV",
   "icon": "images/Lion-Ultra-tv.png",
   "color": "#1976D2",
@@ -27,20 +41,6 @@
   "size": "45.1 MB",
   "developer": "ANUBIS by B.Nacereddine",
   "updated": "04 Aug 2026",
-  "activated": true
-},
-     {
-  "name": "📺 AHMED TV",
-  "icon": "images/ahmed-tv.png",
-  "color": "#c62828",
-  "url": "https://devuploads.com/zezobq3vp19m",
-  "badge": "hot",
-  "bg": "linear-gradient(135deg,#c62828,#ff7043)",
-  "category": "Live TV",
-  "version": "1.5",
-  "size": "31.4 MB",
-  "developer": "ANUBIS by B.Nacereddine",
-  "updated": "07 Jul 2026",
   "activated": true
 },
      {
