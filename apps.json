@@ -1,5 +1,19 @@
 [
      {
+  "name": "MOVIES HUB",
+  "icon": "images/MOVIES HUB.png",
+  "color": "#E50914",
+  "url": "https://devuploads.com/99fapofywzmk",
+  "badge": "new",
+  "bg": "#101010",
+  "category": "Movies & Series",
+  "version": "2.1",
+  "size": "38.0 MB",
+  "developer": "ANUBIS by B.Nacereddine",
+  "updated": "07 Aug 2026",
+  "activated": true
+},
+     {
   "name": "MATA TV",
   "icon": "images/MATA-TV.png",
   "color": "#7CFF00",
