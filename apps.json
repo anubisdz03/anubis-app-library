@@ -1,4 +1,18 @@
 [
+       {
+    "name": "🔥 SCREENIFY TV 4K",
+    "icon": "images/screenify.png",
+    "color": "#1a1f3d",
+    "url": "https://devuploads.com/xa8jufyki1me",
+    "badge": "live",
+    "bg": "linear-gradient(135deg,#1a1f3d,#4a5cff)",
+    "category": "Live TV",
+    "version": "6.2",
+    "developer": "ANUBIS by B.Nacereddine",
+    "updated": "30 Jun 2026",
+    "size": "19.3 MB",
+    "activated": true
+  },
      {
   "name": "MOVIES HUB",
   "icon": "images/MOVIES HUB.png",
@@ -602,20 +616,6 @@
     "size": "34.1 MB",
     "developer": "ANUBIS by B.Nacereddine",
     "updated": "29 Jun 2026",
-    "activated": true
-  },
-  {
-    "name": "🔥 SCREENIFY TV 4K",
-    "icon": "images/screenify.png",
-    "color": "#1a1f3d",
-    "url": "https://devuploads.com/obnk2yksl2te",
-    "badge": "live",
-    "bg": "linear-gradient(135deg,#1a1f3d,#4a5cff)",
-    "category": "Live TV",
-    "version": "5.1",
-    "developer": "ANUBIS by B.Nacereddine",
-    "updated": "30 Jun 2026",
-    "size": "18.4 MB",
     "activated": true
   },
   {
