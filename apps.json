@@ -1,5 +1,19 @@
 [
      {
+  "name": "PrimeTV.OTT",
+  "icon": "images/PrimeTV.OTT.png",
+  "color": "#E50914",
+  "url": "https://devuploads.com/u3hg2cemohc6",
+  "badge": "live",
+  "bg": "linear-gradient(135deg, #120000, #E50914)",
+  "category": "Live TV",
+  "version": "2.0",
+  "size": "19.9 MB",
+  "developer": "ANUBIS by B.Nacereddine",
+  "updated": "09 Aug 2026",
+  "activated": true
+},
+     {
   "name": "NESR TV",
   "icon": "images/NESR_TV.png",
   "color": "#0E8A8A",
