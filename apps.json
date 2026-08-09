@@ -1,5 +1,19 @@
 [
      {
+  "name": "🎬 Cima Cloud",
+  "icon": "images/Cima_Cloud.png",
+  "color": "#b71c1c",
+  "url": "https://devuploads.com/6o4gwhm3lwv9",
+  "badge": "new",
+  "bg": "linear-gradient(135deg,#b71c1c,#ff5252)",
+  "category": "Movies & Series",
+  "version": "2.1",
+  "size": "26.4 MB",
+  "developer": "ANUBIS by B.Nacereddine",
+  "updated": "13 Jul 2026",
+  "activated": true
+},
+     {
   "name": "PrimeTV.OTT",
   "icon": "images/PrimeTV.OTT.png",
   "color": "#E50914",
@@ -353,20 +367,6 @@
   "updated": "14 Jul 2026",
   "player_required": true,
   "player_code": "1774683",
-  "activated": true
-},
-   {
-  "name": "🎬 Cima Cloud",
-  "icon": "images/Cima_Cloud.png",
-  "color": "#b71c1c",
-  "url": "https://devuploads.com/nyslo2eagrnv",
-  "badge": "new",
-  "bg": "linear-gradient(135deg,#b71c1c,#ff5252)",
-  "category": "Movies & Series",
-  "version": "2.1",
-  "size": "26.4 MB",
-  "developer": "ANUBIS by B.Nacereddine",
-  "updated": "13 Jul 2026",
   "activated": true
 },
   {
