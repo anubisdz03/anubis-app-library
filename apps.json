@@ -1,5 +1,21 @@
 [
      {
+  "name": "DLTA 4K",
+  "icon": "images/DLTA_4K_2027.png",
+  "color": "#3B2A6F",
+  "url": "https://devuploads.com/lhbizn8aj4ha",
+  "badge": "new",
+  "bg": "linear-gradient(135deg,#1a1033,#5b3fa3)",
+  "category": "Live TV",
+  "version": "3.0",
+  "size": "20.2 MB",
+  "developer": "ANUBIS by B.Nacereddine",
+  "updated": "11 Aug 2026",
+  "username": "36480855174320",
+  "password": "28965813522509",
+  "activated": true
+},
+     {
   "name": "🎬 Cima Cloud",
   "icon": "images/Cima_Cloud.png",
   "color": "#b71c1c",
