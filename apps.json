@@ -1,5 +1,20 @@
 [
      {
+  "name": "One+ TV",
+  "icon": "images/One__tv.png",
+  "color": "#E53935",
+  "url": "https://devuploads.com/flzti1xe5d84",
+  "badge": "new",
+  "bg": "linear-gradient(135deg,#1a0000,#E53935)",
+  "category": "Live TV",
+  "version": "2.0",
+  "size": "7.7 MB",
+  "developer": "ANUBIS by B.Nacereddine",
+  "updated": "11 Aug 2026",
+  "code": "P1 أو X2 أو X3 أو X4 أو X5 أو 77 أو 00",
+  "activated": true
+},
+     {
   "name": "DLTA 4K",
   "icon": "images/DLTA_4K_2027.png",
   "color": "#3B2A6F",
