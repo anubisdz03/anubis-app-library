@@ -1,5 +1,21 @@
 [
      {
+  "name": "MAVEN PRO",
+  "icon": "images/Maven_Pro_7.2_.png",
+  "color": "#D4AF37",
+  "url": "https://devuploads.com/nogfhkrk5c6t",
+  "badge": "new",
+  "bg": "linear-gradient(135deg,#0a0a0a,#3a2a0a)",
+  "category": "Live TV",
+  "version": "7.2",
+  "size": "6.3 MB",
+  "developer": "ANUBIS by B.Nacereddine",
+  "updated": "12 Aug 2026",
+  "username": "0914380707",
+  "password": "4487539045",
+  "activated": true
+},
+     {
   "name": "One+ TV",
   "icon": "images/One__tv.png",
   "color": "#E53935",
