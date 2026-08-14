@@ -1,5 +1,47 @@
 [
      {
+  "name": "FEDIFLIX",
+  "icon": "images/FEDIFLIX_signed.png",
+  "color": "#1565C0",
+  "url": "https://devuploads.com/hmf9pwcho63n",
+  "badge": "hot",
+  "bg": "linear-gradient(135deg,#0D47A1,#42A5F5)",
+  "category": "Live TV",
+  "version": "2.1",
+  "size": "40.6 MB",
+  "developer": "ANUBIS by B.Nacereddine",
+  "updated": "14 Aug 2026",
+  "activated": true
+},
+     {
+  "name": "SHOOTERS OTT PRO",
+  "icon": "images/SHOOTERS_OTT_PRO.png",
+  "color": "#E53935",
+  "url": "https://devuploads.com/5h8ylsdpa3w0",
+  "badge": "new",
+  "bg": "linear-gradient(135deg,#1A0000,#E53935)",
+  "category": "Live TV",
+  "version": "6.1",
+  "size": "66.8 MB",
+  "developer": "ANUBIS by B.Nacereddine",
+  "updated": "14 Aug 2026",
+  "activated": true
+},
+     {
+  "name": "Super Live TV",
+  "icon": "images/Super_Live_TV_1.7.png",
+  "color": "#1565C0",
+  "url": "https://devuploads.com/6w4hlny1enzc",
+  "badge": "new",
+  "bg": "linear-gradient(135deg,#0D47A1,#42A5F5)",
+  "category": "Live TV",
+  "version": "1.7",
+  "size": "30.3 MB",
+  "developer": "ANUBIS by B.Nacereddine",
+  "updated": "14 Aug 2026",
+  "activated": true
+},
+     {
   "name": "MAVEN PRO",
   "icon": "images/Maven_Pro_7.2_.png",
   "color": "#D4AF37",
