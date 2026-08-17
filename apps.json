@@ -43,6 +43,22 @@
   "updated": "16 Aug 2026",
   "activated": true
 },
+      {
+  "name": "IBO GOLD",
+  "icon": "images/IBOGOLD.png",
+  "color": "#D4A017",
+  "url": "https://devuploads.com/em2iqnj1m6es",
+  "badge": "new",
+  "bg": "linear-gradient(135deg,#1A1A1A,#D4A017)",
+  "category": "Live TV",
+  "version": "2.1",
+  "size": "38.1 MB",
+  "developer": "ANUBIS by B.Nacereddine",
+  "updated": "16 Aug 2026",
+  "username": "1124ZWP",
+  "password": "RCWE2TW",
+  "activated": true
+},
      {
   "name": "GO TV MAX",
   "icon": "images/GO_TV_MAX.png",
