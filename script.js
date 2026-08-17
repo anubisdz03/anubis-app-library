@@ -106,7 +106,7 @@
   <img src="${app.icon}" alt="${app.name}" loading="lazy">
 </div>
 <span class="card-name"${cardComingSoon ? ' style="position:relative; z-index:1;"' : ''}>${app.name}</span>
-${app.code ? `<span class="card-code"${cardComingSoon ? ' style="position:relative; z-index:1;"' : ''}>🔑 ${app.code}</span>` : ""}
+${app.server_url ? `<span class="card-code"${cardComingSoon ? ' style="position:relative; z-index:1;"' : ''}>🌐 ${app.server_url}</span>` : (app.code ? `<span class="card-code"${cardComingSoon ? ' style="position:relative; z-index:1;"' : ''}>🔑 ${app.code}</span>` : "")}
 ${app.username ? `<span class="card-code"${cardComingSoon ? ' style="position:relative; z-index:1;"' : ''}>👤 Username : ${app.username}</span>` : ""}
 ${app.password ? `<span class="card-code"${cardComingSoon ? ' style="position:relative; z-index:1;"' : ''}>🔑 Password : ${app.password}</span>` : ""}${badgeMarkup}
     `;
