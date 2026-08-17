@@ -415,6 +415,7 @@ ${app.password ? `<span class="card-code"${cardComingSoon ? ' style="position:re
     modalMetaGrid.innerHTML = '';
     const comingSoon = isComingSoon(app);
     const hasPlayerCode = app.player_code !== undefined && app.player_code !== null && app.player_code !== '';
+    const hasServer = app.server !== undefined && app.server !== null && app.server !== '';
     if (comingSoon) {
       // "Coming Soon" mode — show two informational cards instead of the
       // normal meta fields (category/version/size/developer/updated/activated).
@@ -490,6 +491,41 @@ ${app.password ? `<span class="card-code"${cardComingSoon ? ' style="position:re
       playerArCopyField.style.direction = 'rtl';
       playerArCard.appendChild(playerArCopyField);
       modalMetaGrid.appendChild(playerArCard);
+    } else if (hasServer) {
+      // "Server Info" mode — an optional apps.json field set (server /
+      // server_url / username / password). When "server" is present, hide
+      // all normal meta fields (category/version/size/developer/updated/
+      // activated) and show the server connection details instead. The
+      // "code" copy field (below, for downloading the app) is intentionally
+      // NOT shown in this mode since it is unrelated to server login info.
+      const serverField = document.createElement('div');
+      serverField.className = 'modal-field';
+      serverField.innerHTML = `
+        <div class="modal-field-info">
+          <span class="modal-field-label">Server</span>
+          <span class="modal-field-value">${app.server}</span>
+        </div>
+      `;
+      modalMetaGrid.appendChild(serverField);
+
+      if (app.server_url !== undefined && app.server_url !== null && app.server_url !== '') {
+        const serverUrlField = document.createElement('div');
+        serverUrlField.className = 'modal-field';
+        serverUrlField.innerHTML = `
+          <div class="modal-field-info">
+            <span class="modal-field-label">Server URL</span>
+            <span class="modal-field-value">${app.server_url}</span>
+          </div>
+        `;
+        modalMetaGrid.appendChild(serverUrlField);
+      }
+
+      if (app.username !== undefined && app.username !== null && app.username !== '') {
+        modalMetaGrid.appendChild(buildCopyField('username', 'Username'));
+      }
+      if (app.password !== undefined && app.password !== null && app.password !== '') {
+        modalMetaGrid.appendChild(buildCopyField('password', 'Password', true));
+      }
     } else {
       META_FIELDS.forEach(({ key, label }) => {
         if (app[key] === undefined || app[key] === null || app[key] === '') return;
@@ -560,7 +596,7 @@ ${app.password ? `<span class="card-code"${cardComingSoon ? ' style="position:re
       return field;
     }
 
-    if (!hasPlayerCode) {
+    if (!hasPlayerCode && !hasServer) {
       COPY_FIELDS.forEach(({ key, label, maskable }) => {
         if (app[key] === undefined || app[key] === null || app[key] === '') return;
 
