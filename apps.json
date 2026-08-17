@@ -1,4 +1,19 @@
 [
+    {
+  "name": "XP IPTV / OTT PLAYER",
+  "icon": "images/XP_IPTV_OTT_PLAYER.png",
+  "color": "#E50914",
+  "url": "https://devuploads.com/0go5clidfpo0",
+  "badge": "new",
+  "bg": "linear-gradient(135deg,#1A1A1A,#E50914)",
+  "category": "Live TV",
+  "version": "2.0",
+  "size": "102.6 MB",
+  "developer": "ANUBIS by B.Nacereddine",
+  "updated": "17 Aug 2026",
+  "video": "https://github.com/anubisdz03/anubis-app-library/raw/refs/heads/main/xp-iptv-ott-player.mp4",
+  "activated": true
+},
      {
   "name": "Family Premium TV",
   "icon": "images/Family_PremiumTv.png",
