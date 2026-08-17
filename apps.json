@@ -1,24 +1,4 @@
 [
-    {
-  "name": "XP IPTV / OTT PLAYER",
-  "icon": "images/xp-iptv-ott-player.png",
-  "color": "#E50914",
-  "url": "https://devuploads.com/0go5clidfpo0",
-  "badge": "new",
-  "bg": "linear-gradient(135deg,#180000,#E50914)",
-  "category": "Live TV",
-  "version": "2.0",
-  "size": "102.6 MB",
-  "developer": "ANUBIS by B.Nacereddine",
-  "updated": "17 Aug 2026",
-  "server": "MARVEL",
-  "server_url": "http://marveltv.info",
-  "username": "n809550",
-  "password": "8009080",
-  "code": "1430646",
-  "video": "https://رابط-الفيديو-الجديد.mp4",
-  "activated": true
-},
      {
   "name": "Family Premium TV",
   "icon": "images/Family_PremiumTv.png",
