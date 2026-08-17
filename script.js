@@ -26,6 +26,17 @@
   }
 
   /* ============================================================
+     EXPLAINER VIDEO HELPER — an app has an optional "video" field
+     in apps.json. When present (non-empty string), the app modal
+     shows a "⚠️ Watch video before installing" button that opens
+     the video in an in-site HTML5 <video> modal (not YouTube).
+     This never affects card click behavior — only openAppModal().
+  ============================================================ */
+  function appHasVideo(app) {
+    return typeof app.video === 'string' && app.video.trim() !== '';
+  }
+
+  /* ============================================================
      TODAY'S UPDATES HELPER — true when app.updated falls on the
      user's current local calendar date. The "updated" field is
      stored as "DD Mon YYYY" (e.g. "13 Jul 2026"), which is parsed
@@ -239,6 +250,7 @@ ${app.password ? `<span class="card-code"${cardComingSoon ? ' style="position:re
   const modalDownload  = document.getElementById('modal-download');
   const modalDownloadDefaultText = modalDownload.innerHTML;
   const modalCloseBtn  = document.getElementById('modal-close');
+  let modalVideoBtn    = null; // created lazily on first app that has a "video" field
 
   /* ---- compact spacing (Android TV / smaller screens) ----------------
      Reduces modal height ~25-30% by tightening internal padding and gaps.
@@ -262,6 +274,81 @@ ${app.password ? `<span class="card-code"${cardComingSoon ? ' style="position:re
     ].join('\n');
     document.head.appendChild(s);
   })();
+
+  /* ---- explainer video modal styles — scoped, additive, injected once ----
+     Fully separate from #app-modal styling; does not alter any existing
+     modal/card/layout rule. */
+  (function injectVideoModalStyles() {
+    const s = document.createElement('style');
+    s.id = 'video-modal-styles';
+    s.textContent = [
+      '.video-modal-overlay { position: fixed; inset: 0; z-index: 10000; display: none; align-items: center; justify-content: center; background: rgba(6,4,14,0.82); padding: 24px; box-sizing: border-box; }',
+      '.video-modal-overlay.active { display: flex; }',
+      '.video-modal-box { position: relative; width: 100%; max-width: 960px; background: #0b0a14; border-radius: 14px; overflow: hidden; box-shadow: 0 20px 60px rgba(0,0,0,0.55); border: 1px solid rgba(255,255,255,0.08); }',
+      '.video-modal-box video { display: block; width: 100%; max-height: 78vh; background: #000; }',
+      '.video-modal-close { position: absolute; top: 10px; right: 10px; z-index: 1; width: 40px; height: 40px; border-radius: 999px; border: none; display: flex; align-items: center; justify-content: center; background: rgba(0,0,0,0.55); color: #fff; cursor: pointer; }',
+      '.video-modal-close svg { width: 20px; height: 20px; }',
+      '.modal-video-btn { width: 100%; box-sizing: border-box; display: flex; align-items: center; justify-content: center; gap: 8px; padding: 10px 16px; margin: 0 0 8px; border-radius: 10px; border: 1px solid rgba(249,115,22,0.4); background: linear-gradient(135deg, rgba(249,115,22,0.18), rgba(239,68,68,0.18)); color: #fdba74; font-weight: 700; font-size: 14px; cursor: pointer; }',
+      '.modal-video-btn:hover, .modal-video-btn:focus { background: linear-gradient(135deg, rgba(249,115,22,0.28), rgba(239,68,68,0.28)); outline: none; }',
+    ].join('\n');
+    document.head.appendChild(s);
+  })();
+
+  /* ---- explainer video modal markup — built once, appended to <body> ----
+     Independent overlay from #modal-overlay/#app-modal; uses a real HTML5
+     <video> element (no YouTube/iframe embed). */
+  const videoModalOverlay = document.createElement('div');
+  videoModalOverlay.className = 'video-modal-overlay';
+  videoModalOverlay.setAttribute('aria-hidden', 'true');
+  videoModalOverlay.innerHTML = `
+    <div class="video-modal-box">
+      <button type="button" class="video-modal-close" aria-label="Close video">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+      <video id="explainer-video-player" controls playsinline></video>
+    </div>
+  `;
+  document.body.appendChild(videoModalOverlay);
+
+  const explainerVideoEl   = videoModalOverlay.querySelector('#explainer-video-player');
+  const videoModalCloseBtn = videoModalOverlay.querySelector('.video-modal-close');
+
+  function openVideoModal(url) {
+    if (!url) return;
+    explainerVideoEl.src = url;
+    videoModalOverlay.classList.add('active');
+    videoModalOverlay.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+    const playPromise = explainerVideoEl.play();
+    if (playPromise && typeof playPromise.catch === 'function') {
+      playPromise.catch(() => {}); // autoplay may be blocked; controls remain available
+    }
+  }
+
+  function closeVideoModal() {
+    explainerVideoEl.pause();
+    explainerVideoEl.removeAttribute('src');
+    explainerVideoEl.load();
+    videoModalOverlay.classList.remove('active');
+    videoModalOverlay.setAttribute('aria-hidden', 'true');
+    // Only restore page scroll if the app-info modal isn't also open.
+    if (!modalOverlayIsActive()) document.body.style.overflow = '';
+  }
+
+  function modalOverlayIsActive() {
+    const overlay = document.getElementById('modal-overlay');
+    return !!(overlay && overlay.classList.contains('active'));
+  }
+
+  videoModalCloseBtn.addEventListener('click', closeVideoModal);
+  videoModalOverlay.addEventListener('click', (e) => {
+    if (e.target === videoModalOverlay) closeVideoModal();
+  });
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && videoModalOverlay.classList.contains('active')) {
+      closeVideoModal();
+    }
+  });
 
   const SVG_COPY = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>`;
   const SVG_CHECK = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>`;
@@ -501,6 +588,33 @@ ${app.password ? `<span class="card-code"${cardComingSoon ? ' style="position:re
       modalDownload.innerHTML = modalDownloadDefaultText;
     }
 
+    // explainer video button — shown only when apps.json has a non-empty
+    // "video" field for this app; inserted as its own full-width row
+    // directly above the Download button, inside .modal-actions.
+    // Clicking it opens the HTML5 video modal — it never triggers
+    // openAppModal/closeAppModal and is completely independent of the
+    // card click handler in createCard().
+    if (appHasVideo(app)) {
+      if (!modalVideoBtn) {
+        modalVideoBtn = document.createElement('button');
+        modalVideoBtn.type = 'button';
+        modalVideoBtn.className = 'modal-video-btn';
+        modalVideoBtn.textContent = '⚠️ شاهد الفيديو قبل تثبيت التطبيق';
+        modalVideoBtn.addEventListener('click', () => {
+          openVideoModal(modalVideoBtn.dataset.videoUrl);
+        });
+      }
+      modalVideoBtn.dataset.videoUrl = app.video;
+      if (modalVideoBtn.parentElement !== modalDownload.parentElement) {
+        modalDownload.parentElement.insertBefore(modalVideoBtn, modalDownload);
+      } else if (modalVideoBtn.nextElementSibling !== modalDownload) {
+        modalDownload.parentElement.insertBefore(modalVideoBtn, modalDownload);
+      }
+      modalVideoBtn.style.display = '';
+    } else if (modalVideoBtn) {
+      modalVideoBtn.style.display = 'none';
+    }
+
     // show
     modalOverlay.classList.add('active');
     modalOverlay.setAttribute('aria-hidden', 'false');
@@ -515,6 +629,7 @@ ${app.password ? `<span class="card-code"${cardComingSoon ? ' style="position:re
   }
 
   function closeAppModal() {
+    if (videoModalOverlay.classList.contains('active')) closeVideoModal();
     modalOverlay.classList.remove('active');
     modalOverlay.setAttribute('aria-hidden', 'true');
     document.body.style.overflow = '';
@@ -546,7 +661,11 @@ ${app.password ? `<span class="card-code"${cardComingSoon ? ' style="position:re
   });
 
   document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && modalOverlay.classList.contains('active')) {
+    if (
+      e.key === 'Escape' &&
+      modalOverlay.classList.contains('active') &&
+      !videoModalOverlay.classList.contains('active')
+    ) {
       closeAppModal();
     }
   });
@@ -557,6 +676,7 @@ ${app.password ? `<span class="card-code"${cardComingSoon ? ' style="position:re
   // is open and does not affect mouse/touch/keyboard(Tab) behavior at all.
   document.addEventListener('keydown', (e) => {
     if (!modalOverlay.classList.contains('active')) return;
+    if (videoModalOverlay.classList.contains('active')) return;
     const isNavKey = ['ArrowDown', 'ArrowRight', 'ArrowUp', 'ArrowLeft'].includes(e.key);
     if (!isNavKey) return;
 
