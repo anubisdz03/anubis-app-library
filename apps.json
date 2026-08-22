@@ -1,5 +1,21 @@
 [
      {
+  "name": "Marvel4K",
+  "icon": "images/Marvel4K.png",
+  "color": "#E53935",
+  "url": "https://devuploads.com/semxm9mobd4a",
+  "badge": "new",
+  "bg": "linear-gradient(135deg,#1A0000,#E53935)",
+  "category": "Live TV",
+  "version": "3.1",
+  "size": "95.6 MB",
+  "developer": "ANUBIS by B.Nacereddine",
+  "updated": "22 Aug 2026",
+  "username": "retc7958094",
+  "password": "khgf1697423",
+  "activated": true
+},
+     {
   "name": "Family Premium TV",
   "icon": "images/Family_PremiumTv.png",
   "color": "#D4A017",
