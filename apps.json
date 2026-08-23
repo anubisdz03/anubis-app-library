@@ -1,5 +1,47 @@
 [
       {
+  "name": "VU PLAYER",
+  "icon": "images/VU PLAYER.png",
+  "color": "#00BCD4",
+  "url": "https://devuploads.com/0g2agsg210x2",
+  "badge": "new",
+  "bg": "linear-gradient(135deg,#001A1F,#00BCD4)",
+  "category": "Live TV",
+  "version": "7.1",
+  "size": "114.2 MB",
+  "developer": "ANUBIS by B.Nacereddine",
+  "updated": "23 Aug 2026",
+  "activated": true
+},
+      {
+  "name": "AMIR TV",
+  "icon": "images/AMIR TV.png",
+  "color": "#E53935",
+  "url": "https://devuploads.com/29vw6dxbcmil",
+  "badge": "hot",
+  "bg": "linear-gradient(135deg,#1A0000,#E53935)",
+  "category": "Live TV",
+  "version": "2.1",
+  "size": "23.3 MB",
+  "developer": "ANUBIS by B.Nacereddine",
+  "updated": "23 Aug 2026",
+  "activated": true
+},
+      {
+  "name": "SHAHID VIP TV",
+  "icon": "images/SHAHID VIP TV.png",
+  "color": "#E50914",
+  "url": "https://devuploads.com/nsdwrpvlsuqs",
+  "badge": "new",
+  "bg": "linear-gradient(135deg,#180000,#E50914)",
+  "category": "Live TV",
+  "version": "3.1",
+  "size": "63.5 MB",
+  "developer": "ANUBIS by B.Nacereddine",
+  "updated": "23 Aug 2026",
+  "activated": true
+},
+      {
     "name": "🔥 LYNX 4K TV",
     "icon": "images/lynx4ktv.png",
     "color": "#0d2240",
