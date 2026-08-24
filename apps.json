@@ -1,5 +1,20 @@
 [
        {
+  "name": "ALFA IPTV",
+  "icon": "images/alfa-iptv.png",
+  "color": "#E53935",
+  "url": "https://devuploads.com/6g7q1u9t2b1a",
+  "badge": "new",
+  "bg": "linear-gradient(135deg,#1A0000,#E53935)",
+  "category": "Live TV",
+  "version": "3.1",
+  "size": "13.6 MB",
+  "developer": "ANUBIS by B.Nacereddine",
+  "updated": "24 Aug 2026",
+  "password": "9436340146",
+  "activated": true
+},
+       {
   "name": "FASTER 4K OTT",
   "icon": "images/FASTER 4K OTT.png",
   "color": "#00BCD4",
