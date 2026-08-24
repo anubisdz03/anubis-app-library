@@ -1,5 +1,19 @@
 [
        {
+  "name": "FASTER 4K OTT",
+  "icon": "images/FASTER 4K OTT.png",
+  "color": "#00BCD4",
+  "url": "https://devuploads.com/dyir2scj57ja",
+  "badge": "new",
+  "bg": "linear-gradient(135deg,#001A1F,#00BCD4)",
+  "category": "Live TV",
+  "version": "5.1",
+  "size": "67.7 MB",
+  "developer": "ANUBIS by B.Nacereddine",
+  "updated": "24 Aug 2026",
+  "activated": true
+},
+       {
   "name": "EL-MOUNAFIS TV",
   "icon": "images/EL-MOUNAFIS TV.png",
   "color": "#7B1FA2",
