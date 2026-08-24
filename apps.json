@@ -1,5 +1,21 @@
 [
        {
+  "name": "EL-MOUNAFIS TV",
+  "icon": "images/EL-MOUNAFIS TV.png",
+  "color": "#7B1FA2",
+  "url": "https://devuploads.com/4hgzf67id38b",
+  "badge": "new",
+  "bg": "linear-gradient(135deg,#1A0033,#7B1FA2)",
+  "category": "Live TV",
+  "version": "3.1",
+  "size": "17.8 MB",
+  "developer": "ANUBIS by B.Nacereddine",
+  "updated": "24 Aug 2026",
+  "username": "2020",
+  "password": "2020",
+  "activated": true
+},
+       {
   "name": "SHAHID VIP TV",
   "icon": "images/SHAHID VIP TV.png",
   "color": "#E50914",
