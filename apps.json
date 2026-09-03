@@ -1,5 +1,33 @@
 [
      {
+  "name": "AYA TV",
+  "icon": "images/aya_tv.png",
+  "color": "#C62828",
+  "url": "https://devuploads.com/55s3u7g86tzm",
+  "badge": "new",
+  "bg": "linear-gradient(135deg,#1A0000,#C62828)",
+  "category": "Live TV",
+  "version": "3.1",
+  "size": "33.3 MB",
+  "developer": "ANUBIS by B.Nacereddine",
+  "updated": "03 Sep 2026",
+  "activated": true
+},
+     {
+  "name": "STAR PLUS",
+  "icon": "images/star_plus.png",
+  "color": "#1565C0",
+  "url": "https://devuploads.com/igz1oxljj7ce",
+  "badge": "new",
+  "bg": "linear-gradient(135deg,#001A33,#1565C0)",
+  "category": "Live TV",
+  "version": "3.1",
+  "size": "12.1 MB",
+  "developer": "ANUBIS by B.Nacereddine",
+  "updated": "03 Sep 2026",
+  "activated": true
+},
+     {
   "name": "Lion Ultra TV",
   "icon": "images/Lion-Ultra-tv.png",
   "color": "#1976D2",
