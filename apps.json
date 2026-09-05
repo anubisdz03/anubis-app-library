@@ -55,22 +55,6 @@
   "updated": "03 Sep 2026",
   "activated": true
 },
-     {
-  "name": "Lion Ultra TV",
-  "icon": "images/Lion-Ultra-tv.png",
-  "color": "#1976D2",
-  "url": "https://devuploads.com/jipqs9c22wjg",
-  "badge": "hot",
-  "bg": "linear-gradient(135deg,#0d2240,#1a4a8a)",
-  "category": "Live TV",
-  "version": "7.1",
-  "size": "35.6 MB",
-  "developer": "ANUBIS by B.Nacereddine",
-  "updated": "01 Aug 2026",
-  "activated": true,
-  "username": "3066352466250691",
-  "password": "3161029985970656"
-},    
        {
   "name": "KOBANI 4K",
   "icon": "images/Kobani_4K.png",
@@ -1076,6 +1060,14 @@
     "updated": "01 Jul 2026",
     "activated": true
   },
+    {
+  "name": "🦁 Lion Ultra TV",
+  "icon": "images/Lion-Ultra-tv.png",
+  "color": "#1976D2",
+  "url": "#",
+  "badge": "live",
+  "bg": "linear-gradient(135deg,#0d2240,#1a4a8a)"
+},
   {
   "name": "📺 ATLAS PRO",
   "icon": "images/ATLAS_PRO.png",
