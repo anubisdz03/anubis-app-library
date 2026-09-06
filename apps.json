@@ -1,5 +1,19 @@
 [
         {
+  "name": "Iraq TV",
+  "icon": "images/Iraq_TV.png",
+  "color": "#C62828",
+  "url": "https://devuploads.com/5ek34x87j61i",
+  "badge": "hot",
+  "bg": "linear-gradient(135deg,#1A0000,#C62828)",
+  "category": "Live TV",
+  "version": "5",
+  "size": "16.9 MB",
+  "developer": "ANUBIS by B.Nacereddine",
+  "updated": "06 Sep 2026",
+  "activated": true
+},
+        {
   "name": "🆕 YASSIN TV GOLD",
   "icon": "images/yassin-tv-gold.png",
   "color": "#0d2240",
