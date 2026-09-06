@@ -1,5 +1,19 @@
 [
         {
+  "name": "✨ REEZEN",
+  "icon": "images/reezen.png",
+  "color": "#301030",
+  "url": "https://devuploads.com/wl5wxr7gxwac",
+  "badge": "new",
+  "bg": "linear-gradient(135deg,#301030,#a14ec9)",
+  "category": "Live TV",
+  "version": "2.0",
+  "size": "29.0 MB",
+  "developer": "ANUBIS by B.Nacereddine",
+  "updated": "21 Jul 2026",
+  "activated": true
+},
+        {
   "name": "Iraq TV",
   "icon": "images/Iraq_TV.png",
   "color": "#C62828",
@@ -570,20 +584,6 @@
     "updated": "30 Jun 2026",
     "activated": true
   },
-   {
-  "name": "✨ REEZEN",
-  "icon": "images/reezen.png",
-  "color": "#301030",
-  "url": "https://devuploads.com/1tt706mvlp22",
-  "badge": "new",
-  "bg": "linear-gradient(135deg,#301030,#a14ec9)",
-  "category": "Live TV",
-  "version": "2.0",
-  "size": "29.0 MB",
-  "developer": "ANUBIS by B.Nacereddine",
-  "updated": "21 Jul 2026",
-  "activated": true
-},
    {
   "name": "Babalmoshahd",
   "icon": "images/Babalmoshahd_v1.5.0.png",
