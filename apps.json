@@ -66,6 +66,21 @@
   "updated": "8 Sep 2026",
   "activated": true
 },
+       {
+  "name": "KOBANI 4K",
+  "icon": "images/Kobani_4K.png",
+  "color": "#1565C0",
+  "url": "https://devuploads.com/5rl5x1xmjmh5",
+  "badge": "new",
+  "bg": "linear-gradient(135deg,#001A33,#1565C0)",
+  "category": "Live TV",
+  "version": "3.2",
+  "size": "49.2 MB",
+  "developer": "ANUBIS by B.Nacereddine",
+  "updated": "29 Aug 2026",
+   "password": "1515",
+  "activated": true
+},
         {
   "name": "✨ REEZEN",
   "icon": "images/reezen.png",
@@ -148,21 +163,6 @@
   "size": "12.1 MB",
   "developer": "ANUBIS by B.Nacereddine",
   "updated": "03 Sep 2026",
-  "activated": true
-},
-       {
-  "name": "KOBANI 4K",
-  "icon": "images/Kobani_4K.png",
-  "color": "#1565C0",
-  "url": "https://devuploads.com/5rl5x1xmjmh5",
-  "badge": "new",
-  "bg": "linear-gradient(135deg,#001A33,#1565C0)",
-  "category": "Live TV",
-  "version": "3.2",
-  "size": "49.2 MB",
-  "developer": "ANUBIS by B.Nacereddine",
-  "updated": "29 Aug 2026",
-   "password": "1515",
   "activated": true
 },
        {
