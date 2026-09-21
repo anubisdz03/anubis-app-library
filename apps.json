@@ -1,4 +1,16 @@
 [
+    {
+  "name": "🚀 LION TV",
+  "icon": "images/lion-tv.png",
+  "url": "https://devuploads.com/zmlycf694soh",
+  "badge": "live",
+  "category": "Live TV",
+  "version": "3.1",
+  "size": "19.8 MB",
+  "developer": "ANUBIS by B.Nacereddine",
+  "code": "يشتغل بدون تفعيل",
+  "activated": true
+}, 
      {
   "name": "🚀 4MATECPRO",
   "icon": "images/4matecpro.png",
