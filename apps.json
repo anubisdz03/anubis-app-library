@@ -1,5 +1,16 @@
 [
     {
+  "name": "🚀 UXP TV",
+  "icon": "images/uxp-tv.png",
+  "url": "https://devuploads.com/juex1apvfy42",
+  "badge": "live",
+  "category": "Live TV",
+  "version": "5.1",
+  "size": "26.9 MB",
+  "developer": "ANUBIS by B.Nacereddine",
+  "activated": true
+},
+    {
   "name": "🚀 BSS IPTV",
   "icon": "images/bss-iptv.png",
   "url": "https://devuploads.com/p179y09xmbaa",
