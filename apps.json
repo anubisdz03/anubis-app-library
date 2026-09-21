@@ -1,5 +1,16 @@
 [
     {
+  "name": "🚀 BSS IPTV",
+  "icon": "images/bss-iptv.png",
+  "url": "https://devuploads.com/p179y09xmbaa",
+  "badge": "live",
+  "category": "Live TV",
+  "version": "2.1",
+  "size": "12.3 MB",
+  "developer": "ANUBIS by B.Nacereddine",
+  "activated": true
+},
+    {
   "name": "🚀 MASTER TV",
   "icon": "images/master-tv.png",
   "url": "https://devuploads.com/22ewr878zie6",
