@@ -1,5 +1,19 @@
 [
     {
+  "name": "🚀 VIBER TV",
+  "icon": "images/viber-tv.png",
+  "color": "#A855F7",
+  "url": "https://devuploads.com/4bvmdq1sd5ep",
+  "badge": "live",
+  "bg": "#120A18",
+  "category": "Live TV",
+  "version": "3.1",
+  "size": "106.9 MB",
+  "developer": "ANUBIS by B.Nacereddine",
+  "updated": "2026-09-28",
+  "activated": true
+},
+    {
   "name": "Yacine TV Plus+",
   "icon": "images/yacine-tv-plus.png",
   "color": "#E50914",
