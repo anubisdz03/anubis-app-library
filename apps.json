@@ -41,6 +41,20 @@
   "updated": "16 Aug 2026",
   "activated": true
  },    
+     {
+  "name": "📺 OZ LIVE TV",
+  "icon": "images/OzTV_3.5.8_.png",
+  "color": "#8e24aa",
+  "url": "https://devuploads.com/v8kkmj3n25um",
+  "badge": "hot",
+  "bg": "linear-gradient(135deg,#8e24aa,#ec407a)",
+  "category": "Live TV",
+  "version": "3.5.8",
+  "size": "20.5 MB",
+  "developer": "ANUBIS by B.Nacereddine",
+  "updated": "11 Jul 2026",
+  "activated": true
+},
     {
   "name": "Yacine TV Plus+",
   "icon": "images/yacine-tv-plus.png",
@@ -938,20 +952,6 @@
   "size": "61.4 MB",
   "developer": "ANUBIS by B.Nacereddine",
   "updated": "12 Jul 2026",
-  "activated": true
-},
-  {
-  "name": "📺 OZ LIVE TV",
-  "icon": "images/OzTV_3.5.8_.png",
-  "color": "#8e24aa",
-  "url": "https://devuploads.com/41no0zksrp3m",
-  "badge": "hot",
-  "bg": "linear-gradient(135deg,#8e24aa,#ec407a)",
-  "category": "Live TV",
-  "version": "3.5.8",
-  "size": "20.5 MB",
-  "developer": "ANUBIS by B.Nacereddine",
-  "updated": "11 Jul 2026",
   "activated": true
 },
   {
