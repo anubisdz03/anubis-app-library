@@ -1,5 +1,19 @@
 [
     {
+  "name": "🚀 IPTV SMARTERS PRO",
+  "icon": "images/iptv-smarters-pro.png",
+  "color": "#6D3CF5",
+  "url": "https://devuploads.com/aj3e3kpfgjnv",
+  "badge": "live",
+  "bg": "#120A18",
+  "category": "Live TV",
+  "version": "5.0",
+  "size": "199.6 MB",
+  "developer": "ANUBIS by B.Nacereddine",
+  "updated": "2026-10-01",
+  "activated": true
+},
+    {
   "name": "🚀 GENERAL BOX",
   "icon": "images/general-box.png",
   "color": "#F59E0B",
