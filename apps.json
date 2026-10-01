@@ -73,6 +73,20 @@
   "updated": "2026-10-01",
   "activated": true
 },
+     {
+  "name": "👑 AL BASHA TV",
+  "icon": "images/al-basha-tv.png",
+  "color": "#3a2500",
+  "url": "https://devuploads.com/9jxl9ewz93oa",
+  "badge": "hot",
+  "bg": "linear-gradient(135deg,#3a2500,#d4af37)",
+  "category": "Live TV",
+  "version": "2.1",
+  "size": "15.4 MB",
+  "developer": "ANUBIS by B.Nacereddine",
+  "updated": "05 Jul 2026",
+  "activated": true
+},
     {
   "name": "🚀 GENERAL BOX",
   "icon": "images/general-box.png",
@@ -1161,20 +1175,6 @@
   "category": "Live TV",
   "version": "5.9",
   "size": "68.1 MB",
-  "developer": "ANUBIS by B.Nacereddine",
-  "updated": "05 Jul 2026",
-  "activated": true
-},
-   {
-  "name": "👑 AL BASHA TV",
-  "icon": "images/al-basha-tv.png",
-  "color": "#3a2500",
-  "url": "https://devuploads.com/bq7j9g7bxrfs",
-  "badge": "hot",
-  "bg": "linear-gradient(135deg,#3a2500,#d4af37)",
-  "category": "Live TV",
-  "version": "2.1",
-  "size": "15.4 MB",
   "developer": "ANUBIS by B.Nacereddine",
   "updated": "05 Jul 2026",
   "activated": true
