@@ -1,5 +1,19 @@
 [
     {
+  "name": "🚀 GENERAL TV",
+  "icon": "images/general-tv.png",
+  "color": "#7C3AED",
+  "url": "https://devuploads.com/8x782zdzdjhe",
+  "badge": "live",
+  "bg": "#0A0F24",
+  "category": "Live TV",
+  "version": "40.2",
+  "size": "52.7 MB",
+  "developer": "ANUBIS by B.Nacereddine",
+  "updated": "2026-10-01",
+  "activated": true
+},
+    {
   "name": "🚀 BEE TV",
   "icon": "images/bee-tv.png",
   "color": "#F5B700",
