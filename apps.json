@@ -1,5 +1,21 @@
 [
     {
+  "name": "🚀 STARSHARE",
+  "icon": "images/starshare.png",
+  "color": "#8B5CF6",
+  "url": "https://devuploads.com/1sqtrdl570ie",
+  "badge": "live",
+  "bg": "#080B20",
+  "category": "Live TV",
+  "version": "2.1",
+  "size": "94.0 MB",
+  "developer": "ANUBIS by B.Nacereddine",
+  "username": "249433528395",
+  "password": "864483763454",
+  "updated": "2026-10-01",
+  "activated": true
+},
+    {
   "name": "🚀 BULLET TV",
   "icon": "images/bullet-tv.png",
   "color": "#FF6A00",
