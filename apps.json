@@ -1,5 +1,19 @@
 [
     {
+  "name": "🚀 BULLET TV",
+  "icon": "images/bullet-tv.png",
+  "color": "#FF6A00",
+  "url": "https://devuploads.com/ga1b1y1fchx2",
+  "badge": "live",
+  "bg": "#120A18",
+  "category": "Live TV",
+  "version": "1.0",
+  "size": "29.0 MB",
+  "developer": "ANUBIS by B.Nacereddine",
+  "updated": "2026-10-01",
+  "activated": true
+},
+    {
   "name": "🚀 IPTV SMARTERS PRO",
   "icon": "images/iptv-smarters-pro.png",
   "color": "#6D3CF5",
