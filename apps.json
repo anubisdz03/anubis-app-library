@@ -1,5 +1,21 @@
 [
     {
+  "name": "🚀 BEE TV",
+  "icon": "images/bee-tv.png",
+  "color": "#F5B700",
+  "url": "https://devuploads.com/miij0dd5qtqt",
+  "badge": "live",
+  "bg": "#120A18",
+  "category": "Live TV",
+  "version": "2.2",
+  "size": "29.1 MB",
+  "developer": "ANUBIS by B.Nacereddine",
+  "username": "harsh2026mar",
+  "password": "harshmar2026",
+  "updated": "2026-10-01",
+  "activated": true
+},
+    {
   "name": "🚀 STARSHARE",
   "icon": "images/starshare.png",
   "color": "#8B5CF6",
