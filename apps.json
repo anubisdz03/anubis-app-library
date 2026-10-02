@@ -16,6 +16,20 @@
   "activated": true
 },
     {
+  "name": "🚀 VORTEX TV",
+  "icon": "images/vortex-tv.png",
+  "color": "#00A8FF",
+  "url": "https://devuploads.com/vv2v7wbrg3wg",
+  "badge": "live",
+  "bg": "#08111F",
+  "category": "Live TV",
+  "version": "2.0",
+  "size": "54.1 MB",
+  "developer": "ANUBIS by B.Nacereddine",
+  "updated": "2026-10-02",
+  "activated": true
+},
+    {
   "name": "🚀 GENERAL TV",
   "icon": "images/general-tv.png",
   "color": "#7C3AED",
