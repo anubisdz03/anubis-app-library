@@ -1,5 +1,21 @@
 [
     {
+  "name": "🚀 KDMAX SILVER TV",
+  "icon": "images/kdmax-silver-tv.png",
+  "color": "#D4AF37",
+  "url": "https://devuploads.com/knvd15m2zqt4",
+  "badge": "live",
+  "bg": "#120A18",
+  "category": "Live TV",
+  "version": "5.2",
+  "size": "84.1 MB",
+  "developer": "ANUBIS by B.Nacereddine",
+  "username": "anubis",
+  "password": "1514987699811381",
+  "updated": "2026-10-02",
+  "activated": true
+},
+    {
   "name": "🚀 GENERAL TV",
   "icon": "images/general-tv.png",
   "color": "#7C3AED",
