@@ -1,5 +1,19 @@
 [
      {
+  "name": "🚀 SKY TV+",
+  "icon": "images/sky-tv-plus.png",
+  "color": "#000000",
+  "url": "https://devuploads.com/d8ahs1ukqpvf",
+  "badge": "hot",
+  "bg": "#10091C",
+  "category": "Live TV",
+  "version": "1.0",
+  "size": "31.0 MB",
+  "developer": "ANUBIS by B.Nacereddine",
+  "updated": "2026-10-04",
+  "activated": true
+},
+     {
   "name": "📺 OBS IPTV",
   "icon": "images/OBS_IPTV.png",
   "color": "#1976d2",
