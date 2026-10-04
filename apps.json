@@ -1,5 +1,18 @@
 [
     {
+  "name": "📺 ATLAS PRO",
+  "icon": "images/ATLAS_PRO.png",
+  "color": "#181830",
+  "url": "https://devuploads.com/8y4irk8271yj",
+  "badge": "coming-soon",
+  "bg": "linear-gradient(135deg,#181830,#5656c5)",
+  "category": "Live TV",
+  "version": "3.0",
+  "size": "29.2 MB",
+  "developer": "ANUBIS by B.Nacereddine",
+  "activated": true
+},
+    {
   "name": "🚀 VEGETA TV",
   "icon": "images/vegeta-tv.png",
   "color": "#8B5CF6",
@@ -1469,14 +1482,6 @@
   "badge": "live",
   "bg": "linear-gradient(135deg,#0d2240,#1a4a8a)"
 },
-  {
-  "name": "📺 ATLAS PRO",
-  "icon": "images/ATLAS_PRO.png",
-  "color": "#181830",
-  "url": "#",
-  "badge": "coming-soon",
-  "bg": "linear-gradient(135deg,#181830,#5656c5)"
-  },
   {
     "name": "🛡️ CASPER PRO TV",
     "icon": "images/casper-pro-tv.png",
