@@ -111,6 +111,18 @@
   "updated": "2026-10-03",
   "activated": true
 },
+     {
+  "name": "🚀 3AYLATNA TV",
+  "icon": "images/3aylatna-tv.png",
+  "url": "https://devuploads.com/uzmt7mvdsswm",
+  "badge": "live",
+  "category": "Live TV",
+  "version": "3.1",
+  "size": "15.8 MB",
+  "developer": "ANUBIS by B.Nacereddine",
+  "updated": "2026-10-05",
+  "activated": true
+},
     {
   "name": "🚀 KDMAX SILVER TV",
   "icon": "images/kdmax-silver-tv.png",
@@ -336,17 +348,6 @@
   "category": "Live TV",
   "version": "1.2",
   "size": "30.1 MB",
-  "developer": "ANUBIS by B.Nacereddine",
-  "activated": true
-},
-    {
-  "name": "🚀 3AYLATNA TV",
-  "icon": "images/3aylatna-tv.png",
-  "url": "https://devuploads.com/uzmt7mvdsswm",
-  "badge": "live",
-  "category": "Live TV",
-  "version": "3.1",
-  "size": "15.8 MB",
   "developer": "ANUBIS by B.Nacereddine",
   "activated": true
 },
