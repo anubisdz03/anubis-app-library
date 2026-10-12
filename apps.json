@@ -152,6 +152,21 @@
   "updated": "2026-10-05",
   "activated": true
 },
+      {
+    "name": "🚀 AIRMAX TV",
+    "code": "New Code : 1618141699",
+    "icon": "images/airmax.png",
+    "color": "#1a1040",
+    "url": "https://devuploads.com/s4bskrw9gec0",
+    "badge": "live",
+    "bg": "linear-gradient(135deg,#1a1040,#3b1d8a)",
+    "category": "Live TV",
+    "version": "4.2.1",
+    "size": "11.6 MB",
+    "developer": "ANUBIS by B.Nacereddine",
+    "updated": "28 Jun 2026",
+    "activated": true
+  },
     {
   "name": "🚀 KDMAX SILVER TV",
   "icon": "images/kdmax-silver-tv.png",
@@ -474,21 +489,6 @@
   "password": "040426",
   "activated": true
 },
-     {
-    "name": "🚀 AIRMAX TV",
-    "code": "New Code : 7864049200",
-    "icon": "images/airmax.png",
-    "color": "#1a1040",
-    "url": "https://devuploads.com/s4bskrw9gec0",
-    "badge": "live",
-    "bg": "linear-gradient(135deg,#1a1040,#3b1d8a)",
-    "category": "Live TV",
-    "version": "4.2.1",
-    "size": "11.6 MB",
-    "developer": "ANUBIS by B.Nacereddine",
-    "updated": "28 Jun 2026",
-    "activated": true
-  },
      {
   "name": "🎭 DRAMA LIVE",
   "icon": "images/drama-live.png",
