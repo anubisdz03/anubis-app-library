@@ -1,5 +1,20 @@
 [
      {
+  "name": "🚀 OSCAR TV GOLD",
+  "icon": "images/oscar-tv-gold.png",
+  "color": "#E50914",
+  "url": "https://devuploads.com/9m4tfdb600dc",
+  "player_code": "3910254",
+  "badge": "hot",
+  "bg": "#10091C",
+  "category": "Live TV",
+  "version": "3.1",
+  "size": "8.9 MB",
+  "developer": "ANUBIS by B.Nacereddine",
+  "updated": "2026-10-12",
+  "activated": true
+},
+     {
   "name": "🚀 NETMIRROR TV",
   "icon": "images/netmirrortv.png",
   "color": "#181830",
