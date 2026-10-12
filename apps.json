@@ -1,5 +1,19 @@
 [
      {
+  "name": "🚀 NETMIRROR TV",
+  "icon": "images/netmirrortv.png",
+  "color": "#181830",
+  "url": "https://devuploads.com/adp7ssr27f8d",
+  "badge": "hot",
+  "bg": "#10091C",
+  "category": "Movies & Series",
+  "version": "4.1",
+  "size": "58.0 MB",
+  "developer": "ANUBIS by B.Nacereddine",
+  "updated": "2026-10-12",
+  "activated": true
+},
+     {
   "name": "🚀 SKY TV+",
   "icon": "images/sky-tv-plus.png",
   "color": "#000000",
