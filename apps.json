@@ -1,4 +1,18 @@
 [
+       {
+  "name": "🐍 COBRA KING PRO",
+  "icon": "images/cobra-king-pro.png",
+  "color": "#102010",
+  "url": "https://devuploads.com/l20wfk0l69s7",
+  "badge": "hot",
+  "bg": "linear-gradient(135deg,#102010,#2d8a38)",
+  "category": "Live TV",
+  "version": "5.9",
+  "size": "68.1 MB",
+  "developer": "ANUBIS by B.Nacereddine",
+  "updated": "05 Jul 2026",
+  "activated": true
+},
      {
   "name": "🚀 OSCAR TV GOLD",
   "icon": "images/oscar-tv-gold.png",
@@ -1321,20 +1335,6 @@
   "size": "59.8 MB",
   "developer": "ANUBIS by B.Nacereddine",
   "updated": "06 Jul 2026",
-  "activated": true
-},
-  {
-  "name": "🐍 COBRA KING PRO",
-  "icon": "images/cobra-king-pro.png",
-  "color": "#102010",
-  "url": "https://devuploads.com/4shk1wt9vq7w",
-  "badge": "hot",
-  "bg": "linear-gradient(135deg,#102010,#2d8a38)",
-  "category": "Live TV",
-  "version": "5.9",
-  "size": "68.1 MB",
-  "developer": "ANUBIS by B.Nacereddine",
-  "updated": "05 Jul 2026",
   "activated": true
 },
    {
