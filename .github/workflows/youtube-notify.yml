@@ -1,35 +1,18 @@
 name: YouTube to Telegram Notifier
 
-# ---------------------------------------------------------------------------
-# Watches a YouTube channel's RSS feed and posts a Telegram message whenever
-# a NEW video is published. Runs on a schedule and can also be triggered
-# manually from the Actions tab.
-#
-# Required repository secrets (already configured per project requirements):
-#   - TELEGRAM_BOT_TOKEN
-#   - TELEGRAM_CHAT_ID
-#
-# This workflow only touches:
-#   - .github/scripts/youtube_notify.js   (executed)
-#   - .github/state/last_video.json       (created/updated automatically to
-#                                           remember the last posted video)
-# It does not read, build, or deploy any part of the website.
-# ---------------------------------------------------------------------------
+# Watches the YouTube channel RSS feed and sends a Telegram message for each
+# newly published video. The last-video state is restored/saved with Actions
+# cache so this workflow does not need repository write permissions.
 
 on:
   schedule:
-    # Every 30 minutes.
     - cron: '*/30 * * * *'
   workflow_dispatch: {}
-    # Allows manual "Run workflow" execution from the GitHub Actions UI.
 
-# Needed so the job can commit the updated "last posted video" state file
-# back to the repository using the automatically-provided GITHUB_TOKEN.
 permissions:
-  contents: write
+  contents: read
 
-# Prevents two overlapping runs from racing to update/commit the same
-# state file (e.g. a manual run firing while the scheduled run is active).
+# Avoid concurrent runs racing to notify the same video or update the cache.
 concurrency:
   group: youtube-notify
   cancel-in-progress: false
@@ -43,27 +26,56 @@ jobs:
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
-          persist-credentials: true
+          persist-credentials: false
+
+      - name: Restore last-video state
+        uses: actions/cache/restore@v4
+        with:
+          path: .github/state/last_video.json
+          key: youtube-notifier-state-${{ github.run_id }}-${{ github.run_attempt }}
+          restore-keys: |
+            youtube-notifier-state-
+
+      - name: Record state before check
+        id: state_before
+        shell: bash
+        run: |
+          if [ -f .github/state/last_video.json ]; then
+            echo "hash=$(sha256sum .github/state/last_video.json | cut -d ' ' -f1)" >> "$GITHUB_OUTPUT"
+          else
+            echo "hash=missing" >> "$GITHUB_OUTPUT"
+          fi
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: '20'
 
-      # No project-wide package.json is touched/created. The one small
-      # dependency (RSS parsing) is installed on the fly, isolated to this
-      # job's runner, and is not saved into any manifest file.
+      # The dependency is installed on the runner and is not saved into the repo.
       - name: Install dependencies
         run: npm install rss-parser@3.13.0 --no-save --no-audit --no-fund
 
-      # The script itself (youtube_notify.js) writes .github/state/last_video.json
-      # and then commits + pushes it back to the repository via
-      # child_process.execSync, using the "contents: write" permission granted
-      # to the default GITHUB_TOKEN above. No separate workflow-level commit
-      # step is needed.
       - name: Run YouTube -> Telegram check
         env:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
           YOUTUBE_CHANNEL_ID: UCz7Q8mpWfogkgSaZdBbxOVw
         run: node .github/scripts/youtube_notify.js
+
+      - name: Record state after check
+        id: state_after
+        if: success()
+        shell: bash
+        run: |
+          if [ -f .github/state/last_video.json ]; then
+            echo "hash=$(sha256sum .github/state/last_video.json | cut -d ' ' -f1)" >> "$GITHUB_OUTPUT"
+          else
+            echo "hash=missing" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Save updated last-video state
+        if: success() && steps.state_before.outputs.hash != steps.state_after.outputs.hash
+        uses: actions/cache/save@v4
+        with:
+          path: .github/state/last_video.json
+          key: youtube-notifier-state-${{ github.run_id }}-${{ github.run_attempt }}
