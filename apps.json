@@ -1,5 +1,21 @@
 [
        {
+  "name": "🚀 MAX TV PRO",
+  "icon": "images/MAX_TV_PRO.png",
+  "color": "#181830",
+  "url": "https://devuploads.com/5538mbkj3v71",
+  "badge": "hot",
+  "bg": "#10091C",
+  "category": "Live TV",
+  "version": "2.1",
+  "size": "114.1 MB",
+  "developer": "ANUBIS by B.Nacereddine",
+  "updated": "2026-10-14",
+  "username": "10375497945304",
+  "password": "24779171855387",
+  "activated": true
+},
+       {
   "name": "💠 MAGICO OTT",
   "icon": "images/magico-ott.png",
   "color": "#102830",
