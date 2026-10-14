@@ -1,5 +1,19 @@
 [
        {
+  "name": "💠 MAGICO OTT",
+  "icon": "images/magico-ott.png",
+  "color": "#102830",
+  "url": "https://devuploads.com/0v0ltgfvkjml",
+  "badge": "hot",
+  "bg": "linear-gradient(135deg,#102830,#26a69a)",
+  "category": "Live TV",
+  "version": "3.1",
+  "size": "52.3 MB",
+  "developer": "ANUBIS by B.Nacereddine",
+  "updated": "2026-10-14",
+  "activated": true
+},
+       {
   "name": "🚀 RAYAN TV",
   "icon": "images/rayan-tv-icon.png",
   "color": "#181830",
@@ -1852,14 +1866,6 @@
     "url": "#",
     "badge": "live",
     "bg": "linear-gradient(135deg,#203020,#4caf50)"
-  },
-  {
-    "name": "💠 MAGICO OTT",
-    "icon": "images/magico-ott.png",
-    "color": "#102830",
-    "url": "#",
-    "badge": "live",
-    "bg": "linear-gradient(135deg,#102830,#26a69a)"
   },
   {
     "name": "🏅 SPORTZFY",
