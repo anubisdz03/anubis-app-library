@@ -1,5 +1,17 @@
 [
        {
+   "name": "🚀 LION TV",
+  "icon": "images/lion-tv.png",
+  "url": "https://devuploads.com/l8tt44ge353g",
+  "badge": "live",
+  "category": "Live TV",
+  "version": "3.1",
+  "size": "19.8 MB",
+  "developer": "ANUBIS by B.Nacereddine",
+  "updated": "2026-10-18",
+  "activated": true
+}, 
+       {
   "name": "🚀 LUXURIOUS 4U TV GOLD",
   "icon": "images/Luxurious 4U TV Gold Emblem.png",
   "color": "#D4AF37",
@@ -524,17 +536,6 @@
   "password": "346",
   "activated": true
 },
-    {
-   "name": "🚀 LION TV",
-  "icon": "images/lion-tv.png",
-  "url": "https://devuploads.com/zmlycf694soh",
-  "badge": "live",
-  "category": "Live TV",
-  "version": "3.1",
-  "size": "19.8 MB",
-  "developer": "ANUBIS by B.Nacereddine",
-  "activated": true
-}, 
      {
   "name": "🚀 4MATECPRO",
   "icon": "images/4matecpro.png",
