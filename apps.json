@@ -1,5 +1,19 @@
 [
         {
+  "name": "👑 AL BASHA TV",
+  "icon": "images/al-basha-tv.png",
+  "color": "#3a2500",
+  "url": "https://devuploads.com/1g7b2vdcdt9c",
+  "badge": "hot",
+  "bg": "linear-gradient(135deg,#3a2500,#d4af37)",
+  "category": "Live TV",
+  "version": "2.1",
+  "size": "15.4 MB",
+  "developer": "ANUBIS by B.Nacereddine",
+  "updated": "05 Jul 2026",
+  "activated": true
+},
+        {
   "name": "GO TV MAX",
   "icon": "images/GO_TV_MAX.png",
   "color": "#00FF00",
@@ -37,22 +51,6 @@
   "size": "26.4 MB",
   "developer": "ANUBIS by B.Nacereddine",
   "updated": "2026-10-17",
-  "activated": true
-},
-       {
-  "name": "🚀 MAX TV PRO",
-  "icon": "images/MAX_TV_PRO.png",
-  "color": "#181830",
-  "url": "https://devuploads.com/5538mbkj3v71",
-  "badge": "hot",
-  "bg": "#10091C",
-  "category": "Live TV",
-  "version": "2.1",
-  "size": "114.1 MB",
-  "developer": "ANUBIS by B.Nacereddine",
-  "updated": "2026-10-14",
-  "username": "10375497945304",
-  "password": "24779171855387",
   "activated": true
 },
        {
@@ -367,20 +365,6 @@
   "size": "199.6 MB",
   "developer": "ANUBIS by B.Nacereddine",
   "updated": "2026-10-01",
-  "activated": true
-},
-     {
-  "name": "👑 AL BASHA TV",
-  "icon": "images/al-basha-tv.png",
-  "color": "#3a2500",
-  "url": "https://devuploads.com/9jxl9ewz93oa",
-  "badge": "hot",
-  "bg": "linear-gradient(135deg,#3a2500,#d4af37)",
-  "category": "Live TV",
-  "version": "2.1",
-  "size": "15.4 MB",
-  "developer": "ANUBIS by B.Nacereddine",
-  "updated": "05 Jul 2026",
   "activated": true
 },
     {
