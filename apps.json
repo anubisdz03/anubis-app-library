@@ -1,4 +1,18 @@
 [
+         {
+  "name": "🚀 VEGETA TV",
+  "icon": "images/vegeta-tv.png",
+  "color": "#8B5CF6",
+  "url": "https://devuploads.com/a3kwh49pojb9",
+  "badge": "hot",
+  "bg": "#10091C",
+  "category": "Movies & Series",
+  "version": "10.3.0",
+  "size": "11.8 MB",
+  "developer": "ANUBIS by B.Nacereddine",
+  "updated": "2026-10-22",
+  "activated": true
+},
         {
   "name": "👑 AL BASHA TV",
   "icon": "images/al-basha-tv.png",
@@ -170,7 +184,7 @@
   "name": "🚀 VEGETA TV",
   "icon": "images/vegeta-tv.png",
   "color": "#8B5CF6",
-  "url": "https://devuploads.com/nxc3f8fkyren",
+  "url": "https://devuploads.com/a3kwh49pojb9",
   "badge": "hot",
   "bg": "#10091C",
   "category": "Movies & Series",
