@@ -1,5 +1,19 @@
 [
          {
+  "name": "🚀 TOFI X TV",
+  "icon": "images/ToFi_X_Tv_Icon_256x256.png",
+  "color": "#181830",
+  "url": "https://devuploads.com/u5m12yep7bh2",
+  "badge": "live",
+  "bg": "#10091C",
+  "category": "Live TV",
+  "version": "2.1",
+  "size": "22.2 MB",
+  "developer": "ANUBIS by B.Nacereddine",
+  "updated": "2026-10-25",
+  "activated": true
+},
+         {
   "name": "🚀 VEGETA TV",
   "icon": "images/vegeta-tv.png",
   "color": "#8B5CF6",
