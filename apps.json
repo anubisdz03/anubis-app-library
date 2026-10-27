@@ -14,6 +14,20 @@
   "activated": true
 },
          {
+  "name": "📺 NETFLY TV VIP",
+  "icon": "images/netflytv_vip_tv.png",
+  "color": "#0d2240",
+  "url": "https://devuploads.com/tprmlirn7s1b",
+  "badge": "new",
+  "bg": "linear-gradient(135deg,#0d2240,#1a4a8a)",
+  "category": "Live TV نسخة التلفاز",
+  "version": "5.5",
+  "size": "59.8 MB",
+  "developer": "ANUBIS by B.Nacereddine",
+  "updated": "2026-10-27",
+  "activated": true
+},
+         {
   "name": "🚀 VEGETA TV",
   "icon": "images/vegeta-tv.png",
   "color": "#8B5CF6",
@@ -1378,20 +1392,6 @@
   "size": "77.5 MB",
   "developer": "ANUBIS by B.Nacereddine",
   "updated": "07 Jul 2026",
-  "activated": true
-},
-  {
-  "name": "📺 NETFLY TV VIP",
-  "icon": "images/netflytv_vip_tv.png",
-  "color": "#0d2240",
-  "url": "https://devuploads.com/u8vpy70nrvmt",
-  "badge": "new",
-  "bg": "linear-gradient(135deg,#0d2240,#1a4a8a)",
-  "category": "Live TV نسخة التلفاز",
-  "version": "5.5",
-  "size": "59.8 MB",
-  "developer": "ANUBIS by B.Nacereddine",
-  "updated": "06 Jul 2026",
   "activated": true
 },
   {
