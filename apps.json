@@ -1,5 +1,19 @@
 [
           {
+  "name": "🚀 NIYATI TV",
+  "icon": "images/NIYATI_TV_256.png",
+  "color": "#D4AF37",
+  "url": "https://devuploads.com/3a4a1fhos8hd",
+  "badge": "live",
+  "bg": "#080808",
+  "category": "Live TV",
+  "version": "3.1",
+  "size": "14.2 MB",
+  "developer": "ANUBIS by B.Nacereddine",
+  "updated": "2026-11-02",
+  "activated": true
+},
+          {
   "name": "🚀 CRICFy TV",
   "icon": "images/cricfy-tv-256.png",
   "color": "#E51B23",
