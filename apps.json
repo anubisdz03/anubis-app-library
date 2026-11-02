@@ -1,4 +1,18 @@
 [
+          {
+  "name": "🚀 VIBER TV",
+  "icon": "images/viber-tv.png",
+  "color": "#A855F7",
+  "url": "https://devuploads.com/fvqb1jrx9p4w",
+  "badge": "live",
+  "bg": "#120A18",
+  "category": "Live TV",
+  "version": "3.1",
+  "size": "106.9 MB",
+  "developer": "ANUBIS by B.Nacereddine",
+  "updated": "2026-11-02",
+  "activated": true
+},
          {
   "name": "🚀 TOFI X TV",
   "icon": "images/ToFi_X_Tv_Icon_256x256.png",
@@ -421,20 +435,6 @@
   "size": "52.7 MB",
   "developer": "ANUBIS by B.Nacereddine",
   "updated": "2026-09-29",
-  "activated": true
-},
-    {
-  "name": "🚀 VIBER TV",
-  "icon": "images/viber-tv.png",
-  "color": "#A855F7",
-  "url": "https://devuploads.com/4bvmdq1sd5ep",
-  "badge": "live",
-  "bg": "#120A18",
-  "category": "Live TV",
-  "version": "3.1",
-  "size": "106.9 MB",
-  "developer": "ANUBIS by B.Nacereddine",
-  "updated": "2026-09-28",
   "activated": true
 },
     {
