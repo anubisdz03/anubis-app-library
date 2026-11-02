@@ -27,6 +27,20 @@
   "updated": "2026-10-25",
   "activated": true
 },
+          {
+  "name": "💜 PLASMA 4K TV",
+  "icon": "images/plasma-4k-tv.png",
+  "color": "#2a1035",
+  "url": "https://devuploads.com/97u07jymi402",
+  "badge": "live",
+  "bg": "linear-gradient(135deg,#2a1035,#8f3bc0)",
+  "category": "Live TV",
+  "version": "2.1",
+  "size": "15.5 MB",
+  "developer": "ANUBIS by B.Nacereddine",
+  "updated": "2026-11-02",
+  "activated": true
+},
          {
   "name": "📺 NETFLY TV VIP",
   "icon": "images/netflytv_vip_tv.png",
@@ -45,7 +59,7 @@
   "name": "🚀 VEGETA TV",
   "icon": "images/vegeta-tv.png",
   "color": "#8B5CF6",
-  "url": "https://devuploads.com/a3kwh49pojb9",
+  "url": "https://devuploads.com/fiyacaed4f75",
   "badge": "hot",
   "bg": "#10091C",
   "category": "Movies & Series",
@@ -1813,14 +1827,6 @@
     "url": "#",
     "badge": "live",
     "bg": "linear-gradient(135deg,#102030,#2a7cb8)"
-  },
-  {
-    "name": "💜 PLASMA 4K TV",
-    "icon": "images/plasma-4k-tv.png",
-    "color": "#2a1035",
-    "url": "#",
-    "badge": "live",
-    "bg": "linear-gradient(135deg,#2a1035,#8f3bc0)"
   },
   {
     "name": "🔥 FENIX HD TV",
