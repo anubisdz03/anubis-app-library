@@ -1,5 +1,19 @@
 [
           {
+  "name": "🚀 CRICFy TV",
+  "icon": "images/cricfy-tv-256.png",
+  "color": "#E51B23",
+  "url": "https://devuploads.com/es9q7usy3fy6",
+  "badge": "live",
+  "bg": "#10091C",
+  "category": "Live TV",
+  "version": "7.3",
+  "size": "22.2 MB",
+  "developer": "ANUBIS by B.Nacereddine",
+  "updated": "2026-11-02",
+  "activated": true
+},
+          {
   "name": "🚀 VIBER TV",
   "icon": "images/viber-tv.png",
   "color": "#A855F7",
@@ -64,9 +78,9 @@
   "bg": "#10091C",
   "category": "Movies & Series",
   "version": "10.3.0",
-  "size": "11.8 MB",
+  "size": "95.5 MB",
   "developer": "ANUBIS by B.Nacereddine",
-  "updated": "2026-10-22",
+  "updated": "2026-11-02",
   "activated": true
 },
         {
