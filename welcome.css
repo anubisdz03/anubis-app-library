@@ -266,3 +266,129 @@ text-align:center;
     padding:18px;
   }
 }
+
+/* Keep the existing welcome dialog usable on short phone and TV viewports. */
+.welcome-overlay{
+  box-sizing:border-box;
+  padding:12px;
+  overflow-y:auto;
+  overscroll-behavior:contain;
+}
+
+.welcome-box{
+  box-sizing:border-box;
+  width:min(92vw,520px);
+  max-height:calc(100vh - 24px);
+  max-height:calc(100dvh - 24px);
+  overflow-x:hidden;
+  overflow-y:auto;
+  overscroll-behavior:contain;
+  flex:0 0 auto;
+  scrollbar-width:thin;
+  scrollbar-color:rgba(245,200,66,.65) rgba(255,255,255,.06);
+}
+
+.welcome-box::-webkit-scrollbar{
+  width:7px;
+}
+
+.welcome-box::-webkit-scrollbar-thumb{
+  background:rgba(245,200,66,.65);
+  border-radius:999px;
+}
+
+.welcome-tutorial{
+  margin:8px auto 12px;
+  padding:12px;
+}
+
+.welcome-countdown{
+  margin:10px auto;
+  color:#fff;
+  font-size:14px;
+  line-height:1.6;
+  text-align:center;
+}
+
+.welcome-btn{
+  position:relative;
+  display:block;
+  width:100%;
+  min-height:48px;
+  margin:10px auto 16px;
+  border:0;
+  font:inherit;
+  font-weight:800;
+}
+
+.welcome-btn:disabled{
+  opacity:.65;
+  cursor:not-allowed;
+}
+
+@media (max-height:650px){
+  .welcome-overlay{
+    align-items:flex-start;
+  }
+
+  .welcome-box{
+    margin:auto 0;
+    max-height:calc(100vh - 24px);
+    max-height:calc(100dvh - 24px);
+    padding:18px 16px;
+  }
+
+  .welcome-box > img{
+    width:58px !important;
+    height:58px !important;
+    margin-bottom:6px !important;
+  }
+
+  .welcome-box h2{
+    margin:8px 0;
+    font-size:21px;
+  }
+
+  .welcome-box p{
+    margin-top:10px;
+    font-size:13px;
+    line-height:1.5;
+  }
+
+  .welcome-tutorial{
+    margin:8px auto;
+    padding:10px;
+  }
+
+  .welcome-tutorial-text{
+    margin-bottom:8px;
+    font-size:14px;
+  }
+
+  .welcome-watch-btn{
+    min-height:42px;
+    padding:9px 12px;
+  }
+}
+
+@media (max-width:600px){
+  .welcome-overlay{
+    padding:10px;
+  }
+
+  .welcome-box{
+    width:94%;
+    max-height:calc(100vh - 20px);
+    max-height:calc(100dvh - 20px);
+    padding:18px 15px;
+  }
+
+  .welcome-box h2{
+    font-size:21px;
+  }
+
+  .welcome-box p{
+    font-size:13px;
+    line-height:1.55;
+  }
+}
