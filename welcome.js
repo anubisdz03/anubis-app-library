@@ -8,6 +8,7 @@ document.addEventListener("DOMContentLoaded", () => {
   let welcomeOverlay = null;
   let welcomeTimer = null;
   let pendingSkipBeforeConfig = false;
+  let welcomeCountdownFinished = false;
 
   function getSeenVersion() {
     const value = Number.parseInt(
@@ -147,6 +148,26 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
+  function updateSkipButton() {
+    if (!welcomeOverlay || !welcomeCountdownFinished) return;
+
+    const closeButton = welcomeOverlay.querySelector("#welcomeClose");
+    const countdownLabel = welcomeOverlay.querySelector("#welcomeCountdown");
+
+    if (closeButton) {
+      closeButton.disabled = false;
+      closeButton.textContent = isTutorialPending()
+        ? "تخطي ومتابعة"
+        : "🚀 Start Browsing";
+    }
+
+    if (countdownLabel) {
+      countdownLabel.textContent = isTutorialPending()
+        ? "يمكنك الآن مشاهدة الفيديو أو التخطي"
+        : "يمكنك الآن الدخول إلى المكتبة";
+    }
+  }
+
   function showTutorialNotice() {
     if (!welcomeOverlay || !tutorialConfig || !isTutorialPending()) return;
 
@@ -156,6 +177,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (!notice || !watchButton) return;
 
     notice.hidden = false;
+    updateSkipButton();
 
     if (watchButton.dataset.bound === "1") return;
     watchButton.dataset.bound = "1";
@@ -169,12 +191,26 @@ document.addEventListener("DOMContentLoaded", () => {
   function showWelcome() {
     if (welcomeOverlay && welcomeOverlay.isConnected) return;
 
+    welcomeCountdownFinished = false;
+
     const html =
       '<div class="welcome-overlay show" id="welcomeOverlay">' +
         '<div class="welcome-box">' +
           '<img src="favicon.png" alt="ANUBIS APP LIBRARY" ' +
             'style="width:90px;height:90px;border-radius:50%;margin-bottom:15px;">' +
           '<h2>👋 Welcome | مرحبًا بك</h2>' +
+          '<div class="welcome-tutorial" id="welcomeTutorial" hidden>' +
+            '<div class="welcome-tutorial-text" dir="rtl">' +
+              '🎬 شاهد الفيديو لطريقة تحميل التطبيقات' +
+            '</div>' +
+            '<button class="welcome-watch-btn" id="welcomeWatch" type="button">' +
+              '▶ مشاهدة الفيديو الآن' +
+            '</button>' +
+          '</div>' +
+          '<div class="welcome-countdown" id="welcomeCountdown" ' +
+            'aria-live="polite" dir="rtl">' +
+            '⏳ يمكنك التخطي بعد <span id="countdown">10</span> ثوانٍ' +
+          '</div>' +
           '<p>' +
             '<b>ANUBIS APP LIBRARY</b>' +
             '<br><br>' +
@@ -186,10 +222,6 @@ document.addEventListener("DOMContentLoaded", () => {
             '<br><br>' +
             '🚀 Stay tuned for the latest updates.' +
             '<br><br>' +
-            '<div id="welcomeCountdown" style="font-size:14px;opacity:.8;">' +
-              '⏳ Entering in <span id="countdown">10</span>...' +
-            '</div>' +
-            '<br><br>' +
             '━━━━━━━━━━━━━━━━━━━━' +
             '<br><br>' +
             'وجهتك لأفضل التطبيقات الترفيهية:' +
@@ -200,16 +232,8 @@ document.addEventListener("DOMContentLoaded", () => {
             '<br><br>' +
             '🚀 تابع آخر التحديثات أولًا بأول.' +
           '</p>' +
-          '<div class="welcome-tutorial" id="welcomeTutorial" hidden>' +
-            '<div class="welcome-tutorial-text" dir="rtl">' +
-              '🎬 شاهد الفيديو لطريقة تحميل التطبيقات' +
-            '</div>' +
-            '<button class="welcome-watch-btn" id="welcomeWatch" type="button">' +
-              '▶ مشاهدة الفيديو الآن' +
-            '</button>' +
-          '</div>' +
-          '<button class="welcome-btn" id="welcomeClose" type="button">' +
-            '🚀 Start Browsing' +
+          '<button class="welcome-btn" id="welcomeClose" type="button" disabled>' +
+            'يمكنك التخطي بعد 10 ثوانٍ' +
           '</button>' +
         '</div>' +
       '</div>';
@@ -220,9 +244,12 @@ document.addEventListener("DOMContentLoaded", () => {
     document.body.append(welcomeOverlay);
 
     const closeButton = welcomeOverlay.querySelector("#welcomeClose");
-    const countdownLabel = welcomeOverlay.querySelector("#welcomeCountdown");
 
-    closeButton.addEventListener("click", () => closeWelcome(true));
+    closeButton.addEventListener("click", () => {
+      if (welcomeCountdownFinished) {
+        closeWelcome(true);
+      }
+    });
 
     let seconds = 10;
 
@@ -239,18 +266,8 @@ document.addEventListener("DOMContentLoaded", () => {
       if (seconds <= 0) {
         clearInterval(welcomeTimer);
         welcomeTimer = null;
-
-        if (isTutorialPending()) {
-          if (countdownLabel) {
-            countdownLabel.textContent =
-              "انتهى العدّ التنازلي — يمكنك مشاهدة الفيديو أو التخطي الآن";
-          }
-          closeButton.textContent = "تخطي ومتابعة";
-        } else {
-          // Keep the original welcome auto-entry behavior when no new
-          // tutorial is waiting or when the tutorial config is unavailable.
-          closeWelcome(false);
-        }
+        welcomeCountdownFinished = true;
+        updateSkipButton();
       }
     }, 1000);
 
@@ -313,7 +330,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-  // Preserve the existing first-visit welcome screen and countdown.
+  // Preserve the original welcome content and countdown, with a visible skip control.
   if (localStorage.getItem(WELCOME_KEY) !== "1") {
     showWelcome();
   }
@@ -332,6 +349,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (welcomeOverlay && welcomeOverlay.isConnected) {
       showTutorialNotice();
+      updateSkipButton();
       return;
     }
 
