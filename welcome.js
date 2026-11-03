@@ -17,6 +17,14 @@ document.addEventListener("DOMContentLoaded", () => {
     return Number.isFinite(value) ? value : 0;
   }
 
+  function isTutorialPending() {
+    return Boolean(
+      tutorialConfig &&
+      tutorialConfig.enabled &&
+      tutorialConfig.version > getSeenVersion()
+    );
+  }
+
   function markTutorialSeen(version) {
     if (Number.isInteger(version) && version > 0) {
       localStorage.setItem(TUTORIAL_SEEN_KEY, String(version));
@@ -119,7 +127,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     video.addEventListener("loadeddata", () => {
-      message.textContent = " ";
+      message.textContent = "";
     });
 
     video.addEventListener("ended", () => closePlayer(true));
@@ -140,7 +148,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   function showTutorialNotice() {
-    if (!welcomeOverlay || !tutorialConfig) return;
+    if (!welcomeOverlay || !tutorialConfig || !isTutorialPending()) return;
 
     const notice = welcomeOverlay.querySelector("#welcomeTutorial");
     const watchButton = welcomeOverlay.querySelector("#welcomeWatch");
@@ -212,20 +220,37 @@ document.addEventListener("DOMContentLoaded", () => {
     document.body.append(welcomeOverlay);
 
     const closeButton = welcomeOverlay.querySelector("#welcomeClose");
+    const countdownLabel = welcomeOverlay.querySelector("#welcomeCountdown");
+
     closeButton.addEventListener("click", () => closeWelcome(true));
 
     let seconds = 10;
-    const countdown = welcomeOverlay.querySelector("#countdown");
 
     welcomeTimer = setInterval(() => {
       seconds -= 1;
+
+      const countdown = welcomeOverlay &&
+        welcomeOverlay.querySelector("#countdown");
 
       if (countdown) {
         countdown.textContent = String(Math.max(seconds, 0));
       }
 
       if (seconds <= 0) {
-        closeWelcome(true);
+        clearInterval(welcomeTimer);
+        welcomeTimer = null;
+
+        if (isTutorialPending()) {
+          if (countdownLabel) {
+            countdownLabel.textContent =
+              "انتهى العدّ التنازلي — يمكنك مشاهدة الفيديو أو التخطي الآن";
+          }
+          closeButton.textContent = "تخطي ومتابعة";
+        } else {
+          // Keep the original welcome auto-entry behavior when no new
+          // tutorial is waiting or when the tutorial config is unavailable.
+          closeWelcome(false);
+        }
       }
     }, 1000);
 
@@ -288,12 +313,12 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-  // Preserve the existing first-visit welcome screen and its 10-second timer.
+  // Preserve the existing first-visit welcome screen and countdown.
   if (localStorage.getItem(WELCOME_KEY) !== "1") {
     showWelcome();
   }
 
-  // Tutorial configuration is independent of the website's app/update system.
+  // Tutorial configuration is independent of the app/update system.
   fetchTutorialConfig().then((config) => {
     if (!config) return;
 
@@ -310,7 +335,7 @@ document.addEventListener("DOMContentLoaded", () => {
       return;
     }
 
-    if (config.version > getSeenVersion()) {
+    if (isTutorialPending()) {
       showWelcome();
       showTutorialNotice();
     }
