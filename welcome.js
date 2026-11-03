@@ -5,9 +5,9 @@ document.addEventListener("DOMContentLoaded", () => {
   const TUTORIAL_SEEN_KEY = "anubis_tutorial_seen_version";
 
   let tutorialConfig = null;
+  let tutorialConfigLoaded = false;
   let welcomeOverlay = null;
   let welcomeTimer = null;
-  let pendingSkipBeforeConfig = false;
   let welcomeCountdownFinished = false;
 
   function getSeenVersion() {
@@ -38,12 +38,8 @@ document.addEventListener("DOMContentLoaded", () => {
       welcomeTimer = null;
     }
 
-    if (markAsSkipped) {
-      if (tutorialConfig && tutorialConfig.enabled) {
-        markTutorialSeen(tutorialConfig.version);
-      } else {
-        pendingSkipBeforeConfig = true;
-      }
+    if (markAsSkipped && isTutorialPending()) {
+      markTutorialSeen(tutorialConfig.version);
     }
 
     localStorage.setItem(WELCOME_KEY, "1");
@@ -148,23 +144,34 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-  function updateSkipButton() {
+  function updateWelcomeControls() {
     if (!welcomeOverlay || !welcomeCountdownFinished) return;
 
     const closeButton = welcomeOverlay.querySelector("#welcomeClose");
     const countdownLabel = welcomeOverlay.querySelector("#welcomeCountdown");
 
-    if (closeButton) {
-      closeButton.disabled = false;
-      closeButton.textContent = isTutorialPending()
-        ? "تخطي ومتابعة"
-        : "🚀 Start Browsing";
+    if (isTutorialPending()) {
+      if (countdownLabel) {
+        countdownLabel.textContent =
+          "انتهى العدّ التنازلي — شاهد الفيديو أو اضغط تخطي ومتابعة";
+      }
+
+      if (closeButton) {
+        closeButton.disabled = false;
+        closeButton.textContent = "تخطي ومتابعة";
+      }
+      return;
+    }
+
+    if (tutorialConfigLoaded) {
+      // No new tutorial is waiting, or config is unavailable:
+      // retain the original website welcome auto-entry behavior.
+      closeWelcome(false);
+      return;
     }
 
     if (countdownLabel) {
-      countdownLabel.textContent = isTutorialPending()
-        ? "يمكنك الآن مشاهدة الفيديو أو التخطي"
-        : "يمكنك الآن الدخول إلى المكتبة";
+      countdownLabel.textContent = "جارٍ التحقق من الفيديو...";
     }
   }
 
@@ -177,7 +184,10 @@ document.addEventListener("DOMContentLoaded", () => {
     if (!notice || !watchButton) return;
 
     notice.hidden = false;
-    updateSkipButton();
+
+    if (welcomeCountdownFinished) {
+      updateWelcomeControls();
+    }
 
     if (watchButton.dataset.bound === "1") return;
     watchButton.dataset.bound = "1";
@@ -197,7 +207,7 @@ document.addEventListener("DOMContentLoaded", () => {
       '<div class="welcome-overlay show" id="welcomeOverlay">' +
         '<div class="welcome-box">' +
           '<img src="favicon.png" alt="ANUBIS APP LIBRARY" ' +
-            'style="width:90px;height:90px;border-radius:50%;margin-bottom:15px;">' +
+            'style="width:76px;height:76px;border-radius:50%;margin-bottom:10px;">' +
           '<h2>👋 Welcome | مرحبًا بك</h2>' +
           '<div class="welcome-tutorial" id="welcomeTutorial" hidden>' +
             '<div class="welcome-tutorial-text" dir="rtl">' +
@@ -211,6 +221,9 @@ document.addEventListener("DOMContentLoaded", () => {
             'aria-live="polite" dir="rtl">' +
             '⏳ يمكنك التخطي بعد <span id="countdown">10</span> ثوانٍ' +
           '</div>' +
+          '<button class="welcome-btn" id="welcomeClose" type="button" disabled>' +
+            'يمكنك التخطي بعد 10 ثوانٍ' +
+          '</button>' +
           '<p>' +
             '<b>ANUBIS APP LIBRARY</b>' +
             '<br><br>' +
@@ -232,9 +245,6 @@ document.addEventListener("DOMContentLoaded", () => {
             '<br><br>' +
             '🚀 تابع آخر التحديثات أولًا بأول.' +
           '</p>' +
-          '<button class="welcome-btn" id="welcomeClose" type="button" disabled>' +
-            'يمكنك التخطي بعد 10 ثوانٍ' +
-          '</button>' +
         '</div>' +
       '</div>';
 
@@ -267,7 +277,7 @@ document.addEventListener("DOMContentLoaded", () => {
         clearInterval(welcomeTimer);
         welcomeTimer = null;
         welcomeCountdownFinished = true;
-        updateSkipButton();
+        updateWelcomeControls();
       }
     }, 1000);
 
@@ -330,29 +340,30 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-  // Preserve the original welcome content and countdown, with a visible skip control.
+  // Preserve the existing welcome behavior on first visit.
   if (localStorage.getItem(WELCOME_KEY) !== "1") {
     showWelcome();
   }
 
-  // Tutorial configuration is independent of the app/update system.
+  // Tutorial configuration is separate from the app/update system.
   fetchTutorialConfig().then((config) => {
-    if (!config) return;
-
+    tutorialConfigLoaded = true;
     tutorialConfig = config;
-    addReplayButton();
 
-    if (pendingSkipBeforeConfig) {
-      markTutorialSeen(config.version);
-      pendingSkipBeforeConfig = false;
+    if (config) {
+      addReplayButton();
     }
 
     if (welcomeOverlay && welcomeOverlay.isConnected) {
       showTutorialNotice();
-      updateSkipButton();
+
+      if (welcomeCountdownFinished) {
+        updateWelcomeControls();
+      }
       return;
     }
 
+    // A new tutorial version appears even for returning website visitors.
     if (isTutorialPending()) {
       showWelcome();
       showTutorialNotice();
