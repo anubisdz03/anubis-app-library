@@ -209,21 +209,23 @@ document.addEventListener("DOMContentLoaded", () => {
           '<img src="favicon.png" alt="ANUBIS APP LIBRARY" ' +
             'style="width:76px;height:76px;border-radius:50%;margin-bottom:10px;">' +
           '<h2>👋 Welcome | مرحبًا بك</h2>' +
-          '<div class="welcome-tutorial" id="welcomeTutorial" hidden>' +
-            '<div class="welcome-tutorial-text" dir="rtl">' +
-              '🎬 شاهد الفيديو لطريقة تحميل التطبيقات' +
+          '<div class="welcome-actions">' +
+            '<div class="welcome-tutorial" id="welcomeTutorial" hidden>' +
+              '<div class="welcome-tutorial-text" dir="rtl">' +
+                '🎬 شاهد الفيديو لطريقة تحميل التطبيقات' +
+              '</div>' +
+              '<button class="welcome-watch-btn" id="welcomeWatch" type="button">' +
+                '▶ مشاهدة الفيديو الآن' +
+              '</button>' +
             '</div>' +
-            '<button class="welcome-watch-btn" id="welcomeWatch" type="button">' +
-              '▶ مشاهدة الفيديو الآن' +
+            '<div class="welcome-countdown" id="welcomeCountdown" ' +
+              'aria-live="polite" dir="rtl">' +
+              '⏳ يمكنك التخطي بعد <span id="countdown">10</span> ثوانٍ' +
+            '</div>' +
+            '<button class="welcome-btn" id="welcomeClose" type="button" disabled>' +
+              'يمكنك التخطي بعد 10 ثوانٍ' +
             '</button>' +
           '</div>' +
-          '<div class="welcome-countdown" id="welcomeCountdown" ' +
-            'aria-live="polite" dir="rtl">' +
-            '⏳ يمكنك التخطي بعد <span id="countdown">10</span> ثوانٍ' +
-          '</div>' +
-          '<button class="welcome-btn" id="welcomeClose" type="button" disabled>' +
-            'يمكنك التخطي بعد 10 ثوانٍ' +
-          '</button>' +
           '<p>' +
             '<b>ANUBIS APP LIBRARY</b>' +
             '<br><br>' +
