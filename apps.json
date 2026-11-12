@@ -1,4 +1,30 @@
 [
+           {
+    "name": "🎬 STREAMFLIX",
+    "icon": "images/streamflix.png",
+    "color": "#0d2240",
+    "url": "https://devuploads.com/4b5ktgdk25mf",
+    "badge": "live",
+    "bg": "linear-gradient(135deg,#0d2240,#1a4a8a)",
+    "category": "Live TV",
+    "version": "1.7.225",
+    "size": "18.53 MB",
+    "developer": "ANUBIS by B.Nacereddine",
+    "updated": "2026-11-12",
+    "activated": true
+  },
+           {
+  "name": "🚀 3AYLATNA TV",
+  "icon": "images/3aylatna-tv.png",
+  "url": "https://devuploads.com/xfai2jehx5q5",
+  "badge": "live",
+  "category": "Live TV",
+  "version": "3.1",
+  "size": "15.8 MB",
+  "developer": "ANUBIS by B.Nacereddine",
+  "updated": "2026-11-12",
+  "activated": true
+},
           {
   "name": "AKIRA IPTV",
   "icon": "images/AKIRA_IPTV_3.0.8.png",
@@ -346,18 +372,6 @@
   "size": "14.0 MB",
   "developer": "ANUBIS by B.Nacereddine",
   "updated": "2026-10-03",
-  "activated": true
-},
-     {
-  "name": "🚀 3AYLATNA TV",
-  "icon": "images/3aylatna-tv.png",
-  "url": "https://devuploads.com/uzmt7mvdsswm",
-  "badge": "live",
-  "category": "Live TV",
-  "version": "3.1",
-  "size": "15.8 MB",
-  "developer": "ANUBIS by B.Nacereddine",
-  "updated": "2026-10-05",
   "activated": true
 },
       {
@@ -1588,20 +1602,6 @@
     "size": "23.57 MB",
     "developer": "ANUBIS by B.Nacereddine",
     "updated": "30 Jun 2026",
-    "activated": true
-  },
-  {
-    "name": "🎬 STREAMFLIX",
-    "icon": "images/streamflix.png",
-    "color": "#0d2240",
-    "url": "https://devuploads.com/uhvdmc0om7b5",
-    "badge": "live",
-    "bg": "linear-gradient(135deg,#0d2240,#1a4a8a)",
-    "category": "Live TV",
-    "version": "1.7.225",
-    "size": "18.53 MB",
-    "developer": "ANUBIS by B.Nacereddine",
-    "updated": "01 Jul 2026",
     "activated": true
   },
   {
