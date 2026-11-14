@@ -5,10 +5,10 @@
   "sha256": "E3F278F0DDEC2EA9AA9F3809581708D4CBEAABF3D5585A5B88866019A7A29CD6",
   "force": false,
   "title": "Update Available",
-  "message": "A new secure version of ANUBIS APP LIBRARY is available.",
+  "message": "A new version of ANUBIS APP LIBRARY is available.",
   "changelog": [
-    "Added Ed25519 signed update verification.",
-    "Added SHA-256 APK integrity verification.",
-    "Improved update metadata and download validation."
+    "General improvements and bug fixes.",
+    "Improved application stability and reliability.",
+    "Performance and compatibility improvements."
   ]
 }
