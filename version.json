@@ -1,14 +1,14 @@
 {
-  "version": "1.0.8",
-  "build": 8,
-  "apk": "https://github.com/anubisdz03/anubis-app-library/releases/download/v1.0.8/ANUBIS_APP_LIBRARY_v1.0.8.apk",
-  "sha256": "E3F278F0DDEC2EA9AA9F3809581708D4CBEAABF3D5585A5B88866019A7A29CD6",
-  "force": false,
-  "title": "Update Available",
-  "message": "A new version of ANUBIS APP LIBRARY is available.",
-  "changelog": [
-    "General improvements and bug fixes.",
-    "Improved application stability and reliability.",
-    "Performance and compatibility improvements."
-  ]
+    "version":  "1.0.8",
+    "build":  8,
+    "apk":  "https://github.com/anubisdz03/anubis-app-library/releases/download/v1.0.8/ANUBIS_APP_LIBRARY_v1.0.8.apk",
+    "sha256":  "352DAD2C1D213469A33F52AD6355B99A73AB71B3951FBA10B50A0F9CEB6E4DCA",
+    "force":  false,
+    "title":  "Update Available",
+    "message":  "A new version of ANUBIS APP LIBRARY is available.",
+    "changelog":  [
+                      "General improvements and bug fixes.",
+                      "Improved application stability and reliability.",
+                      "Performance and compatibility improvements."
+                  ]
 }
