@@ -1,18 +1,14 @@
 {
-  "version": "1.0.7",
-  "build": 7,
-  "apk": "https://github.com/anubisdz03/anubis-app-library/releases/download/v1.0.7/ANUBIS_APP_LIBRARY_v1.0.7.apk",
+  "version": "1.0.8",
+  "build": 8,
+  "apk": "https://github.com/anubisdz03/anubis-app-library/releases/download/v1.0.8/ANUBIS_APP_LIBRARY_v1.0.8.apk",
+  "sha256": "E3F278F0DDEC2EA9AA9F3809581708D4CBEAABF3D5585A5B88866019A7A29CD6",
   "force": false,
   "title": "Update Available",
-  "message": "A new version of ANUBIS APP LIBRARY is available.",
+  "message": "A new secure version of ANUBIS APP LIBRARY is available.",
   "changelog": [
-    "Added Player Required support for compatible apps.",
-    "إضافة دعم Player Required للتطبيقات المتوافقة.",
-    "Added Downloader Code display for supported apps.",
-    "إضافة عرض كود Downloader للتطبيقات المدعومة.",
-    "Improved app details dialog.",
-    "تحسين نافذة تفاصيل التطبيق.",
-    "General bug fixes and stability improvements.",
-    "إصلاحات عامة وتحسينات في الاستقرار."
+    "Added Ed25519 signed update verification.",
+    "Added SHA-256 APK integrity verification.",
+    "Improved update metadata and download validation."
   ]
 }
