@@ -1,5 +1,19 @@
 [
             {
+  "name": "🚀 BULLET TV",
+  "icon": "images/bullet-tv.png",
+  "color": "#FF6A00",
+  "url": "https://devuploads.com/c0t9ttq9z81e",
+  "badge": "live",
+  "bg": "#120A18",
+  "category": "Live TV",
+  "version": "1.0",
+  "size": "29.0 MB",
+  "developer": "ANUBIS by B.Nacereddine",
+  "updated": "2026-11-16",
+  "activated": true
+},
+            {
   "name": "🚀 SKY TV+",
   "icon": "images/sky-tv-plus.png",
   "color": "#000000",
@@ -476,20 +490,6 @@
   "developer": "ANUBIS by B.Nacereddine",
   "username": "249433528395",
   "password": "864483763454",
-  "updated": "2026-10-01",
-  "activated": true
-},
-    {
-  "name": "🚀 BULLET TV",
-  "icon": "images/bullet-tv.png",
-  "color": "#FF6A00",
-  "url": "https://devuploads.com/ga1b1y1fchx2",
-  "badge": "live",
-  "bg": "#120A18",
-  "category": "Live TV",
-  "version": "1.0",
-  "size": "29.0 MB",
-  "developer": "ANUBIS by B.Nacereddine",
   "updated": "2026-10-01",
   "activated": true
 },
