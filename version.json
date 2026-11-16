@@ -2,7 +2,7 @@
     "version":  "1.0.8",
     "build":  8,
     "apk":  "https://github.com/anubisdz03/anubis-app-library/releases/download/v1.0.8/ANUBIS_APP_LIBRARY_v1.0.8.apk",
-    "sha256":  "352DAD2C1D213469A33F52AD6355B99A73AB71B3951FBA10B50A0F9CEB6E4DCA",
+    "sha256":  "F0956D0C76D46751913B45587868F2D86D2CE65EB49608EB219C15346E3DC863",
     "force":  false,
     "title":  "Update Available",
     "message":  "A new version of ANUBIS APP LIBRARY is available.",
