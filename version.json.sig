@@ -1,5 +1,5 @@
 {
   "algorithm": "Ed25519",
-  "signature": "aOz6b4upsUPVMt9r3NI0Qnlso2oyhUD7UBfRx8s5gabRnPTgEB8vOf8Mnm7wznyFwEnyVuN0Yu80QciuejGRAA==",
-  "manifest_sha256": "15b42ebcdbf305e2d17e66c9e9ca760c4d404e2577e94e8964f9cefed6e75d72"
+  "signature": "rMmdus7j9MfEOl8PjkUbySjTAz1E5zNTpjG+pjVjVauJIaPgGa1amI9dp511q4VtTd5+PvUUPcVJXqfXoyJuDA==",
+  "manifest_sha256": "1022791e0f54a50a21456d27eff85c577621aa0a8badde045e8594e54dacdc28"
 }
