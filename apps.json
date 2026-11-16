@@ -1,4 +1,34 @@
 [
+               {
+  "name": "🚀 ATLAS PRO",
+  "icon": "images/ATLAS_PRO.png",
+  "color": "#181830",
+  "url": "https://devuploads.com/jk68xrs0j91u",
+  "badge": "hot",
+  "bg": "linear-gradient(135deg,#181830,#5656c5)",
+  "category": "Live TV",
+  "version": "3.0",
+  "size": "29.2 MB",
+  "developer": "ANUBIS by B.Nacereddine",
+  "updated": "2026-11-16",
+  "activated": true
+},
+            {
+  "name": "🚀 CLICK-VIP TV 🔥",
+  "icon": "images/click-vip-tv-256.png",
+  "color": "#8B35E8",
+  "url": "https://devuploads.com/o54o70q89759",
+  "badge": "live",
+  "bg": "#10091C",
+  "category": "Live TV",
+  "version": "2.1",
+  "size": "25.6 MB",
+  "developer": "ANUBIS by B.Nacereddine",
+  "updated": "2026-11-16",
+  "username": "18547598",
+  "password": "29492984",
+  "activated": true
+},
             {
   "name": "🚀 HORIZON TV",
   "icon": "images/horizon-tv-256.png",
@@ -328,20 +358,6 @@
   "category": "Live TV",
   "version": "3.0.8",
   "size": "31.7 MB",
-  "developer": "ANUBIS by B.Nacereddine",
-  "updated": "2026-10-04",
-  "activated": true
-},
-    {
-  "name": "🚀 ATLAS PRO",
-  "icon": "images/ATLAS_PRO.png",
-  "color": "#181830",
-  "url": "https://devuploads.com/8y4irk8271yj",
-  "badge": "hot",
-  "bg": "linear-gradient(135deg,#181830,#5656c5)",
-  "category": "Live TV",
-  "version": "3.0",
-  "size": "29.2 MB",
   "developer": "ANUBIS by B.Nacereddine",
   "updated": "2026-10-04",
   "activated": true
