@@ -1,5 +1,19 @@
 [
             {
+  "name": "🚀 HORIZON TV",
+  "icon": "images/horizon-tv-256.png",
+  "color": "#E50924",
+  "url": "https://devuploads.com/hpq736agh9is",
+  "badge": "hot",
+  "bg": "#10091C",
+  "category": "Live TV",
+  "version": "1.0.1",
+  "size": "29.2 MB",
+  "developer": "ANUBIS by B.Nacereddine",
+  "updated": "2026-11-16",
+  "activated": true
+},
+            {
   "name": "🚀 BULLET TV",
   "icon": "images/bullet-tv.png",
   "color": "#FF6A00",
