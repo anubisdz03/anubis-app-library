@@ -1,5 +1,19 @@
 [
            {
+  "name": "🚀 VIBER TV",
+  "icon": "images/viber-tv.png",
+  "color": "#A855F7",
+  "url": "https://devuploads.com/s9kr9eyea58s",
+  "badge": "live",
+  "bg": "#120A18",
+  "category": "Live TV",
+  "version": "3.1",
+  "size": "106.9 MB",
+  "developer": "ANUBIS by B.Nacereddine",
+  "updated": "2026-11-16",
+  "activated": true
+},
+           {
     "name": "🎬 STREAMFLIX",
     "icon": "images/streamflix.png",
     "color": "#0d2240",
@@ -63,20 +77,6 @@
   "category": "Live TV",
   "version": "7.3",
   "size": "22.2 MB",
-  "developer": "ANUBIS by B.Nacereddine",
-  "updated": "2026-11-02",
-  "activated": true
-},
-          {
-  "name": "🚀 VIBER TV",
-  "icon": "images/viber-tv.png",
-  "color": "#A855F7",
-  "url": "https://devuploads.com/fvqb1jrx9p4w",
-  "badge": "live",
-  "bg": "#120A18",
-  "category": "Live TV",
-  "version": "3.1",
-  "size": "106.9 MB",
   "developer": "ANUBIS by B.Nacereddine",
   "updated": "2026-11-02",
   "activated": true
