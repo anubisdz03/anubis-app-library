@@ -1,0 +1,52 @@
+name: Sign catalog automatically
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'apps.json'
+      - 'tutorial.json'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: anubis-catalog-signing
+  cancel-in-progress: false
+
+jobs:
+  sign:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          ref: main
+
+      - name: Set up Dart
+        uses: dart-lang/setup-dart@v1
+        with:
+          sdk: stable
+
+      - name: Install signer dependencies
+        working-directory: .github/catalog_signer
+        run: dart pub get
+
+      - name: Generate and verify catalog signatures
+        working-directory: .github/catalog_signer
+        env:
+          ANUBIS_CATALOG_PRIVATE_ENC: ${{ secrets.ANUBIS_CATALOG_PRIVATE_ENC }}
+          ANUBIS_CATALOG_SIGNING_PASSPHRASE: ${{ secrets.ANUBIS_CATALOG_SIGNING_PASSPHRASE }}
+        run: dart run sign_catalog.dart
+
+      - name: Publish signature files
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add apps.json.sig tutorial.json.sig
+          if git diff --cached --quiet; then
+            echo "Signatures are already up to date."
+            exit 0
+          fi
+          git commit -m "chore: refresh signed catalog files"
+          git push origin HEAD:main
