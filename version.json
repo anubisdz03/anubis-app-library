@@ -5,7 +5,7 @@
   "sha256": "81af8c634489e57928bd9df96b6d1c3c4579739ef7e02b9fd08fd982d9845dd9",
   "force": false,
   "title": "Update Available",
-  "message": "ANUBIS UPDATE SIGNING TEST",
+  "message": "A new version of ANUBIS APP LIBRARY is available.",
   "changelog": [
     "General improvements and bug fixes.",
     "Improved application stability and reliability.",
