@@ -1,4 +1,16 @@
 [
+  
+  {
+  "name": "💠 DELUX IPTV",
+  "icon": "images/delux-iptv.png",
+  "color": "#203030",
+  "url": "https://devuploads.com/c2ak5gtvbok5",
+  "badge": "hot",
+  "bg": "linear-gradient(135deg,#203030,#2b8f8f)",
+  "category": "Live TV",
+  "version": "3.1",
+  "size": "31.7 MB"
+},
                {
   "name": "🚀 ATLAS PRO",
   "icon": "images/ATLAS_PRO.png",
@@ -1454,17 +1466,6 @@
   "developer": "ANUBIS by B.Nacereddine",
   "updated": "07 Jul 2026",
   "activated": true
-},
-  {
-  "name": "💠 DELUX IPTV",
-  "icon": "images/delux-iptv.png",
-  "color": "#203030",
-  "url": "https://devuploads.com/p2sq3enywm9z",
-  "badge": "hot",
-  "bg": "linear-gradient(135deg,#203030,#2b8f8f)",
-  "category": "Live TV",
-  "version": "3.1",
-  "size": "31.7 MB"
 },
   {
   "name": "📺 REMO",
