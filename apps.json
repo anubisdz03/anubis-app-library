@@ -1,6 +1,6 @@
 [
   
-  {
+ {
   "name": "💠 DELUX IPTV",
   "icon": "images/delux-iptv.png",
   "color": "#203030",
@@ -9,7 +9,10 @@
   "bg": "linear-gradient(135deg,#203030,#2b8f8f)",
   "category": "Live TV",
   "version": "3.1",
-  "size": "31.7 MB"
+  "size": "31.7 MB",
+  "developer": "ANUBIS by B.Nacereddine",
+  "updated": "2026-11-16",
+  "activated": true
 },
                {
   "name": "🚀 ATLAS PRO",
