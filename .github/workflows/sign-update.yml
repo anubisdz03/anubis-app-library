@@ -1,0 +1,61 @@
+name: Sign update manifest automatically
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'version.json'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: anubis-update-signing
+  cancel-in-progress: false
+
+jobs:
+  sign:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+
+      - name: Set up Dart
+        uses: dart-lang/setup-dart@v1
+        with:
+          sdk: stable
+
+      - name: Install update signer dependencies
+        working-directory: .github/update_signer
+        run: dart pub get
+
+      - name: Validate release and sign version.json
+        working-directory: .github/update_signer
+        env:
+          ANUBIS_UPDATE_PRIVATE_ENC: ${{ secrets.ANUBIS_UPDATE_PRIVATE_ENC }}
+          ANUBIS_UPDATE_SIGNING_PASSPHRASE: ${{ secrets.ANUBIS_UPDATE_SIGNING_PASSPHRASE }}
+        run: dart run sign_update.dart
+
+      - name: Publish verified signature
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add version.json.sig
+          if git diff --cached --quiet; then
+            echo "Signature is already up to date."
+            exit 0
+          fi
+          git commit -m "chore: sign update manifest"
+          for attempt in 1 2 3; do
+            git pull --rebase origin main
+            if git push origin HEAD:main; then
+              exit 0
+            fi
+            sleep 2
+          done
+          echo "Could not publish signature after 3 attempts."
+          exit 1
