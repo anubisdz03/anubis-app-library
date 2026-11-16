@@ -92,7 +92,7 @@ Future<void> main() async {
     }
 
     for (final name in ['apps.json', 'tutorial.json']) {
-      final file = File(name);
+      final file = File('../../$name');
       if (!await file.exists()) throw FileSystemException('Missing $name');
       final bytes = await file.readAsBytes();
       final decoded = jsonDecode(utf8.decode(bytes));
@@ -112,7 +112,7 @@ Future<void> main() async {
         'key_id': expectedFingerprint,
         'signature': base64Encode(signature.bytes),
       });
-      await File('$name.sig').writeAsString('$document\n', flush: true);
+      await File('../../$name.sig').writeAsString('$document\n', flush: true);
       stdout.writeln('$name.sig generated and verified.');
     }
   } finally {
