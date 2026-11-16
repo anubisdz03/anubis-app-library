@@ -104,7 +104,7 @@ Future<void> main() async {
       throw StateError('Required update-signing secrets are missing or invalid.');
     }
 
-    final manifestBytes = await File('version.json').readAsBytes();
+    final manifestBytes = await File('../../version.json').readAsBytes();
     if (manifestBytes.isEmpty || manifestBytes.length > maxManifestBytes) {
       throw const FormatException('version.json is empty or exceeds 64 KiB.');
     }
@@ -163,9 +163,9 @@ Future<void> main() async {
       'signature': base64Encode(signature.bytes),
       'manifest_sha256': hex((await Sha256().hash(manifestBytes)).bytes),
     };
-    final temp = File('version.json.sig.part');
+    final temp = File('../../version.json.sig.part');
     await temp.writeAsString(const JsonEncoder.withIndent('  ').convert(signatureDoc) + '\n', flush: true);
-    await temp.rename('version.json.sig');
+    await temp.rename('../../version.json.sig');
     stdout.writeln('version.json.sig created and self-verified.');
     stdout.writeln('UPDATE SIGNING PASSED.');
   } catch (e) {
