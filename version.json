@@ -5,7 +5,7 @@
   "sha256": "1e0fb8535ec096c44898fee58eee942edd6f3cf00c1567e93fb6b2645e1ccf3b",
   "force": true,
   "title": "Update Available",
-  "message": "A new version of ANUBIS APP LIBRARY is available.",
+  "message": "After installing the update, please restart your device so ANUBIS APP LIBRARY appears in the Android TV home screen.\n\nبعد تثبيت التحديث، يُرجى إعادة تشغيل الجهاز حتى يظهر تطبيق ANUBIS APP LIBRARY في الواجهة الرئيسية لـ Android TV.",
   "changelog": [
     "Fixed the issue preventing the app from appearing correctly in the Android TV interface.",
     "The app now appears directly in the Android TV interface without requiring the SideApps app.",
