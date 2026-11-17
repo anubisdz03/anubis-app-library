@@ -2,7 +2,7 @@
   "version": "1.0.11",
   "build": 11,
   "apk": "https://github.com/anubisdz03/anubis-app-library/releases/download/v1.0.11/ANUBIS_APP_LIBRARY_v1.0.11.apk",
-  "sha256": "1e0fb8535ec096c44898fee58eee942edd6f3cf00c1567e93fb6b2645e1ccf3b",
+  "sha256": "d41f7871479fd66e814e806969644efe1cee36220dbf85619f5cf6871c680218",
   "force": true,
   "title": "Update Available",
   "message": "After installing the update, please restart your device so ANUBIS APP LIBRARY appears in the Android TV home screen.\n\nبعد تثبيت التحديث، يُرجى إعادة تشغيل الجهاز حتى يظهر تطبيق ANUBIS APP LIBRARY في الواجهة الرئيسية لـ Android TV.",
