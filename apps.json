@@ -1,5 +1,19 @@
 [
   {
+  "name": "🚀 KING365 TV",
+  "icon": "images/king365-tv-256.png",
+  "color": "#D71920",
+  "url": "https://devuploads.com/g4au2na83k1i",
+  "badge": "new",
+  "bg": "#100608",
+  "category": "Live TV",
+  "version": "1.0",
+  "size": "29.6 MB",
+  "developer": "ANUBIS by B.Nacereddine",
+  "updated": "2026-11-17",
+  "activated": true
+},
+  {
     "name": "FASTER 4K OTT",
     "icon": "images/FASTER 4K OTT.png",
     "color": "#00BCD4",
