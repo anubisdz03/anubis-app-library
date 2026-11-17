@@ -1,17 +1,15 @@
 {
-  "version": "1.0.10",
-  "build": 10,
-  "apk": "https://github.com/anubisdz03/anubis-app-library/releases/download/v1.0.10/ANUBIS_APP_LIBRARY_v1.0.10.apk",
-  "sha256": "330ea57e2142bfe2c1fa6e01da9b0d093e27c719dbbc16b7fdbd9e286094a576",
+  "version": "1.0.11",
+  "build": 11,
+  "apk": "https://github.com/anubisdz03/anubis-app-library/releases/download/v1.0.11/ANUBIS_APP_LIBRARY_v1.0.11.apk",
+  "sha256": "1e0fb8535ec096c44898fee58eee942edd6f3cf00c1567e93fb6b2645e1ccf3b",
   "force": true,
   "title": "Update Available",
   "message": "A new version of ANUBIS APP LIBRARY is available.",
   "changelog": [
-    "General improvements and bug fixes.",
-    "Improved application stability and reliability.",
-    "Performance and compatibility improvements.",
-    "تحسينات عامة وإصلاح الأخطاء.",
-    "تحسين استقرار التطبيق وموثوقيته.",
-    "تحسينات في الأداء والتوافق."
+    "Fixed the issue preventing the app from appearing correctly in the Android TV interface.",
+    "The app now appears directly in the Android TV interface without requiring the SideApps app.",
+    "تم إصلاح مشكلة عدم ظهور التطبيق بشكل صحيح في واجهة Android TV.",
+    "أصبح التطبيق يظهر مباشرة في واجهة Android TV دون الحاجة إلى تطبيق SideApps."
   ]
 }
