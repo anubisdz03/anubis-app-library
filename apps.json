@@ -1,5 +1,19 @@
 [
   {
+    "name": "🚀 MOVIE BOX TV",
+    "icon": "images/movie-box-tv.png",
+    "color": "#00C6FF",
+    "url": "https://devuploads.com/w6lqipzkv6wg",
+    "badge": "hot",
+    "bg": "#07131C",
+    "category": "Movies & Series",
+    "version": "1.0",
+    "size": "39.8 MB",
+    "developer": "ANUBIS by B.Nacereddine",
+    "updated": "2026-11-17",
+    "activated": true
+  },
+  {
   "name": "🚀 KING365 TV",
   "icon": "images/king365-tv-256.png",
   "color": "#D71920",
@@ -427,20 +441,6 @@
     "category": "Movies & Series",
     "version": "10.3.0",
     "size": "11.8 MB",
-    "developer": "ANUBIS by B.Nacereddine",
-    "updated": "2026-10-03",
-    "activated": true
-  },
-  {
-    "name": "🚀 MOVIE BOX TV",
-    "icon": "images/movie-box-tv.png",
-    "color": "#00C6FF",
-    "url": "https://devuploads.com/mlfro2m1u7pu",
-    "badge": "hot",
-    "bg": "#07131C",
-    "category": "Movies & Series",
-    "version": "1.0",
-    "size": "39.8 MB",
     "developer": "ANUBIS by B.Nacereddine",
     "updated": "2026-10-03",
     "activated": true
