@@ -1,4 +1,32 @@
 [
+   {
+  "name": "🚀 DIKO IPTV",
+  "icon": "images/diko-iptv-256.png",
+  "color": "#00DDEB",
+  "url": "https://devuploads.com/5bypow6s9vlz",
+  "badge": "new",
+  "bg": "#06151B",
+  "category": "Live TV",
+  "version": "3.0",
+  "size": "33.4 MB",
+  "developer": "ANUBIS by B.Nacereddine",
+  "updated": "2026-11-18",
+  "activated": true
+},
+   {
+    "name": "📺 SHOWSAT TV",
+    "icon": "images/showsat-tv.png",
+    "color": "#0d2240",
+    "url": "https://devuploads.com/2br5liowu5xf",
+    "badge": "live",
+    "bg": "linear-gradient(135deg,#0d2240,#1a4a8a)",
+    "category": "Live TV",
+    "version": "5.40",
+    "size": "66.10 MB",
+    "developer": "ANUBIS by B.Nacereddine",
+    "updated": "01 Jul 2026",
+    "activated": true
+  },
   {
     "name": "🚀 MOVIE BOX TV",
     "icon": "images/movie-box-tv.png",
@@ -1269,20 +1297,6 @@
     "updated": "02 Aug 2026",
     "activated": true,
     "code": "2222"
-  },
-  {
-    "name": "📺 SHOWSAT TV",
-    "icon": "images/showsat-tv.png",
-    "color": "#0d2240",
-    "url": "https://devuploads.com/u43f7esb8ky8",
-    "badge": "live",
-    "bg": "linear-gradient(135deg,#0d2240,#1a4a8a)",
-    "category": "Live TV",
-    "version": "5.40",
-    "size": "66.10 MB",
-    "developer": "ANUBIS by B.Nacereddine",
-    "updated": "01 Jul 2026",
-    "activated": true
   },
   {
     "name": "VORTEX",
