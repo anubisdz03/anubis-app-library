@@ -1,5 +1,19 @@
 [
      {
+  "name": "🚀 FLIX VISION",
+  "icon": "images/flix-vision-256.png",
+  "color": "#006BFF",
+  "url": "https://devuploads.com/f9xkw03tdkkq",
+  "badge": "live",
+  "bg": "#06142B",
+  "category": "Live TV",
+  "version": "4.2",
+  "size": "57.4 MB",
+  "developer": "ANUBIS by B.Nacereddine",
+  "updated": "2026-11-19",
+  "activated": true
+},
+     {
     "name": "🚀 VEGETA TV",
     "icon": "images/vegeta-tv.png",
     "color": "#8B5CF6",
