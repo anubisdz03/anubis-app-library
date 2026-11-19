@@ -1,4 +1,18 @@
 [
+    {
+    "name": "🚀 AHMED TV",
+    "icon": "images/ahmed-tv.png",
+    "color": "#DC2626",
+    "url": "https://devuploads.com/ak1w3nckctth",
+    "badge": "hot",
+    "bg": "#14090A",
+    "category": "Movies & Series",
+    "version": "1.0",
+    "size": "14.0 MB",
+    "developer": "ANUBIS by B.Nacereddine",
+    "updated": "2026-10-03",
+    "activated": true
+  },
    {
   "name": "🚀 DIKO IPTV",
   "icon": "images/diko-iptv-256.png",
@@ -497,20 +511,6 @@
     "category": "Movies & Series",
     "version": "1.0",
     "size": "30.8 MB",
-    "developer": "ANUBIS by B.Nacereddine",
-    "updated": "2026-10-03",
-    "activated": true
-  },
-  {
-    "name": "🚀 AHMED TV",
-    "icon": "images/ahmed-tv.png",
-    "color": "#DC2626",
-    "url": "https://devuploads.com/tzpifidmw7dg",
-    "badge": "hot",
-    "bg": "#14090A",
-    "category": "Movies & Series",
-    "version": "1.0",
-    "size": "14.0 MB",
     "developer": "ANUBIS by B.Nacereddine",
     "updated": "2026-10-03",
     "activated": true
@@ -1253,20 +1253,6 @@
     "size": "19.9 MB",
     "developer": "ANUBIS by B.Nacereddine",
     "updated": "06 Aug 2026",
-    "activated": true
-  },
-  {
-    "name": "📺 AHMED TV",
-    "icon": "images/ahmed-tv.png",
-    "color": "#c62828",
-    "url": "https://devuploads.com/zezobq3vp19m",
-    "badge": "hot",
-    "bg": "linear-gradient(135deg,#c62828,#ff7043)",
-    "category": "Live TV",
-    "version": "1.5",
-    "size": "31.4 MB",
-    "developer": "ANUBIS by B.Nacereddine",
-    "updated": "07 Jul 2026",
     "activated": true
   },
   {
