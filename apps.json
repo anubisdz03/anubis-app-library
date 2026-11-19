@@ -1,5 +1,19 @@
 [
     {
+  "name": "🚀 TOD PLUS",
+  "icon": "images/tod-plus-256.png",
+  "color": "#D4AF37",
+  "url": "https://devuploads.com/mm4g7fllwu5x",
+  "badge": "new",
+  "bg": "#080808",
+  "category": "Live TV",
+  "version": "3.1",
+  "size": "1.08 MB",
+  "developer": "ANUBIS by B.Nacereddine",
+  "updated": "2026-11-19",
+  "activated": true
+},
+    {
     "name": "🚀 AHMED TV",
     "icon": "images/ahmed-tv.png",
     "color": "#DC2626",
