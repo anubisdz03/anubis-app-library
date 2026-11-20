@@ -13,6 +13,34 @@
     "updated": "2026-11-20",
     "activated": true
  }, 
+  {
+  "name": "🚀 SONIC TV",
+  "icon": "images/sonic-tv-256.png",
+  "color": "#006BFF",
+  "url": "https://devuploads.com/oo5zhif438ih",
+  "badge": "live",
+  "bg": "#06142B",
+  "category": "Live TV",
+  "version": "1.0",
+  "size": "31.0 MB",
+  "developer": "ANUBIS by B.Nacereddine",
+  "updated": "2026-11-20",
+  "activated": true
+},
+   {
+  "name": "🚀 DIKO IPTV",
+  "icon": "images/diko-iptv-256.png",
+  "color": "#00DDEB",
+  "url": "https://devuploads.com/5bypow6s9vlz",
+  "badge": "new",
+  "bg": "#06151B",
+  "category": "Live TV",
+  "version": "3.0",
+  "size": "33.4 MB",
+  "developer": "ANUBIS by B.Nacereddine",
+  "updated": "2026-11-18",
+  "activated": true
+},
      {
   "name": "🚀 FLIX VISION",
   "icon": "images/flix-vision-256.png",
@@ -69,20 +97,6 @@
     "updated": "2026-11-19",
     "activated": true
   },
-   {
-  "name": "🚀 DIKO IPTV",
-  "icon": "images/diko-iptv-256.png",
-  "color": "#00DDEB",
-  "url": "https://devuploads.com/5bypow6s9vlz",
-  "badge": "new",
-  "bg": "#06151B",
-  "category": "Live TV",
-  "version": "3.0",
-  "size": "33.4 MB",
-  "developer": "ANUBIS by B.Nacereddine",
-  "updated": "2026-11-18",
-  "activated": true
-},
    {
     "name": "📺 SHOWSAT TV",
     "icon": "images/showsat-tv.png",
