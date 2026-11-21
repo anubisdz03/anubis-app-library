@@ -1,19 +1,5 @@
 [
   {
-    "name": "STORM",
-    "icon": "images/Storm.png",
-    "color": "#1565C0",
-    "url": "https://devuploads.com/e453xw0t5n9k",
-    "badge": "new",
-    "bg": "linear-gradient(135deg,#001A33,#1565C0)",
-    "category": "Live TV",
-    "version": "2.0",
-    "size": "29.7 MB",
-    "developer": "ANUBIS by B.Nacereddine",
-    "updated": "2026-11-20",
-    "activated": true
- }, 
-  {
   "name": "🚀 SONIC TV",
   "icon": "images/sonic-tv-256.png",
   "color": "#006BFF",
