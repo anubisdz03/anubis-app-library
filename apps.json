@@ -1,5 +1,19 @@
 [
    {
+    "name": "🚀 AHMED TV",
+    "icon": "images/ahmed-tv.png",
+    "color": "#DC2626",
+    "url": "https://devuploads.com/ak1w3nckctth",
+    "badge": "hot",
+    "bg": "#14090A",
+    "category": "Movies & Series",
+    "version": "1.0",
+    "size": "14.0 MB",
+    "developer": "ANUBIS by B.Nacereddine",
+    "updated": "2026-11-22",
+    "activated": true
+  },
+   {
   "name": "🚀 NOVA TV Pro",
   "icon": "images/nova-tv-pro-256.png",
   "color": "#FF6D00",
@@ -111,20 +125,6 @@
   "updated": "2026-11-19",
   "activated": true
 },
-    {
-    "name": "🚀 AHMED TV",
-    "icon": "images/ahmed-tv.png",
-    "color": "#DC2626",
-    "url": "https://devuploads.com/ak1w3nckctth",
-    "badge": "hot",
-    "bg": "#14090A",
-    "category": "Movies & Series",
-    "version": "1.0",
-    "size": "14.0 MB",
-    "developer": "ANUBIS by B.Nacereddine",
-    "updated": "2026-11-19",
-    "activated": true
-  },
    {
     "name": "📺 SHOWSAT TV",
     "icon": "images/showsat-tv.png",
