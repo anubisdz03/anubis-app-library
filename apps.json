@@ -1,5 +1,19 @@
 [
    {
+  "name": "🚀 NOVA TV Pro",
+  "icon": "images/nova-tv-pro-256.png",
+  "color": "#FF6D00",
+  "url": "https://devuploads.com/3mk6pu8lj0w5",
+  "badge": "live",
+  "bg": "linear-gradient(135deg,#151515,#FF6D00)",
+  "category": "Live TV",
+  "version": "2.1",
+  "size": "30.9 MB",
+  "developer": "ANUBIS by B.Nacereddine",
+  "updated": "2026-11-22",
+  "activated": true
+},
+   {
   "name": "🚀 VIVO PLAYER",
   "icon": "images/vivo-player-256.png",
   "color": "#00C853",
