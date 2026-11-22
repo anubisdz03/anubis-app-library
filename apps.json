@@ -1,5 +1,19 @@
 [
    {
+  "name": "🚀 VIVO PLAYER",
+  "icon": "images/vivo-player-256.png",
+  "color": "#00C853",
+  "url": "https://devuploads.com/qcihwsl72s3a",
+  "badge": "live",
+  "bg": "linear-gradient(135deg,#061A0B,#00C853)",
+  "category": "Live TV",
+  "version": "3.3",
+  "size": "63.2 MB",
+  "developer": "ANUBIS by B.Nacereddine",
+  "updated": "2026-11-22",
+  "activated": true
+},
+   {
     "name": "🚀 VIBER TV",
     "icon": "images/viber-tv.png",
     "color": "#A855F7",
