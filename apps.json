@@ -1,5 +1,19 @@
 [
    {
+    "name": "✨ REEZEN",
+    "icon": "images/reezen.png",
+    "color": "#301030",
+    "url": "https://devuploads.com/70sm9fvivspt",
+    "badge": "new",
+    "bg": "linear-gradient(135deg,#301030,#a14ec9)",
+    "category": "Live TV",
+    "version": "2.0",
+    "size": "29.0 MB",
+    "developer": "ANUBIS by B.Nacereddine",
+    "updated": "2026-11-23",
+    "activated": true
+  },
+   {
   "name": "🚀 STRONG X",
   "icon": "images/Strong_x .png",
   "color": "#E85D26",
@@ -922,20 +936,6 @@
     "developer": "ANUBIS by B.Nacereddine",
     "updated": "29 Aug 2026",
     "password": "1515",
-    "activated": true
-  },
-  {
-    "name": "✨ REEZEN",
-    "icon": "images/reezen.png",
-    "color": "#301030",
-    "url": "https://devuploads.com/wl5wxr7gxwac",
-    "badge": "new",
-    "bg": "linear-gradient(135deg,#301030,#a14ec9)",
-    "category": "Live TV",
-    "version": "2.0",
-    "size": "29.0 MB",
-    "developer": "ANUBIS by B.Nacereddine",
-    "updated": "21 Jul 2026",
     "activated": true
   },
   {
