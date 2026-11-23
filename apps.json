@@ -1,5 +1,19 @@
 [
    {
+  "name": "🚀 STRONG X",
+  "icon": "images/Strong_x .png",
+  "color": "#E85D26",
+  "url": "https://devuploads.com/9lylr9dta0s8",
+  "badge": "hot",
+  "bg": "linear-gradient(135deg,#10091C,#E85D26)",
+  "category": "Live TV",
+  "version": "2.1",
+  "size": "58.4 MB",
+  "developer": "ANUBIS by B.Nacereddine",
+  "updated": "2026-11-23",
+  "activated": true
+},
+   {
   "name": "🚀 4U TV ✨",
   "icon": "images/4U TV .png",
   "color": "#D4AF37",
