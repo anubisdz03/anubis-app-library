@@ -1,5 +1,20 @@
 [
    {
+    "name": "🚀 AIRMAX TV",
+    "code": "New Code : 4432979024",
+    "icon": "images/airmax.png",
+    "color": "#1a1040",
+    "url": "https://devuploads.com/s4bskrw9gec0",
+    "badge": "live",
+    "bg": "linear-gradient(135deg,#1a1040,#3b1d8a)",
+    "category": "Live TV",
+    "version": "4.2.1",
+    "size": "11.6 MB",
+    "developer": "ANUBIS by B.Nacereddine",
+    "updated": "28 Jun 2026",
+    "activated": true
+  },
+   {
     "name": "🚀 AHMED TV",
     "icon": "images/ahmed-tv.png",
     "color": "#DC2626",
@@ -583,21 +598,6 @@
     "size": "30.8 MB",
     "developer": "ANUBIS by B.Nacereddine",
     "updated": "2026-10-03",
-    "activated": true
-  },
-  {
-    "name": "🚀 AIRMAX TV",
-    "code": "New Code : 1416760901",
-    "icon": "images/airmax.png",
-    "color": "#1a1040",
-    "url": "https://devuploads.com/s4bskrw9gec0",
-    "badge": "live",
-    "bg": "linear-gradient(135deg,#1a1040,#3b1d8a)",
-    "category": "Live TV",
-    "version": "4.2.1",
-    "size": "11.6 MB",
-    "developer": "ANUBIS by B.Nacereddine",
-    "updated": "28 Jun 2026",
     "activated": true
   },
   {
