@@ -1,5 +1,19 @@
 [
    {
+  "name": "🚀 4U TV ✨",
+  "icon": "images/4U TV .png",
+  "color": "#D4AF37",
+  "url": "https://devuploads.com/604q8xbubrdg",
+  "badge": "live",
+  "bg": "linear-gradient(135deg,#080808,#D4AF37)",
+  "category": "Live TV",
+  "version": "4.1",
+  "size": "100.3 MB",
+  "developer": "ANUBIS by B.Nacereddine",
+  "updated": "2026-11-23",
+  "activated": true
+},
+   {
     "name": "🚀 AIRMAX TV",
     "code": "New Code : 4432979024",
     "icon": "images/airmax.png",
