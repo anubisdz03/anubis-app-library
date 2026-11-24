@@ -1,5 +1,19 @@
 [
    {
+  "name": "🚀 EXO TV",
+  "icon": "images/Exo tv.png",
+  "color": "#00B8D9",
+  "url": "https://devuploads.com/f8b3mv8zghvv",
+  "badge": "live",
+  "bg": "linear-gradient(135deg,#061522,#00B8D9)",
+  "category": "Live TV",
+  "version": "1.1",
+  "size": "4.1 MB",
+  "developer": "ANUBIS by B.Nacereddine",
+  "updated": "2026-11-24",
+  "activated": true
+},
+   {
     "name": "✨ REEZEN",
     "icon": "images/reezen.png",
     "color": "#301030",
