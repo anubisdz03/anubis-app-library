@@ -1,5 +1,19 @@
 [
    {
+  "name": "♾️ FOREVER ULTRA",
+  "icon": "images/forever-ultra.png",
+  "color": "#102030",
+  "url": "https://devuploads.com/3vvvtfdjv32g",
+  "badge": "live",
+  "bg": "linear-gradient(135deg,#102030,#2f6fa8)",
+  "category": "Live TV",
+  "version": "6.1",
+  "size": "60.9 MB",
+  "developer": "ANUBIS by B.Nacereddine",
+  "updated": "2026-11-26",
+  "activated": true
+},
+   {
   "name": "🚀 EXO TV",
   "icon": "images/Exo tv.png",
   "color": "#00B8D9",
@@ -2027,14 +2041,6 @@
     "url": "#",
     "badge": "live",
     "bg": "linear-gradient(135deg,#201020,#8a3b8a)"
-  },
-  {
-    "name": "♾️ FOREVER ULTRA",
-    "icon": "images/forever-ultra.png",
-    "color": "#102030",
-    "url": "#",
-    "badge": "live",
-    "bg": "linear-gradient(135deg,#102030,#2f6fa8)"
   },
   {
     "name": "💎 CAST X TV PLUS",
