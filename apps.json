@@ -1,5 +1,20 @@
 [
     {
+  "name": "🚀 KAIDEN TV",
+  "icon": "images/kaiden-tv-256.png",
+  "color": "#008CFF",
+  "url": "https://devuploads.com/y9hxnspph2yu",
+  "badge": "hot",
+  "bg": "linear-gradient(135deg,#050505,#008CFF)",
+  "category": "Live TV",
+  "version": "3.40",
+  "size": "25.5 MB",
+  "password": "30",
+  "developer": "ANUBIS by B.Nacereddine",
+  "updated": "2026-11-28",
+  "activated": true
+},
+    {
     "name": "PrimeTV.OTT",
     "icon": "images/PrimeTV.OTT.png",
     "color": "#E50914",
